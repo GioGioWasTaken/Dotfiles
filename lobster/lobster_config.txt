@@ -1,0 +1,20 @@
+lobster_editor=${VISUAL:-${EDITOR:-vim}}
+player=mpv 
+download_dir="$PWD"
+provider="Vidcloud"
+history=0
+subs_language="english"
+histfile="$HOME/.local/share/lobster/lobster_history.txt"
+use_external_menu=1
+image_preview=1
+debug=0
+quiet_output=1
+preview_window_size=50%
+ueberzug_x=$(($(tput cols) - 70))
+ueberzug_y=$(($(tput lines) / 10))
+ueberzug_max_width=100
+ueberzug_max_height=100
+
+download_video() {
+  ffmpeg -loglevel error -stats -i "$1" -c copy "$3/$2".mp4
+}
