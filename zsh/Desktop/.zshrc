@@ -68,8 +68,7 @@ setopt HIST_FIND_NO_DUPS   # When searching history don't display results alread
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 
 #  ┌┬┐┬ ┬┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┌┬┐
-#   │ ├─┤├┤   ├─┘├┬┘│ ││││├─┘ │ 
-#   ┴ ┴ ┴└─┘  ┴  ┴└─└─┘┴ ┴┴   ┴
+#   │ ├─┤├┤   ├─┘├┬┘│ ││││├─┘ │ #   ┴ ┴ ┴└─┘  ┴  ┴└─└─┘┴ ┴┴   ┴
 function dir_icon {
   if [[ "$PWD" == "$HOME" ]]; then
     echo "%B%F{cyan}%f%b"
@@ -128,16 +127,6 @@ alias ll='lsd -la --group-directories-first'
 
 # PERSONAL CHANGES AND SETTINGS -- ADDED AFTER INITIAL RICE
 
-# ENV variable
-export PROGRAMMING_DIR=~/Desktop/Programming/Linux-Machine # machine specific.
-# this is machine specific unfortunately, so we will have 2.
-# export PROGRAMMING_DIR=~/Desktop/Programming/
-
-# Below is the definition for the ep (enter Programming) command. This command uses the ENV variable defined above in order to make CD'ing into my programming directory more comfortable.
-
-
-
-
 # Personal aliases
 
 # get rid of AT&T syntax for the far superior intel syntax.
@@ -151,9 +140,7 @@ alias ytmusic='ytfzf -t -m -s'
 
 
 # ENV variable
-# export PROGRAMMING_DIR=~/Desktop/Programming/Linux-Machine # machine specific.
-# this is machine specific unfortunately, so we will have 2.
-export PROGRAMMING_DIR=~/Desktop/Programming/
+export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
 
 # Below is the definition for the ep (enter Programming) command. This command uses the ENV variable defined above in order to make CD'ing into my programming directory more comfortable.
 
@@ -188,4 +175,5 @@ bindkey -s ^a "nvims\n"
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
 # $HOME/.local/bin/colorscript -r
+source /home/Iyar/Desktop/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
 python ~/.config/bspwm/scripts/Quotes/quotes.py
