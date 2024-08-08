@@ -1,0 +1,144 @@
+{
+  "yags-general": {
+    "img": "https://i.pinimg.com/originals/7d/b2/4b/7db24b01a8ba90ab48a448d01f32aa60.gif",
+    "title": "お前には、敵などいない。",
+    "displayImg": true,
+    "font": "Quicksand",
+    "enableFonts": false,
+    "fontSize": 1.3
+  },
+  "yags-search": {
+    "placeholder": "Search the web",
+    "engine": "google",
+    "forwardingLookup": {
+      "/": "/",
+      "deepl": "https://deepl.com/",
+      "reddit": "https://reddit.com/",
+      "maps": "https://maps.google.com/"
+    }
+  },
+  "yags-theme": {
+    "inverted": false,
+    "color": {
+      "name": "custom",
+      "bg": {
+        "shade": "#181825",
+        "base": "#1E1E2E",
+        "surface": "#242437",
+        "highlight": "#2A2A40"
+      },
+      "fg": {
+        "shade": "#46B6D2",
+        "base": "#7ECCE0",
+        "surface": "#B6E2EE",
+        "highlight": "#EFF9FB"
+      },
+      "primary": {
+        "bg": "#2C4948",
+        "base": "#579190",
+        "fg": "#9AC2C2"
+      },
+      "secondary": {
+        "bg": "#22778D",
+        "base": "#7ECCE0",
+        "fg": "#FFFFFF"
+      },
+      "palette": {
+        "red": "#E06C75",
+        "green": "#98C379",
+        "yellow": "#E5C07B",
+        "blue": "#61AFEF",
+        "purple": "#C678DD",
+        "cyan": "#56B6C2",
+        "orange": "#FFBB7C"
+      }
+    },
+    "space": {
+      "smallest": "0.125rem",
+      "small": "0.5rem",
+      "medium": "1rem",
+      "large": "1.5rem",
+      "largest": "3rem"
+    }
+  },
+  "yags-surface": {
+    "shadow": {
+      "amount": 5,
+      "blur": 0,
+      "offset": 12,
+      "shadow": "12px 12px 0px rgb(44, 73, 72), 24px 24px 0px rgb(41.5, 84.5, 89.25), 36px 36px 0px rgb(39, 96, 106.5), 48px 48px 0px rgb(36.5, 107.5, 123.75), 60px 60px 0px rgb(34, 119, 141)"
+    },
+    "borderRadius": 0,
+    "maxWidth": 1000
+  },
+  "yags-bookmarks": [
+    {
+      "id": "B4vEu1S72Tuaoo5W",
+      "label": "Media",
+      "bookmarks": [
+        {
+          "id": "eqtUgb0RPuBD1PIF",
+          "label": "Youtube",
+          "url": "https://youtube.com"
+        },
+        {
+          "id": "9oQBWxGEmarQaWb9",
+          "label": "Netflix",
+          "url": "https://netflix.com"
+        },
+        {
+          "id": "bP3xgPCWYJHJFq6h",
+          "label": "Ttsu: ebook reader",
+          "url": "https://reader.ttsu.app/manage"
+        }
+      ]
+    },
+    {
+      "id": "UnVHKtVyeBXaGbr6",
+      "label": "Programming",
+      "bookmarks": [
+        {
+          "id": "SdqbaByNyqEDH4ot",
+          "label": "ChatGPT",
+          "url": "https://chat.openai.com/"
+        },
+        {
+          "id": "QBR3M2L0x2RKmJY1",
+          "label": "Pwnable",
+          "url": "http://pwnable.kr/play.php"
+        },
+        {
+          "id": "gV4v40R33EFcFwZ5",
+          "label": "Arch Wiki",
+          "url": "https://wiki.archlinux.org/ "
+        }
+      ]
+    },
+    {
+      "id": "Nt0NxuMpV6owGtQf",
+      "label": "Useful",
+      "bookmarks": [
+        {
+          "id": "pu24BnrdYcT8WxWU",
+          "label": "Mail",
+          "url": "https://mail.google.com/mail/u/0/#inbox"
+        },
+        {
+          "id": "Hh131b3BroWLnRUg",
+          "label": "Todo and schedule",
+          "url": "https://height.app/BM8SWeDkw_/user/iyar/private"
+        },
+        {
+          "id": "n58mbTjtVcBkG87U",
+          "label": "Jisho",
+          "url": "https://jisho.org/search/%23kanji"
+        },
+        {
+          "id": "UlEMta9mHmeXzTxa",
+          "label": "University - Courses",
+          "url": "https://opal.openu.ac.il/my/"
+        }
+      ]
+    }
+  ]
+}

@@ -123,7 +123,7 @@ man2() {
 }
 alias ytfzf='ytfzf -t'
 alias ytmusic='ytfzf -t -m -s'
-
+alias godot='cd ~/Desktop/Dotfiles'
 
 
 
@@ -160,6 +160,28 @@ alias vim='nvim'
 alias cat="bat --theme=base16"
 alias ls='eza --icons=always --color=always -a'
 alias ll='eza --icons=always --color=always -la'
+
+
+
+# nvim switch
+alias nvim-chad="NVIM_APPNAME=javaVim nvim"
+
+function nvims() {
+  items=("default" "javaVim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
+
+
+
+
 
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 

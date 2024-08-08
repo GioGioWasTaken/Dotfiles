@@ -101,8 +101,10 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true 
 -- we have to get rid of the C-l remap, since it interferes with terminal shortcut, but my terminal is always my rightmost window, so it's fine.
 -- vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true })
 
+-- Hop.nvim
 
 
+vim.api.nvim_set_keymap("n", "S", ":HopWord<CR>", {noremap=true})
 
 -- Noice
 vim.api.nvim_set_keymap("n", "<C-y>", ":Noice dismiss<CR>", {noremap=true})

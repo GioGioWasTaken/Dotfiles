@@ -1,21 +1,24 @@
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+
+vim.keymap.set("n", "<leader>xd", "<cmd>Trouble diagnostics<cr>",
   {silent = true, noremap = true}
 )
-vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-  {silent = true, noremap = true}
-)
+
+--  Shit I don't use 
+-- vim.keymap.set("n", "<leader>xx", "<cmd>Trouble<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>",
+--   {silent = true, noremap = true}
+-- )
 
 -- Diagnostic signs
 -- https://github.com/folke/trouble.nvim/issues/52
