@@ -137,7 +137,7 @@ man2() {
 }
 alias ytfzf='ytfzf -t'
 alias ytmusic='ytfzf -t -m -s'
-
+alias godot='cd ~/Desktop/Dotfiles'
 
 # ENV variable
 export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
