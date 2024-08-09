@@ -11,6 +11,8 @@ export TERM='alacritty'
 export TERMINAL='alacritty'
 export BROWSER='librewolf'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export DOTFILES="$HOME/Desktop/Dotfiles"
+export SCRIPTS="$DOTFILES/bspwm/Desktops/bspwm/scripts"
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
@@ -102,7 +104,7 @@ function xterm_title_preexec () {
 	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
 }
 
-if [[ "$TERM" == (kitty*|alacritty*|termite*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
+if [[ "$TERM" == (kitty*|alacritty*|termite*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|tmux*|xterm|wezterm*) ]]; then
 	add-zsh-hook -Uz precmd xterm_title_precmd
 	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
@@ -171,9 +173,17 @@ function nvims() {
 bindkey -s ^a "nvims\n"
 
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+# Print tree structure in the preview window
+# CD into chosen directory
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
 # $HOME/.local/bin/colorscript -r
-source /home/Iyar/Desktop/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
+source $HOME/Desktop/Dotfiles/zsh/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
 python ~/.config/bspwm/scripts/Quotes/quotes.py

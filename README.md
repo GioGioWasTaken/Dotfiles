@@ -10,8 +10,7 @@ copy files as needed
 
 # Packages to download
 
-sudo pacman -S python-six python-cffi python-wheel zip unzip go cargo java pcolor gzip unrar noto-fonts-cjk man-db man-pages ida-free
-
+sudo pacman -S python-six python-cffi python-wheel zip unzip go cargo xcolor gzip unrar noto-fonts-cjk man-db man-pages nvidia-utils nvidia xf86-video-intel
 yay -S lobster miru-bin ytfzf anki kcc nordvpn-bin steam
 
 steam(https://archlinux.org/packages/multilib/x86_64/steam/)

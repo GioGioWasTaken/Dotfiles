@@ -19,28 +19,28 @@ case "$1" in
         RiceSelector
         ;;
     --terminal)
-        alacritty
+        $TERMINAL
         ;;
     --floating)
-        alacritty --class FloaTerm,FloaTerm -o window.dimensions.lines=22 window.dimensions.columns=90
+        $TERMINAL --class FloaTerm,FloaTerm -o window.dimensions.lines=22 window.dimensions.columns=90
         ;;
     --update)
-        alacritty --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=22 window.dimensions.columns=90 -e Updates --update-system
+        $TERMINAL --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=22 window.dimensions.columns=90 -e Updates --update-system
         ;;
     --checkupdates)
-        alacritty --hold --class Updating,Updating -o window.dimensions.lines=22 window.dimensions.columns=47 -e Updates --print-updates
+        $TERMINAL --hold --class Updating,Updating -o window.dimensions.lines=22 window.dimensions.columns=47 -e Updates --print-updates
         ;;
     --ranger)
-        alacritty --class FloaTerm,FloaTerm -o window.dimensions.lines=14 window.dimensions.columns=90 -e ranger
+        $TERMINAL --class FloaTerm,FloaTerm -o window.dimensions.lines=14 window.dimensions.columns=90 -e ranger
         ;;
     --nvim)
-        (cd ~/Desktop/Programming; alacritty -e nvim)
+        (cd ~/Desktop/Programming; $TERMINAL -e nvim)
         ;;
     --music)
-        alacritty --class FloaTerm,FloaTerm -o window.dimensions.lines=18 window.dimensions.columns=67 -e ncmpcpp
+        $TERMINAL --class FloaTerm,FloaTerm -o window.dimensions.lines=18 window.dimensions.columns=67 -e ncmpcpp
         ;;
     --fetch)
-        alacritty --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=26 window.dimensions.columns=40 -e ~/.local/bin/sysfetch
+        $TERMINAL --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=26 window.dimensions.columns=40 -e ~/.local/bin/sysfetch
         ;;
         # Apps
     --filemanager)
@@ -49,7 +49,7 @@ case "$1" in
     --browser)
         librewolf
         ;;
-    --editor)
+    --obsidian)
         obsidian
         ;;
     --telegram)

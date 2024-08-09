@@ -101,4 +101,10 @@ pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-g
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
+# Gio's own autostart!!
+
+fcitx5&
+
+
+
 # End one time code

@@ -32,6 +32,9 @@ choose_terminal() {
         "Kitty")
             echo kitty >"$cfg_term"
             ;;
+        "wezterm")
+            echo wezterm >"$cfg_term"
+            ;;
     esac
 }
 
