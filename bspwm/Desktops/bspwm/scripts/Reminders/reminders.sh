@@ -28,9 +28,12 @@ if (( $(date +%M) % 20 == 0 )); then
 fi
 
 # Check if current time is within the range for hourly Anki reminders
-if (( 7 <= current_hour && current_hour <= 21 &&current_minute==0 || current_minute==30)); then
+if (( 7 <= current_hour && current_hour < 21 &&current_minute==0 || current_minute==30)); then
     send_reminder "Bi-Hourly Anki reminder!" "Anki.png" "low" 3000
 fi
 
 
+if ((current_hour =21 &&current_minute==0 )); then
+    send_reminder "Stop working. ご苦労さまでした" "Bed.png" "low" 3000
+fi
 

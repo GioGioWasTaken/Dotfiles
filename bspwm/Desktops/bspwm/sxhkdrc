@@ -9,12 +9,10 @@
 
 #|||----- Applications -----|||#
 
-scripts="$HOME/.config/bspwm/scripts"
 
-# Open Terminal (wezterm)
+# Open Terminal (alacritty)
 super + Return
-	OpenApps --terminal
-	# wezterm
+	wezterm
 
 # Open floating Terminal
 super + alt + Return
@@ -22,7 +20,7 @@ super + alt + Return
 
 # Application menu
 super + r
-	OpenApps --menu
+	rofi -show drun
 
 # Dictionary
 super + d

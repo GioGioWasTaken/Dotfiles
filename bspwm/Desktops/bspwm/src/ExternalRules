@@ -60,8 +60,8 @@ case "$class" in
     Transmission-gtk)
         result "desktop=^6 follow=on"
         ;;
-    Spotify)
-        result "state=floating desktop=^6 follow=on center=on"
+    Discord)
+        result "state=floating desktop=^2 follow=on center=on"
         ;;
 esac
 
