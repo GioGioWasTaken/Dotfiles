@@ -9,7 +9,7 @@ send_reminder() {
     local icon=$2
     local urgency=$3
     local timeout=$4
-    notify-send "$message" -i "$script_dir/icons/$icon" -u "$urgency" -t "$timeout"
+    notify-send "$message" -i "$script_dir/Icons/$icon" -u "$urgency" -t "$timeout"
 }
 
 # Get the current time in HH:MM format
@@ -36,4 +36,11 @@ fi
 if ((current_hour =21 &&current_minute==0 )); then
     send_reminder "Stop working. ご苦労さまでした" "Bed.png" "low" 3000
 fi
+
+
+if ((current_hour =19 &&current_minute==35 )); then
+    send_reminder "Stop working. ご苦労さまでした" "Bed.png" "low" 3000
+fi
+
+
 
