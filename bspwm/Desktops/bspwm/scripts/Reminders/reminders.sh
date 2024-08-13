@@ -38,9 +38,6 @@ if ((current_hour =21 &&current_minute==0 )); then
 fi
 
 
-if ((current_hour =19 &&current_minute==35 )); then
-    send_reminder "Stop working. ご苦労さまでした" "Bed.png" "low" 3000
-fi
 
 
-
+send_reminder "Stay Hydrated!" "Water_bottle.png" "normal" 1000
