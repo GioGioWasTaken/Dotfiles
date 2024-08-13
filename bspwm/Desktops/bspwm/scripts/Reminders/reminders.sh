@@ -33,7 +33,7 @@ if (( 7 <= current_hour && current_hour < 21 &&current_minute==0 || current_minu
 fi
 
 
-if ((21 <= current_hour && current_hour <= 24 && current_minute==0 || current_minute==30)); then
+if ((21 <= current_hour && current_hour <= 24 && current_minute==0 || 21 <= current_hour && current_hour <= 24 && current_minute==30)); then
     send_reminder "Stop working. ご苦労さまでした" "Bed.png" "low" 8000
 fi
 
