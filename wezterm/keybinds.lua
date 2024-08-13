@@ -73,4 +73,16 @@ local M = {
 	},
 }
 
-return M
+-- return M
+
+
+return {
+  keys = {
+    -- Unbind multiplexing related keybindings
+    {key="t", mods="CTRL", action="DisableDefaultAssignment"},
+    {key="w", mods="CTRL", action="DisableDefaultAssignment"},
+    {key="n", mods="CTRL", action="DisableDefaultAssignment"},
+    {key="x", mods="CTRL", action="DisableDefaultAssignment"},
+    -- Add more keybindings here if needed
+  },
+}

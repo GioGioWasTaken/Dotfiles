@@ -5,6 +5,6 @@ local dark_theme = ({
     'nord', -- [2]
     'Catppuccin Mocha', -- [3]
     'Batman' -- [4]
-})[1]
+})[3]
 
 return {color_scheme = dark_theme}
