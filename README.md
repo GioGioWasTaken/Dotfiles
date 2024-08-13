@@ -39,7 +39,16 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 
 # Next up
 
-- Set a github ssh key and clone Linux-Machine to Desktop.
-- Patch up the tmux config.
-- set up systemd services.
+## Set a github ssh key and clone Linux-Machine to Desktop.
+- ChatGPT it i'm lazy
+
+## Patch up the tmux config
+- I don't fucking remember. Fuck me.
+- set up caps lock remap
+- Probably just set up npm and update it.
+
+## set up systemd services
+systemctl --user daemon-reload
+systemctl --user enable reminders.timer
+systemctl --user start reminders.timer
 
