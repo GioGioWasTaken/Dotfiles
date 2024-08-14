@@ -57,10 +57,6 @@ super + shift + v
 super + shift + p
 	xcolor -P 100 -s
 
-### Caps Lock Notify ###
-Caps_Lock
-	sleep 0.2 && notify-send "Caps Lock is now $(xset -q | sed -n 's/^.*Caps Lock:\s*\(\S*\).*$/\1/p')" -r 1 -i "input-keyboard" -u low -t 1000
-
 
 super + equal
 	rofi -modi calc -show calc -calc-command 'echo "{result}" | xclip -sel c'
