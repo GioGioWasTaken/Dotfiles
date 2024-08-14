@@ -19,6 +19,7 @@ steam(https://archlinux.org/packages/multilib/x86_64/steam/)
 
 
 # Language Keyboards
+copying the fcitx5 config should do this automatically. But:
 
 ## Japanese
 - install fcitx5 and it's dependencies. 
@@ -43,12 +44,15 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 - ChatGPT it i'm lazy
 
 ## Patch up the tmux config
-- I don't fucking remember. Fuck me.
+- clone npm into tmux from github (maybe just add this to the dotfiles... Idiot lmao)
 - set up caps lock remap
-- Probably just set up npm and update it.
+- remap tmux to tmux -U to fix weird UTF 8 __ bug
+- make sure the correct TERM and TERMINAL env variables are set in ~/.zshrc
 
 ## set up systemd services
-systemctl --user daemon-reload
-systemctl --user enable reminders.timer
-systemctl --user start reminders.timer
+- systemctl --user daemon-reload
+
+- systemctl --user enable reminders.timer
+
+- systemctl --user start reminders.timer
 
