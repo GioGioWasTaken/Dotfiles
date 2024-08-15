@@ -82,12 +82,8 @@ shift + alt + {r,v,k}
 super + q
 	$SCRIPTS/KeybindingsHelp
 #Nordvpn
-super +e
-	sh $SCRIPTS/nordvpn.sh
-
-# wezterm
 super +z
-	wezterm
+	sh $SCRIPTS/nordvpn.sh
 
 # Theme Selector
 alt + @space

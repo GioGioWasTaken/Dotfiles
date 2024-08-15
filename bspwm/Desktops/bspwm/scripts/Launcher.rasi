@@ -19,11 +19,11 @@ configuration {
 //----- Global Properties -----//
 
 * {
-font: "Terminess Nerd Font Mono Bold 10";
-background: #1D1F28;
-background-alt: #1D1F28E0;
-foreground: #c0caf5;
-selected: #6C77BB;
+font: "scientifica 12";
+background: #282828;
+background-alt: #282828E0;
+foreground: #fbf1c7;
+selected: #d79921;
 }
 
 //----- Main Window -----//
@@ -70,7 +70,7 @@ inputbar {
     spacing:                     10px;
     padding:                     50px 100px;
     background-color:            transparent;
-    background-image:            url("~/.config/bspwm/assets/pa-rofi.webp", width);
+    background-image:            url("~/.config/bspwm/assets/si-rofi.webp", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];

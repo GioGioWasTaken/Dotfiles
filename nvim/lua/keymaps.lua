@@ -12,18 +12,7 @@ vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
 vim.api.nvim_set_keymap("n", "M", "@", { noremap = true })
 
 
--- -- Create a command to change directory to the currently focused buffer's directory
--- vim.api.nvim_create_user_command('CDToBuffer', function()
---   local buf_path = vim.fn.expand('%:p:h')
---   vim.cmd('cd ' .. buf_path)
---   local new_cwd = vim.fn.getcwd()
---   print('Changed directory to ' .. new_cwd)
--- end, {})
---
--- -- Optional: Create a key mapping to quickly execute the command
--- vim.api.nvim_set_keymap('n', '<leader>cd', ':CDToBuffer<CR>', { noremap = true, silent = true })
 
---NOTE: might use this later. For now it's disabled.
 
 
 
@@ -37,7 +26,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- this remap is awesome, and i will use it eventually, but for now I like being forced to learn replacing stuff manually
 --  it's a necessary step to improve my find and replace skills.
--- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- move text with J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -111,23 +100,23 @@ vim.api.nvim_set_keymap("n", "<C-y>", ":Noice dismiss<CR>", {noremap=true})
 
 -- vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>", {silent = true, noremap = true}) -- idk what this does
 
-      -- splits
+-- splits
 
-      vim.api.nvim_set_keymap("n", "<C-,>", ":vertical resize -10<CR>", {noremap=true})
-      vim.api.nvim_set_keymap("n", "<C-.>", ":vertical resize +10<CR>", {noremap=true})
-      -- Quicker close split
-      vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
-
-
-      -- vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
+vim.api.nvim_set_keymap("n", "<C-,>", ":vertical resize -10<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-.>", ":vertical resize +10<CR>", {noremap=true})
+-- Quicker close split
+vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
 
 
+-- vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
 
-      -- Keymaps for better default experience
-      -- See `:help vim.keymap.set()`
-      vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- free space bar as leader key
-      --
-      -- Remap for dealing with word wrap
-      vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-      vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- free space bar as leader key
+--
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 

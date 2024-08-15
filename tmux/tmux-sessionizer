@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find $PROGRAMMING_DIR $XDG_CONFIG_HOME $PROGRAMMING_DIR/Pwnable.kr $PROGRAMMING_DIR/Pwnable.kr/Toddlers_Bottle $PROGRAMMING_DIR/Pwnable.kr/Rookiss $PROGRAMMING_DIR/University~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find $PROGRAMMING_DIR $XDG_CONFIG_HOME $PROGRAMMING_DIR/Pwnable.kr $PROGRAMMING_DIR/Pwnable.kr/Toddlers_Bottle $PROGRAMMING_DIR/Pwnable.kr/Rookiss $PROGRAMMING_DIR/University~/ $PROGRAMMING_DIR/Brain /tmp -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

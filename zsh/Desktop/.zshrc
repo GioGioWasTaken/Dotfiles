@@ -7,12 +7,13 @@
 #   └┘ ┴ ┴┴└─└─┘
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
-export TERM='alacritty'
-export TERMINAL='alacritty'
-export BROWSER='librewolf'
+export TERM='wezterm'
+export TERMINAL='wezterm'
+export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export DOTFILES="$HOME/Desktop/Dotfiles"
 export SCRIPTS="$DOTFILES/bspwm/Desktops/bspwm/scripts"
+export BSPWM_DESKTOP="$DOTFILES/bspwm/Desktops/"
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
@@ -140,6 +141,7 @@ man2() {
 alias ytfzf='ytfzf -t'
 alias ytmusic='ytfzf -t -m -s'
 alias godot='cd ~/Desktop/Dotfiles'
+alias tmux='tmux -u'
 
 # ENV variable
 export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
@@ -170,8 +172,15 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
-bindkey -s ^a "nvims\n"
+bindkey -s ^a "tmux attach\n"
+#
+# Define a function to start tmux
+function start_tmux() {
+    tmux attach
+}
 
+# Bind the Home key to the function
+bindkey -M viins '\e[1~' start_tmux
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -187,3 +196,5 @@ export FZF_ALT_C_OPTS="
 # $HOME/.local/bin/colorscript -r
 source $HOME/Desktop/Dotfiles/zsh/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
 python ~/.config/bspwm/scripts/Quotes/quotes.py
+
+

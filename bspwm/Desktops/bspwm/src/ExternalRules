@@ -39,7 +39,7 @@ case "$class" in
     Viewnior)
         result "state=floating focus=on center=on"
         ;;
-    whatsdesk|TelegramDesktop)
+    whatsdesk|Obsidian)
         result "desktop=^4 follow=on"
         ;;
     retroarch)
@@ -61,7 +61,7 @@ case "$class" in
         result "desktop=^6 follow=on"
         ;;
     Discord)
-        result "state=floating desktop=^2 follow=on center=on"
+        result "state=floating desktop=^1 follow=on center=on"
         ;;
 esac
 
