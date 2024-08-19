@@ -227,9 +227,21 @@ require('lazy').setup({
     }
   },
 
-  { -- Autocompletion
+  {
+    -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      {
+        'L3MON4D3/LuaSnip',
+        opts = {
+          history = true,
+          region_check_events = "InsertEnter",
+          delete_check_events = "TextChanged,InsertLeave",
+        },
+      },
+      'saadparwaiz1/cmp_luasnip',
+    },
   },
 
   { -- Highlight, edit, and navigate code
@@ -274,6 +286,40 @@ require('lazy').setup({
     opts = {
       keys = 'etovxqpdygfblzhckisuran'
     }
+  },
+{
+  'ThePrimeagen/vim-be-good',
+  cmd = 'VimBeGood'  -- Optional: load the plugin only when you run the command.
+},
+
+{
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true, -- or `opts = {}`
+  },
+{
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+},
+
+  {
+    "3rd/image.nvim",
+    config = function()
+    end
+  },
+
+  {
+    "HakonHarnes/img-clip.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- or leave it empty to use the default settings
+    },
+    keys = {
+      -- suggested keymap
+      { "<leader><C-v>", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    },
   },
 
 })

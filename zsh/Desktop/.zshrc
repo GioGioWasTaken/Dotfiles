@@ -7,8 +7,8 @@
 #   └┘ ┴ ┴┴└─└─┘
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
-export TERM='wezterm'
-export TERMINAL='wezterm'
+export TERM='alacritty'
+export TERMINAL='alacritty'
 export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export DOTFILES="$HOME/Desktop/Dotfiles"
@@ -142,6 +142,8 @@ alias ytfzf='ytfzf -t'
 alias ytmusic='ytfzf -t -m -s'
 alias godot='cd ~/Desktop/Dotfiles'
 alias tmux='tmux -u'
+alias discord='discord --no-sandbox'
+
 
 # ENV variable
 export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/

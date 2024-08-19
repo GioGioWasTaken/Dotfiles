@@ -1,3 +1,15 @@
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- free space bar as leader key
+--
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Other keymaps
+
+
+
 -- Use qq as a way to go to normal mode from all modes.
 vim.api.nvim_set_keymap("i", "qq", "<Esc>", {noremap=false})
 vim.api.nvim_set_keymap("v", "qq", "<Esc>", {noremap=false})
@@ -11,8 +23,8 @@ vim.api.nvim_set_keymap("n", "Q", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
 vim.api.nvim_set_keymap("n", "M", "@", { noremap = true })
 
-
-
+-- BUG: Leader key doesn't work. Fix it. 
+vim.api.nvim_set_keymap("n", "zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
 
 
 
@@ -111,12 +123,4 @@ vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
 -- vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
 
 
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- free space bar as leader key
---
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 

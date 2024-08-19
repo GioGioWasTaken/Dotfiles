@@ -6,7 +6,14 @@
 ##  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝   ╚═╝      ╚═╝      ╚═╝   
 ##	gh0stzk - https://github.com/gh0stzk/dotfiles
 #
-import = ["~/.config/alacritty/rice-colors.toml", "~/.config/alacritty/fonts.toml"]
+
+
+import = [
+  # uncomment to use current rice's terminal theme :
+  # "~/.config/alacritty/rice-colors.toml", 
+  "~/.config/alacritty/fonts.toml",
+  "~/.config/alacritty/catppuccin-mocha.toml",
+]
 
 live_config_reload = true
 
@@ -25,7 +32,7 @@ save_to_clipboard = true
 [window]
 decorations = "none"
 dynamic_title = true
-opacity = 0.6
+opacity = 1
 dynamic_padding = true
 [window.padding]
 x = 15
