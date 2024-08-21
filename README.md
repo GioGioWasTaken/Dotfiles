@@ -50,9 +50,20 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 - make sure the correct TERM and TERMINAL env variables are set in ~/.zshrc
 
 ## set up systemd services
-- systemctl --user daemon-reload
+ systemctl --user daemon-reload
 
 - systemctl --user enable reminders.timer
 
 - systemctl --user start reminders.timer
 
+## Screen casting
+
+
+- yay -S Gnome-Network-displays
+
+- sudo systemctl enable NetworkManger
+
+## Yomichan
+-  grab dicts from the dotfiles and add them through your browser
+
+## Fonts

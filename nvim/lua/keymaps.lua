@@ -27,6 +27,25 @@ vim.api.nvim_set_keymap("n", "M", "@", { noremap = true })
 vim.api.nvim_set_keymap("n", "zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
 
 
+-- Experiment. Might be the best remap ever?
+
+-- Remap 6d to 6j and 6f to 6k
+vim.api.nvim_set_keymap('n', '6d', '6j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '6f', '6k', { noremap = true, silent = true })
+
+-- Remap 7d to 7j and 7f to 7k
+vim.api.nvim_set_keymap('n', '7d', '7j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '7f', '7k', { noremap = true, silent = true })
+
+-- Remap 8d to 8j and 8f to 8k
+vim.api.nvim_set_keymap('n', '8d', '8j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '8f', '8k', { noremap = true, silent = true })
+
+
+-- Remap 9d to 9j and 9f to 9k
+vim.api.nvim_set_keymap('n', '9d', '9j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '9f', '9k', { noremap = true, silent = true })
+
 
 
       -- Thanks ThePrimeAgen!!
@@ -67,8 +86,8 @@ vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", {noremap=false})
 -- files
 vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", {noremap=false})
 vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", {noremap=false})
-vim.api.nvim_set_keymap("n", "<C-e>", "$", {noremap=false})
-vim.api.nvim_set_keymap("n", "<C-b>", "^", {noremap=false})
+
+
 vim.api.nvim_set_keymap("n", "TT", ":TransparentToggle<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "ss", ":noh<CR>", {noremap=true})
 
@@ -102,7 +121,6 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true 
 -- we have to get rid of the C-l remap, since it interferes with terminal shortcut, but my terminal is always my rightmost window, so it's fine.
 -- vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true })
 
--- Hop.nvim
 
 
 vim.api.nvim_set_keymap("n", "S", ":HopWord<CR>", {noremap=true})
