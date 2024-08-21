@@ -60,8 +60,9 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 
 
 - yay -S Gnome-Network-displays
-
+- sudo systemctl enable avahi-daemon
 - sudo systemctl enable NetworkManger
+- sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gnome
 
 ## Yomichan
 -  grab dicts from the dotfiles and add them through your browser
