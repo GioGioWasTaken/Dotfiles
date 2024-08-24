@@ -196,7 +196,7 @@ export FZF_ALT_C_OPTS="
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
 # $HOME/.local/bin/colorscript -r
-source $HOME/Desktop/Dotfiles/zsh/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
+source $HOME/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
 python ~/.config/bspwm/scripts/Quotes/quotes.py
 
 
