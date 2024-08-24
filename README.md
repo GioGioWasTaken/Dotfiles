@@ -61,7 +61,7 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 
 - yay -S Gnome-Network-displays
 - sudo systemctl enable avahi-daemon
-- sudo systemctl enable NetworkManger
+- sudo systemctl enable NetworkManager
 - sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gnome
 
 ## Yomichan

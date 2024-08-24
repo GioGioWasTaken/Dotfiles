@@ -6,10 +6,20 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- free spac
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Other keymaps
-
+-- remap start and end of line
 vim.api.nvim_set_keymap('n', 'H', '^', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'L', '$', { noremap = true, silent = true })
+
+-- Visual mode
+vim.api.nvim_set_keymap('v', 'H', '^', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'L', '$', { noremap = true, silent = true })
+
+-- Operator-pending mode
+vim.api.nvim_set_keymap('o', 'H', '^', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('o', 'L', '$', { noremap = true, silent = true })
+
+
+-- Other keymaps
 
 
 -- Use qq as a way to go to normal mode from all modes.
@@ -26,27 +36,38 @@ vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
 vim.api.nvim_set_keymap("n", "M", "@", { noremap = true })
 
 
--- vim.api.nvim_set_keymap("n", "zz", [[:%s/\/\/\(.*\)/\/\*\1\*\/*g<CR>]], { noremap = true, silent = true })
+
+-- Void register for one characte deletions
+vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '""', 'ysiw"', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', '))', 'ysiw)', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', "]]", "ysiw]", { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', "''", "ysiw'", { noremap = false, silent = true })
+
+vim.api.nvim_set_keymap("n", "zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
 
 
 -- Experiment. Might be the best remap ever?
 
+
+
 -- Remap 6d to 6j and 6f to 6k
-vim.api.nvim_set_keymap('n', '6f', '6j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '6d', '6k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '6d', '6j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '6f', '6k', { noremap = true, silent = true })
 
 -- Remap 7d to 7j and 7f to 7k
-vim.api.nvim_set_keymap('n', '7f', '7j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '7d', '7k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '7d', '7j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '7f', '7k', { noremap = true, silent = true })
 
 -- Remap 8d to 8j and 8f to 8k
-vim.api.nvim_set_keymap('n', '8f', '8j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '8d', '8k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '8d', '8j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '8f', '8k', { noremap = true, silent = true })
 
 
 -- Remap 9d to 9j and 9f to 9k
-vim.api.nvim_set_keymap('n', '9f', '9j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '9d', '9k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '9d', '9j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '9f', '9k', { noremap = true, silent = true })
 
 
 

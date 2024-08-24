@@ -1,4 +1,4 @@
-require('keymaps')
+require('keybindings')
 require('plugins.lazy')
 require('plugins.misc')
 require('options')
