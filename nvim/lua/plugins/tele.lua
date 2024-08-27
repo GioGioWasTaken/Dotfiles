@@ -7,7 +7,7 @@ require('telescope').setup {
   defaults = {
     layout_strategy = "horizontal",
     layout_config = {
-      preview_width = 0.65,     
+      preview_width = 0.65,
       horizontal = {
         size = {
           width = "95%",
@@ -34,6 +34,7 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+
 
 -- best remap ever. "Where did my files go?"
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

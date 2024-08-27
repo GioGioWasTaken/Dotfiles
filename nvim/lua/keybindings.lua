@@ -22,6 +22,8 @@ vim.api.nvim_set_keymap('o', 'L', '$', { noremap = true, silent = true })
 -- Other keymaps
 
 
+vim.api.nvim_set_keymap('n', 'gf', [[:silent! execute 'grep -r --include="*.*" "^" ./' .. vim.fn.getreg('0') .. ' | grep -v ":$"' | execute 'edit' vim.fn.fnamemodify(vim.fn.split(vim.fn.get(grep(vim.fn.escape(vim.fn.getreg('0'), " ")), 0, '')[1], ":")[1], ':p')<CR>]], { noremap = true, silent = true })
+
 -- Use qq as a way to go to normal mode from all modes.
 vim.api.nvim_set_keymap("i", "qq", "<Esc>", {noremap=false})
 vim.api.nvim_set_keymap("v", "qq", "<Esc>", {noremap=false})
