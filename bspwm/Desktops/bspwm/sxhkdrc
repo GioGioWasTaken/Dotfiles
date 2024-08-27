@@ -79,7 +79,8 @@ shift + alt + {r,v,k}
 #|||----- System Keybindings -----|||#
 
 # Show keybindings help
-super + q
+
+super + h
 	$SCRIPTS/KeybindingsHelp
 #Nordvpn
 super +z

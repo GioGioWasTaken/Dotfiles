@@ -39,7 +39,7 @@ vim.api.nvim_set_keymap("n", "Q", "<NOP>", { noremap = true })
 -- Remap macro recording to 'm' and playing macros to 'M'
 vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
 vim.api.nvim_set_keymap("n", "M", "@", { noremap = true })
-
+vim.api.nvim_set_keymap("n", "MM", "@@", { noremap = true })
 -- newline without entering normal mode
 vim.api.nvim_set_keymap("n", " o", "o<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", " O", "O<Esc>", { noremap = true })
