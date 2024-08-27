@@ -57,7 +57,7 @@ vim.api.nvim_set_keymap('v', '))', 'S)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('v', "]]", "S]", { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', "''", "S'", { noremap = false, silent = true })
 
-vim.api.nvim_set_keymap("n", "zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", " zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
 
 
 -- Experiment. Might be the best remap ever?
