@@ -1,3 +1,6 @@
+--  BUG: the leader key does not work.
+--  Temporary solution: hardcoding it with " "
+--
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- free space bar as leader key
@@ -37,7 +40,9 @@ vim.api.nvim_set_keymap("n", "Q", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
 vim.api.nvim_set_keymap("n", "M", "@", { noremap = true })
 
-
+-- newline without entering normal mode
+vim.api.nvim_set_keymap("n", " o", "o<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("n", " O", "O<Esc>", { noremap = true })
 
 -- Void register for one characte deletions
 vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true, silent = true })
@@ -75,14 +80,15 @@ vim.api.nvim_set_keymap('n', '9f', '9k', { noremap = true, silent = true })
 
       -- Thanks ThePrimeAgen!!
 
---  No terminal needed.
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+
+--  No terminal needed.
+vim.keymap.set("n", " x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 
 -- this remap is awesome, and i will use it eventually, but for now I like being forced to learn replacing stuff manually
 --  it's a necessary step to improve my find and replace skills.
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", " s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- move text with J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -160,7 +166,7 @@ vim.api.nvim_set_keymap("n", "<C-y>", ":Noice dismiss<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<C-,>", ":vertical resize -10<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<C-.>", ":vertical resize +10<CR>", {noremap=true})
 -- Quicker close split
-vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
+vim.keymap.set("n", " qq", ":q<CR>", {silent = true, noremap = true})
 
 
 -- vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
