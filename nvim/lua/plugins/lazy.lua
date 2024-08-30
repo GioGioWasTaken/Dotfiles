@@ -99,7 +99,63 @@ require('lazy').setup({
   },
 
   'ThePrimeagen/git-worktree.nvim',
-  "tpope/vim-surround",
+
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        surrounds = {
+          -- Markdown instant link from clipboard
+          ["l"] = {
+            add = function()
+              local clipboard = vim.fn.getreg("+"):gsub("^[%s\n]*(.-)[%s\n]*$", "%1")
+              if clipboard:find("\n") then
+                vim.notify("URL must not contain newline characters", vim.log.levels.WARN)
+              else
+                return {
+                  { "[" },
+                  { "](" .. clipboard .. ")" },
+                }
+              end
+            end,
+            find = "%b[]%b()",
+            delete = "^(%[)().-(%]%b())()$",
+            change = {
+              target = "^()()%b[]%((.-)()%)$",
+              replacement = function()
+                local clipboard = vim.fn.getreg("+"):gsub("^[%s\n]*(.-)[%s\n]*$", "%1")
+                if clipboard:find("\n") then
+                  vim.notify("URL must not contain newline characters", vim.log.levels.WARN)
+                else
+                  return {
+                    { "" },
+                    { clipboard },
+                  }
+                end
+              end,
+            },
+          },
+
+          -- Surround with markdown code block, triple backticks.
+          -- <https://github.com/kylechui/nvim-surround/issues/88>
+          ["~"] = {
+            add = function()
+              local config = require("nvim-surround.config")
+              local result = config.get_input("Markdown code block language: ")
+              return {
+                { "```" .. result, '' },
+                { "", "```" },
+              }
+            end,
+          },
+
+        },
+
+      } 
+    end
+  },
   'xiyaowong/nvim-transparent',
   { 
     'numToStr/FTerm.nvim',
