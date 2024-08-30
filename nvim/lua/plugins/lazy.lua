@@ -8,8 +8,7 @@ if not vim.loop.fs_stat(lazypath) then
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
-  })
-end
+  }) end
 vim.opt.rtp:prepend(lazypath)
 
 -- Fixes Notify opacity issues
@@ -366,8 +365,7 @@ require('lazy').setup({
     config = function()
     end
   },
-
-  {
+{
     "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
     opts = {
@@ -378,5 +376,11 @@ require('lazy').setup({
       { "<leader><C-v>", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     },
   },
+
+{
+  "stevearc/oil.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+},
+
 
 })

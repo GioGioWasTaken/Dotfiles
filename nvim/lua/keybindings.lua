@@ -173,8 +173,15 @@ vim.api.nvim_set_keymap("n", "<C-.>", ":vertical resize +10<CR>", {noremap=true}
 -- Quicker close split
 vim.keymap.set("n", " qq", ":q<CR>", {silent = true, noremap = true})
 
+-- stole from nvim-surround guy
 
--- vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
+local map = vim.keymap.set
 
-
-
+-- Smart delete lines; don't clutter clipboard with whitespace lines
+map("n", "dd", function()
+    local line = vim.api.nvim_get_current_line()
+    if line:match("^%s*$") then
+        return '"_dd'
+    end
+    return "dd"
+end, { expr = true, silent = true })
