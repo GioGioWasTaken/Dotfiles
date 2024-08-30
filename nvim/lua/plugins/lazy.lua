@@ -101,6 +101,7 @@ require('lazy').setup({
   'ThePrimeagen/git-worktree.nvim',
 
   {
+--  TODO: implement [[]] file surround with k
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
