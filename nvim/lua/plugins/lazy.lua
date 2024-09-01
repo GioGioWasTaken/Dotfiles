@@ -151,8 +151,66 @@ require('lazy').setup({
             end,
           },
 
-        },
+          ["k"] = {
+            add = function()
+              local config = require("nvim-surround.config")
+              return {
+                { "[[" },
+                { "]]" },
+              }
+            end,
+          },
+          
 
+
+          -- Custom surround based on language, assigned to "p"
+          ["p"] = {
+            add = function()
+              local config = require("nvim-surround.config")
+              local lang = config.get_input("Language: ")
+              if lang:lower() == "java" then
+                return {
+                  { 'System.out.println( '},
+                  { ');' },
+                }
+              elseif lang:lower() == "c" then
+                return {
+                  { 'printf("%s",' },
+                  { ');' },
+                }
+              elseif lang == "py" then
+                return {
+                  { 'print(' },
+                  { ')' },
+                }
+
+              elseif lang == "rust" then
+                return {
+                  { 'println!("{},' },
+                  { ');' },
+                }
+
+              elseif lang == "c#" then
+                return {
+                  { 'Console.WriteLine(' },
+                  { ');' },
+                }
+
+              elseif lang == "cpp" then
+                return {
+                  { 'std::cout <<' },
+                  { '<< std::endl;' },
+                }
+
+              else
+                return {
+                  { ''},
+                  { '' },
+                }
+              end
+            end,
+          },
+        },
       } 
     end
   },

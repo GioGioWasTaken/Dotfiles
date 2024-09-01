@@ -3,7 +3,6 @@
 --
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- free space bar as leader key
 --
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -59,22 +58,37 @@ vim.api.nvim_set_keymap("n", " zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { norem
 
 
 
--- Remap 6d to 6j and 6f to 6k
+-- Remap 6d to 6j and 6f to 6k in normal and visual mode.
 vim.api.nvim_set_keymap('n', '6d', '6j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '6f', '6k', { noremap = true, silent = true })
+
+
+vim.api.nvim_set_keymap('v', '6d', '6j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '6f', '6k', { noremap = true, silent = true })
+
+
 
 -- Remap 7d to 7j and 7f to 7k
 vim.api.nvim_set_keymap('n', '7d', '7j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '7f', '7k', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('v', '7d', '7j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '7f', '7k', { noremap = true, silent = true })
+
 -- Remap 8d to 8j and 8f to 8k
 vim.api.nvim_set_keymap('n', '8d', '8j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '8f', '8k', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('v', '8d', '8j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '8f', '8k', { noremap = true, silent = true })
 
 
 -- Remap 9d to 9j and 9f to 9k
 vim.api.nvim_set_keymap('n', '9d', '9j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '9f', '9k', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('v', '9d', '9j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '9f', '9k', { noremap = true, silent = true })
 
 
 
@@ -154,12 +168,21 @@ vim.api.nvim_set_keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = true, sil
 
 -- Move to the right split
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
--- we have to get rid of the C-l remap, since it interferes with terminal shortcut, but my terminal is always my rightmost window, so it's fine.
+-- we have to get rid of the C-l remap, since it interferes with terminal shortcut,
+-- but my terminal is always my rightmost window, so it's not an issue.
 -- vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true })
 
 
+-- find current file in markdown 
+vim.api.nvim_set_keymap('n', 'gf', 'yiw:lua require("telescope.builtin").find_files({search_dirs = {"."}, prompt_title = "Find Markdown File"})<CR><C-r>"', { noremap = true, silent = true })
 
+-- hopper
 vim.api.nvim_set_keymap("n", "S", ":HopWord<CR>", {noremap=true})
+
+
+-- cd to current buffer
+vim.api.nvim_set_keymap('n', '<Space>cd', ':cd %:p:h<CR>:pwd<CR>', { noremap = true, silent = true })
+
 
 -- Noice
 vim.api.nvim_set_keymap("n", "<C-y>", ":Noice dismiss<CR>", {noremap=true})
