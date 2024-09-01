@@ -1,7 +1,8 @@
-require('keybindings')
 require('plugins.lazy')
 require('plugins.misc')
 require('options')
+require('keybindings')
+
 require('plugins.lualine')
 require('misc')
 -- require('plugins.dap')
