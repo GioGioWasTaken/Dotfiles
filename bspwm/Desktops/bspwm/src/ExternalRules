@@ -39,7 +39,7 @@ case "$class" in
     Viewnior)
         result "state=floating focus=on center=on"
         ;;
-    whatsdesk|Obsidian)
+    whatsdesk|Obsidian|krita)
         result "desktop=^4 follow=on"
         ;;
     retroarch)
@@ -51,9 +51,6 @@ case "$class" in
     Virt-manager)
         result "state=floating desktop=^5 follow=on center=on"
         ;;
-    Thunar)
-        result "desktop=^2 follow=on"
-        ;;
     firefox|Navigator)
         result "desktop=^3 follow=on"
         ;;
@@ -61,7 +58,7 @@ case "$class" in
         result "desktop=^6 follow=on"
         ;;
     Discord)
-        result "state=floating desktop=^1 follow=on center=on"
+        result "desktop=^1 follow=on"
         ;;
 esac
 

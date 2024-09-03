@@ -170,7 +170,7 @@ require('lazy').setup({
               local lang = config.get_input("Language: ")
               if lang:lower() == "java" then
                 return {
-                  { 'System.out.println( '},
+                  { 'System.out.println('},
                   { ');' },
                 }
               elseif lang:lower() == "c" then
