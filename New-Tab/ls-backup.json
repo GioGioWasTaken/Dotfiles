@@ -8,7 +8,7 @@
     "fontSize": 1.3
   },
   "yags-search": {
-    "placeholder": "Search the web",
+    "placeholder": "お快くウエーブを検索なされたまえ",
     "engine": "google",
     "forwardingLookup": {
       "/": "/",
