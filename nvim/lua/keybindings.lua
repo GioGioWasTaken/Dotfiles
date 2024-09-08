@@ -32,10 +32,14 @@ vim.api.nvim_set_keymap("t", "qq", "<Esc>", {noremap=false})
 vim.api.nvim_set_keymap("n", "q", "<NOP>", { noremap = true })
 vim.api.nvim_set_keymap("n", "Q", "<NOP>", { noremap = true })
 
--- Remap macro recording to 'm' and playing macros to 'M'
+-- Remap macro recording to 'm' 
 vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
-vim.api.nvim_set_keymap("n", "M", "@", { noremap = true })
-vim.api.nvim_set_keymap("n", "MM", "@@", { noremap = true })
+-- replay last macro
+vim.api.nvim_set_keymap("n", "M", "@@", { noremap = true })
+
+
+
+
 -- newline without entering normal mode
 vim.api.nvim_set_keymap("n", "<leader>o", "o<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>O", "O<Esc>", { noremap = true })
@@ -193,6 +197,11 @@ vim.api.nvim_set_keymap("n", "<C-.>", ":vertical resize +10<CR>", {noremap=true}
 -- Quicker close split
 vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
 
+
+
+vim.api.nvim_set_keymap('i', 'df', '<Right>', { noremap = true, silent = true })
+
+
 -- stole from nvim-surround guy
 
 local map = vim.keymap.set
@@ -205,3 +214,12 @@ map("n", "dd", function()
     end
     return "dd"
 end, { expr = true, silent = true })
+
+
+-- amazing remap:
+-- Open todo list
+map("n", "<Leader>t", function()
+    vim.cmd.edit("~/Desktop/Linux-Machine/todo.md")
+end, { silent = true })
+
+

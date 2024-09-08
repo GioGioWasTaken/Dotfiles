@@ -164,7 +164,7 @@ require('lazy').setup({
 
 
           -- Custom surround based on language, assigned to "p"
-          ["p"] = {
+          ["P"] = {
             add = function()
               local config = require("nvim-surround.config")
               local lang = config.get_input("Language: ")
@@ -297,17 +297,52 @@ require('lazy').setup({
         routes = {
           {
             filter = {
-              event = 'msg_show',
+              event = "msg_show",
               any = {
-                { find = '%d+L, %d+B' },
-                { find = '; after #%d+' },
-                { find = '; before #%d+' },
-                { find = '%d fewer lines' },
-                { find = '%d more lines' },
+                { find = "%d+L, %d+B" },
+                { find = "; after #%d+" },
+                { find = "; before #%d+" },
+              },
+            },
+            view = "mini",
+          },
+
+          -- TS-Action spams a lot
+          {
+            filter = {
+              event = "notify",
+              kind = "info",
+              any = {
+                { find = "No node found at cursor" },
               },
             },
             opts = { skip = true },
-          }
+          },
+
+          -- Skip validation messages from jdtls
+          {
+            filter = {
+              event = "lsp",
+              kind = "progress",
+              cond = function(message)
+                local client = vim.tbl_get(message.opts, "progress", "client")
+                if client == "jdtls" then
+                  local content = vim.tbl_get(message.opts, "progress", "message")
+                  return content == "Validate documents"
+                end
+
+                return false
+              end,
+            },
+            opts = { skip = true },
+          },
+        },
+        presets = {
+          bottom_search = true,
+          command_palette = true,
+          long_message_to_split = true,
+          inc_rename = true,
+          lsp_doc_border = true,
         },
       })
     end,
@@ -326,7 +361,7 @@ require('lazy').setup({
   { "catppuccin/nvim", as = "catppuccin" },
   {
     "windwp/nvim-autopairs",
-      config = function() require("nvim-autopairs").setup {} end
+    config = function() require("nvim-autopairs").setup {} end
   },
 
   { -- LSP Configuration & Plugins
@@ -336,7 +371,6 @@ require('lazy').setup({
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
 
-      -- Useful status updates for LSP
       'j-hui/fidget.nvim',
     }
   },
@@ -401,29 +435,24 @@ require('lazy').setup({
       keys = 'etovxqpdygfblzhckisuran'
     }
   },
-{
-  'ThePrimeagen/vim-be-good',
-  cmd = 'VimBeGood'  -- Optional: load the plugin only when you run the command.
-},
-
-{
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = true, -- or `opts = {}`
+  {
+    'ThePrimeagen/vim-be-good',
+    cmd = 'VimBeGood'  -- Optional: load the plugin only when you run the command.
   },
-{
+
+  {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
-},
+  },
 
   {
     "3rd/image.nvim",
     config = function()
     end
   },
-{
+  {
     "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
     opts = {
@@ -435,17 +464,21 @@ require('lazy').setup({
     },
   },
 
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  },
 
 
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 
-{
-  "stevearc/oil.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-},
-
-{
+  {
     'dkarter/bullets.vim',
     event = 'BufReadPost',
-},
+  },
 
 })

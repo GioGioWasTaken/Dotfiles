@@ -94,7 +94,8 @@ end
 
 
 -- Turn on lsp status information
-require('fidget').setup()
+-- annoying popups, hate it
+-- require('fidget').setup()
 
 -- Example custom configuration for lua
 --
@@ -184,3 +185,6 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end,
 })
+
+
+
