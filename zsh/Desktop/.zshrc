@@ -5,6 +5,8 @@
 #  ┬  ┬┌─┐┬─┐┌─┐
 #  └┐┌┘├─┤├┬┘└─┐
 #   └┘ ┴ ┴┴└─└─┘
+
+
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
 export TERM='alacritty'
@@ -85,6 +87,9 @@ PS1='%B%F{blue}%f%b  %B%F{magenta}%n%f%b $(dir_icon)  %B%F{red}%~%f%b${vcs_in
 #  ┌─┐┬  ┬ ┬┌─┐┬┌┐┌┌─┐
 #  ├─┘│  │ ││ ┬││││└─┐
 #  ┴  ┴─┘└─┘└─┘┴┘└┘└─┘
+
+# redo this and start using OH-MY-ZSH
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -116,25 +121,20 @@ fi
 alias mirrors="sudo reflector --verbose --latest 5 --country 'United States' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
 
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias mantenimiento="yay -Sc && sudo pacman -Scc"
-alias purga="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
-alias update="paru -Syu --nocombinedupgrade"
+
+alias mantenimiento="yay -Sc && sudo pacman -Scc" # no idea what this does
+
 alias vim="nvim"
-alias vm-on="sudo systemctl start libvirtd.service"
-alias vm-off="sudo systemctl stop libvirtd.service"
 
 alias ongaku="ncmpcpp"
 
 alias ls='lsd -a --group-directories-first'
 alias ll='lsd -la --group-directories-first'
 
-# PERSONAL CHANGES AND SETTINGS -- ADDED AFTER INITIAL RICE
-
-# Personal aliases
-
 # get rid of AT&T syntax for the far superior intel syntax.
 alias objdump='objdump -M intel'
 
+# awesome alias
 man2() {
   curl cheat.sh/"$1"
 }
@@ -175,22 +175,19 @@ function nvims() {
 }
 
 bindkey -s ^a "tmux attach\n"
-#
-# Define a function to start tmux
-function start_tmux() {
-    tmux attach
-}
 
-# Bind the Home key to the function
-bindkey -M viins '\e[1~' start_tmux
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-# Print tree structure in the preview window
+
 # CD into chosen directory
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
+
+# VIMMMMMMM
+bindkey -v
+
 
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 
@@ -198,5 +195,4 @@ export FZF_ALT_C_OPTS="
 # $HOME/.local/bin/colorscript -r
 source $HOME/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
 python ~/.config/bspwm/scripts/Quotes/quotes.py
-
 
