@@ -68,3 +68,8 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 -  grab dicts from the dotfiles and add them through your browser
 
 ## Fonts
+
+
+
+#### Misc
+sudo pacman -S python-pwntools
