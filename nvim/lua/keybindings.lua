@@ -55,8 +55,8 @@ vim.api.nvim_set_keymap('n', "''", "ysiw'", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
 
 
--- Experiment. Might be the best remap ever?
-
+-- Experiment. Might be the smartest remap ever?
+-- I assume this will only get better if i get a split keyboard.
 
 
 -- Remap 6d to 6j and 6f to 6k in normal and visual mode.
@@ -100,9 +100,7 @@ vim.api.nvim_set_keymap('v', '9f', '9k', { noremap = true, silent = true })
 --  No terminal needed.
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-
--- this remap is awesome, and i will use it eventually, but for now I like being forced to learn replacing stuff manually
---  it's a necessary step to improve my find and replace skills.
+-- replace word on cursor
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- move text with J and K
@@ -144,34 +142,10 @@ vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("n", "<C-c>", ":%y<CR>", {noremap=true, silent=true})
 
 
--- my terminal shortcuts
--- vim.api.nvim_set_keymap("n", "vv", ":rightbelow vertical terminal<CR>", { noremap = true, silent = true })
--- No longer needed. I use tmux.
-
-
-
 
 vim.api.nvim_set_keymap ('t', '<Esc>', "<C-\\><C-N>",  {silent = true })
 -- map this to escape and qq to escape above, for simplicity.
 
-
--- Move to the left split
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", { noremap = true, silent = true })
-
--- Move to the split below
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", { noremap = true, silent = true })
-
--- Move to the split above
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = true, silent = true })
-
--- Move to the right split
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
--- we have to get rid of the C-l remap, since it interferes with terminal shortcut,
--- but my terminal is always my rightmost window, so it's not an issue.
--- vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true })
 
 
 -- find current file in markdown 
@@ -202,6 +176,19 @@ vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('i', 'df', '<Right>', { noremap = true, silent = true })
 
 
+-- this should disable auto comment on newline when on a comment line
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    command = "set formatoptions-=cro"
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    command = "setlocal formatoptions-=cro"
+})
+
+
+
 -- stole from nvim-surround guy
 
 local map = vim.keymap.set
@@ -223,3 +210,13 @@ map("n", "<Leader>t", function()
 end, { silent = true })
 
 
+
+-- Use alt as a modifier key for tmux pane navigation integrated with vim.
+
+vim.g.tmux_navigator_no_mappings = 1
+
+vim.api.nvim_set_keymap('n', '<M-h>', ':TmuxNavigateLeft<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-j>', ':TmuxNavigateDown<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-k>', ':TmuxNavigateUp<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-l>', ':TmuxNavigateRight<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-\\>', ':TmuxNavigatePrevious<CR>', { noremap = true, silent = true })

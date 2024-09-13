@@ -100,7 +100,7 @@ require('lazy').setup({
   'ThePrimeagen/git-worktree.nvim',
 
   {
---  TODO: implement [[]] file surround with k
+    --  TODO: implement [[]] file surround with k
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -160,7 +160,7 @@ require('lazy').setup({
               }
             end,
           },
-          
+
 
 
           -- Custom surround based on language, assigned to "p"
@@ -218,17 +218,17 @@ require('lazy').setup({
   { 
     'numToStr/FTerm.nvim',
     config = function()
-    local map = vim.api.nvim_set_keymap
-    local opts = { noremap = true, silent = true }
-    require 'FTerm'.setup({
-      blend = 5,
-      dimensions = {
-        height = 0.90,
-        width = 0.90,
-        x = 0.5,
-        y = 0.5
-      }
-    })
+      local map = vim.api.nvim_set_keymap
+      local opts = { noremap = true, silent = true }
+      require 'FTerm'.setup({
+        blend = 5,
+        dimensions = {
+          height = 0.90,
+          width = 0.90,
+          x = 0.5,
+          y = 0.5
+        }
+      })
     end
   },
 
@@ -480,5 +480,29 @@ require('lazy').setup({
     'dkarter/bullets.vim',
     event = 'BufReadPost',
   },
+
+  -- trying it out
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+  --   opts = {}
+  -- },
+{
+  "christoomey/vim-tmux-navigator",
+  cmd = {
+    "TmuxNavigateLeft",
+    "TmuxNavigateDown",
+    "TmuxNavigateUp",
+    "TmuxNavigateRight",
+    "TmuxNavigatePrevious",
+  },
+  keys = {
+    { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+    { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+    { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+    { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+    { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+  },
+},
 
 })
