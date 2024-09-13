@@ -98,6 +98,8 @@ plugins=(
   fzf-tab
   you-should-use
   vi-mode
+  auto-notify
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -148,7 +150,7 @@ alias godot='cd ~/Desktop/Dotfiles'
 alias tmux='tmux -u'
 alias discord='discord --no-sandbox'
 alias cl='printf "\033[H\033[2J"'
-
+alias gog='google'
 # ENV variable
 export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
 
