@@ -69,6 +69,13 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 
 ## Fonts
 
+## Gaming
+
+- Set up steam with proton-play
+- install all the necessary nvidia drivers. Look it up on youtube.
+- install vulkan-intel for better rendering.
+    * in general it is wise to look up stuff about vulkan and openGL, etc. 
+
 
 
 #### Misc
