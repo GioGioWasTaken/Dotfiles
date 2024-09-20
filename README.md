@@ -10,7 +10,7 @@ copy files as needed
 
 # Packages to download
 
-sudo pacman -S python-six python-cffi python-wheel zip unzip go cargo xcolor gzip unrar noto-fonts-cjk man-db man-pages nvidia-utils nvidia xf86-video-intel xev xorg-xev xorg-xmodmap xorg-xkbcomp discord gdb pipewire-pulse alsa-utils obsidian thunar ripgrep flameshot tesseract tesseract-data-eng
+sudo pacman -S python-six python-cffi python-wheel zip unzip go cargo xcolor gzip unrar noto-fonts-cjk man-db man-pages nvidia-utils nvidia xf86-video-intel xev xorg-xev xorg-xmodmap xorg-xkbcomp discord gdb pipewire-pulse alsa-utils obsidian thunar ripgrep flameshot tesseract tesseract-data-eng glow
 
 yay -S lobster miru-bin ytfzf anki kcc nordvpn-bin steam
 
@@ -50,7 +50,8 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 - make sure the correct TERM and TERMINAL env variables are set in ~/.zshrc
 
 ## set up systemd services
- systemctl --user daemon-reload
+
+- systemctl --user daemon-reload
 
 - systemctl --user enable reminders.timer
 
@@ -80,3 +81,6 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 
 #### Misc
 sudo pacman -S python-pwntools
+
+FZF HISTORY WIDGET WITH ^R IS GOATED
+FZF IS KING ALL HAIL FZF
