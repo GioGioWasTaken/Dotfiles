@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=idaPRO
+Exec=/home/Ningen/idapro-9.0/ida64
+Icon=/home/Ningen/idapro-9.0/appico.png
+Type=Application
+Categories=Development;Security;
+Terminal=false
