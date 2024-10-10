@@ -18,8 +18,8 @@ super + alt + Return
 	OpenApps --floating
 
 # Application menu
-super + r
-	OpenApps --menu
+# super + r
+# 	OpenApps --menu
 
 # Dictionary
 super + d
