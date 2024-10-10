@@ -196,6 +196,8 @@ export FZF_ALT_C_OPTS="
 # VIMMMMMMM
 bindkey -v
 
+bindkey 'qq' vi-cmd-mode
+
 # Add text object extension -- eg ci" da(:
 # WHOEVER MADE THIS MAY ASK FOR MY HAND IN MARRIAGE
 autoload -U select-quoted
