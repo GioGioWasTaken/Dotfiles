@@ -101,7 +101,6 @@ vim.api.nvim_set_keymap("n", "<C-c>", ":%y<CR>", {noremap=true, silent=true})
 
 
 -- my terminal shortcuts
-vim.api.nvim_set_keymap("n", "vv", ":rightbelow vertical terminal<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap ('t', '<Esc>', "<C-\\><C-N>",  {silent = true })
 -- map this to escape and qq to escape above, for simplicity.
 

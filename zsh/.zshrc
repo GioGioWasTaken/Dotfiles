@@ -106,23 +106,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
-
 #  ┌─┐┬  ┬┌─┐┌─┐
 #  ├─┤│  │├─┤└─┐
 #  ┴ ┴┴─┘┴┴ ┴└─┘
@@ -153,6 +136,10 @@ alias tmux='tmux -u'
 alias discord='discord --no-sandbox'
 alias cl='printf "\033[H\033[2J"'
 alias gog='google'
+alias rop='ROPgadget --binary'
+
+
+
 # ENV variable
 export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
 
@@ -182,7 +169,7 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
-bindkey -s ^a "tmux attach\n"
+bindkey -s ^a "^Utmux attach\n"
 
 
 # Set up fzf key bindings and fuzzy completion
@@ -195,8 +182,9 @@ export FZF_ALT_C_OPTS="
 
 # VIMMMMMMM
 bindkey -v
-
 bindkey 'qq' vi-cmd-mode
+bindkey -M vicmd 'L' end-of-line
+bindkey -M vicmd 'H' beginning-of-line
 
 # Add text object extension -- eg ci" da(:
 # WHOEVER MADE THIS MAY ASK FOR MY HAND IN MARRIAGE
