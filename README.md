@@ -10,7 +10,7 @@ copy files as needed
 
 # Packages to download
 
-sudo pacman -S python-six python-cffi python-wheel zip unzip go cargo xcolor gzip unrar noto-fonts-cjk man-db man-pages nvidia-utils nvidia xf86-video-intel xev xorg-xev xorg-xmodmap xorg-xkbcomp discord gdb pipewire-pulse alsa-utils obsidian thunar ripgrep flameshot tesseract tesseract-data-eng glow
+sudo pacman -S python-six python-cffi python-wheel zip unzip go cargo xcolor gzip unrar noto-fonts-cjk man-db man-pages nvidia-utils nvidia xf86-video-intel xev xorg-xev xorg-xmodmap xorg-xkbcomp discord gdb pipewire-pulse alsa-utils obsidian thunar ripgrep flameshot tesseract tesseract-data-eng glow cups
 
 yay -S lobster miru-bin ytfzf anki kcc nordvpn-bin steam ulauncher
 
@@ -77,6 +77,15 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 - install vulkan-intel for better rendering.
     * in general it is wise to look up stuff about vulkan and openGL, etc. 
 
+## Printing stuff
+
+
+sudo systemctl enable cups.service
+sudo systemctl start cups.service
+
+Some more [drivers](https://wiki.archlinux.org/title/CUPS/Printer-specific_problems)
+
+Make sure to search the official printer site for some more drivers, if needed.
 
 
 #### Misc
