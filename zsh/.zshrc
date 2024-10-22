@@ -3,6 +3,7 @@
 ## EXPORTS
 export ZSH="$HOME/.oh-my-zsh"
 export VISUAL="${EDITOR}"
+export GAMES='/home/Ningen/.steam/steam/steamapps/common'
 export EDITOR='nvim'
 export TERM='alacritty'
 export TERMINAL='alacritty'
@@ -11,10 +12,14 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export DOTFILES="$HOME/Desktop/Dotfiles"
 export SCRIPTS="$DOTFILES/bspwm/Desktops/bspwm/scripts"
 export BSPWM_DESKTOP="$DOTFILES/bspwm/Desktops/"
+export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/Ningen/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
+
+
+export PATH=$PATH:"/home/Ningen/.local/share/gem/ruby/3.3.0/bin"
 
 
 
@@ -135,8 +140,7 @@ alias discord='discord --no-sandbox'
 alias cl='printf "\033[H\033[2J"'
 alias gog='google'
 alias rop='ROPgadget --binary'
-alias netflix='nordvpn connect Japan;sleep 2; google netflix.com'
-alias cl_swap='rm ~/.local/state/nvim/swap/*'
+
 
 
 # ENV variable
@@ -186,6 +190,7 @@ bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'H' beginning-of-line
 
 # Add text object extension -- eg ci" da(:
+# WHOEVER MADE THIS MAY ASK FOR MY HAND IN MARRIAGE
 autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
@@ -197,10 +202,10 @@ done
 
 
 bindkey -s ^G "glow $PROGRAMMING_DIR/Brain\n"
+
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
-# $HOME/.local/bin/colorscript -r
 
 eval "$(starship init zsh)"
 
