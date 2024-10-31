@@ -20,6 +20,10 @@ vim.api.nvim_set_keymap('o', 'L', '$', { noremap = true, silent = true })
 
 -- Other keymaps
 
+-- Visual mode modifications
+vim.api.nvim_set_keymap('n','vv',"V", {noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','V',"v$", {noremap=true,silent=true})
+
 
 vim.api.nvim_set_keymap('n', 'gf', [[:silent! execute 'grep -r --include="*.*" "^" ./' .. vim.fn.getreg('0') .. ' | grep -v ":$"' | execute 'edit' vim.fn.fnamemodify(vim.fn.split(vim.fn.get(grep(vim.fn.escape(vim.fn.getreg('0'), " ")), 0, '')[1], ":")[1], ':p')<CR>]], { noremap = true, silent = true })
 

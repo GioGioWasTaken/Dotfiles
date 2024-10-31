@@ -89,7 +89,11 @@ Make sure to search the official printer site for some more drivers, if needed.
 
 
 #### Misc
+
 sudo pacman -S python-pwntools
 
-FZF HISTORY WIDGET WITH ^R IS GOATED
-FZF IS KING ALL HAIL FZF
+FZF HISTORY WIDGET WITH ^R IS GOATED FZF IS KING ALL HAIL FZF
+
+
+##### Open links with firefox
+xdg-mime default firefox.desktop x-scheme-handler/https x-scheme-handler/http

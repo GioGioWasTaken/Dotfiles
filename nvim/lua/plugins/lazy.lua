@@ -161,8 +161,18 @@ require('lazy').setup({
             end,
           },
 
-
-
+          ["c"] = {
+            add = function()
+              local cmd = require("nvim-surround.config").get_input "Command: "
+              return { { "\\" .. cmd .. "{" }, { "}" } }
+            end,
+          },
+          ["e"] = {
+            add = function()
+              local env = require("nvim-surround.config").get_input "Environment: "
+              return { { "\\begin{" .. env .. "}" }, { "\\end{" .. env .. "}" } }
+            end,
+          },
           -- Custom surround based on language, assigned to "p"
           ["P"] = {
             add = function()
@@ -504,5 +514,13 @@ require('lazy').setup({
     { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
   },
 },
-
+{
+  "lervag/vimtex",
+  lazy = false,     -- we don't want to lazy load VimTeX
+  -- tag = "v2.15", -- uncomment to pin to a specific release
+  init = function()
+    -- VimTeX configuration goes here, e.g.
+    vim.g.vimtex_view_method = "zathura"
+  end
+},
 })
