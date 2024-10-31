@@ -19,3 +19,13 @@ require('plugins.harpoon')
 require('plugins.oil')
 require('plugins.vimtex')
 -- vim: ts=8 sts=2 sw=2 et
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+  pattern = "*.tex",
+  command = "0r ~/.config/nvim/templates/default_template.tex",
+})
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+  pattern = { "exploit.py", "solution.py" },
+  command = "0r ~/.config/nvim/templates/exploit_template.py",
+})
