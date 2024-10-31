@@ -29,3 +29,9 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = { "exploit.py", "solution.py" },
   command = "0r ~/.config/nvim/templates/exploit_template.py",
 })
+
+-- Automatically clean up auxiliary files when saving a .tex file
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = "*.tex",
+    command = "VimtexClean",
+})
