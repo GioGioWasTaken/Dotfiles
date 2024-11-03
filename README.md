@@ -94,6 +94,8 @@ sudo pacman -S python-pwntools
 
 FZF HISTORY WIDGET WITH ^R IS GOATED FZF IS KING ALL HAIL FZF
 
+sudo pacman -S texlive-binextra, would resolve some a vimtex issue.
+
 
 ##### Open links with firefox
 xdg-mime default firefox.desktop x-scheme-handler/https x-scheme-handler/http

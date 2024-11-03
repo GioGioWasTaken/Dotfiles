@@ -102,7 +102,7 @@ xsetroot -cursor_name left_ptr
 
 
 # compfy
-compfy --config ~/.config/compfy/compfy.conf
+compfy --config ~/.config/compfy/compfy.conf &
 
 
 fcitx5&
