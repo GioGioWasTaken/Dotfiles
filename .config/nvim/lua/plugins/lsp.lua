@@ -187,4 +187,17 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 
+-- disable ltex on markdown files.
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        local clients = vim.lsp.get_active_clients()
+        for _, client in ipairs(clients) do
+            if client.name == "ltex" then
+                vim.lsp.stop_client(client.id)
+            end
+        end
+    end,
+})
+
 
