@@ -30,6 +30,13 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   command = "0r ~/.config/nvim/templates/exploit_template.py",
 })
 
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+  pattern = { "exploit.md", "solution.md" },
+  command = "0r ~/.config/nvim/templates/exploit.md",
+})
+
+
 -- Automatically clean up auxiliary files when saving a .tex file
 vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = "*.tex",
