@@ -1,0 +1,12 @@
+{
+  "manifest_version": "1",
+  "name": "Catppuccin-Latte-Yellow",
+  "display_name": "Catppuccin Latte Yellow",
+  "extend_theme": "light",
+  "css_file": "theme.css",
+  "css_file_gtk_3.20+": "theme-gtk-3.20.css",
+  "matched_text_hl_colors": {
+    "when_selected": "#df8e1d",
+    "when_not_selected": "#df8e1d"
+  }
+}

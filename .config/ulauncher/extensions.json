@@ -1,0 +1,100 @@
+{
+    "com.github.laurens256.ulauncher-random-number": {
+        "id": "com.github.laurens256.ulauncher-random-number",
+        "url": "https://github.com/Laurens256/ulauncher-random-number",
+        "updated_at": "2024-10-10T14:34:12.771901",
+        "last_commit": "2a1275e9cd2963a6e4aaa0aba849602d1ff8e535",
+        "last_commit_time": "2023-08-07T14:36:01"
+    },
+    "com.github.mepowerleo10.ulauncher-dict-en": {
+        "id": "com.github.mepowerleo10.ulauncher-dict-en",
+        "url": "https://github.com/mepowerleo10/ulauncher-dict-en",
+        "updated_at": "2024-10-10T14:34:24.236110",
+        "last_commit": "78babcd05dff825a580a7192fc14ee73775784f2",
+        "last_commit_time": "2023-04-03T09:26:35"
+    },
+    "com.github.wedontpanic.jotoba-ulauncher": {
+        "id": "com.github.wedontpanic.jotoba-ulauncher",
+        "url": "https://github.com/WeDontPanic/jotoba-ulauncher",
+        "updated_at": "2024-10-10T14:35:08.561379",
+        "last_commit": "a3b6dad7cac4be9b5f9d5917e943555b70856ca0",
+        "last_commit_time": "2022-10-01T15:51:52"
+    },
+    "com.github.kuenzelit.ulauncher-firefox-bookmarks": {
+        "id": "com.github.kuenzelit.ulauncher-firefox-bookmarks",
+        "url": "https://github.com/KuenzelIT/ulauncher-firefox-bookmarks",
+        "updated_at": "2024-10-10T14:35:44.366980",
+        "last_commit": "77f1de0adfc2e79ce767f645ae8ad0a0dda2783e",
+        "last_commit_time": "2019-12-07T17:27:46"
+    },
+    "com.github.tevenfeng.ulauncher-dc": {
+        "id": "com.github.tevenfeng.ulauncher-dc",
+        "url": "https://github.com/tevenfeng/ulauncher-dc",
+        "updated_at": "2024-10-10T15:05:49.391341",
+        "last_commit": "4cdeb58b1f79b64f2f6e3b4eecc3a38b81c886ea",
+        "last_commit_time": "2022-06-16T09:10:28"
+    },
+    "com.github.pymustafa.ulauncher-shortn": {
+        "id": "com.github.pymustafa.ulauncher-shortn",
+        "url": "https://github.com/PyMustafa/ulauncher-shortn",
+        "updated_at": "2024-10-10T15:06:07.988120",
+        "last_commit": "29caf53983cad40a4f28a6d0b743f6ec7fbc4d6b",
+        "last_commit_time": "2024-08-20T13:13:07"
+    },
+    "com.github.rootwork.ulauncher-symbol": {
+        "id": "com.github.rootwork.ulauncher-symbol",
+        "url": "https://github.com/rootwork/ulauncher-symbol",
+        "updated_at": "2024-10-10T15:06:52.861770",
+        "last_commit": "c5d7ab5c94c1b418cb1f8a9161be169a29c65658",
+        "last_commit_time": "2022-02-24T01:17:09"
+    },
+    "com.github.zensoup.ulauncher-unicode": {
+        "id": "com.github.zensoup.ulauncher-unicode",
+        "url": "https://github.com/zensoup/ulauncher-unicode",
+        "updated_at": "2024-10-10T15:07:07.227767",
+        "last_commit": "0ad36c00a888e687b4bfbf76f266f1000040b337",
+        "last_commit_time": "2019-07-11T06:53:31"
+    },
+    "com.github.plibither8.ulauncher-nordvpn": {
+        "id": "com.github.plibither8.ulauncher-nordvpn",
+        "url": "https://github.com/plibither8/ulauncher-nordvpn",
+        "updated_at": "2024-10-10T15:07:26.323270",
+        "last_commit": "fda9689bc25489a408b968f40df1ee41812a92d6",
+        "last_commit_time": "2021-05-25T05:36:34"
+    },
+    "com.github.nastuzzisamy.ulauncher-youtube-search": {
+        "id": "com.github.nastuzzisamy.ulauncher-youtube-search",
+        "url": "https://github.com/NastuzziSamy/ulauncher-youtube-search",
+        "updated_at": "2024-10-10T15:07:48.456198",
+        "last_commit": "fe855811358b2f15ec6ed69ca18e20639874fa28",
+        "last_commit_time": "2021-03-27T11:29:18"
+    },
+    "com.github.epholys.ultz": {
+        "id": "com.github.epholys.ultz",
+        "url": "https://github.com/Epholys/ultz",
+        "updated_at": "2024-10-10T15:08:02.632967",
+        "last_commit": "9f0749d6ab1fcb99545dae75934b698e5ff975b6",
+        "last_commit_time": "2021-05-12T14:01:01"
+    },
+    "com.github.kbialek.ulauncher-bitwarden": {
+        "id": "com.github.kbialek.ulauncher-bitwarden",
+        "url": "https://github.com/kbialek/ulauncher-bitwarden",
+        "updated_at": "2024-10-10T15:09:17.628357",
+        "last_commit": "a57acb3394ba2d1aaefc743b5bff819a9eb8d619",
+        "last_commit_time": "2024-05-08T06:35:12"
+    },
+    "com.github.cyprienruffino.ulauncher-tex-to-unicode": {
+        "id": "com.github.cyprienruffino.ulauncher-tex-to-unicode",
+        "url": "https://github.com/cyprienruffino/ulauncher-tex-to-unicode",
+        "updated_at": "2024-10-10T15:09:40.467878",
+        "last_commit": "4b7508b3f68ada7539ade9d3dd42d789cf36e7f8",
+        "last_commit_time": "2023-04-12T21:12:02"
+    },
+    "com.github.tuanpham-dev.ulauncher-better-calculator": {
+        "id": "com.github.tuanpham-dev.ulauncher-better-calculator",
+        "url": "https://github.com/tuanpham-dev/ulauncher-better-calculator",
+        "updated_at": "2024-10-10T15:28:58.405101",
+        "last_commit": "48f0592a2a8ac9ec2589a06b562141e1a2d9b25f",
+        "last_commit_time": "2023-04-24T13:55:30"
+    }
+}
