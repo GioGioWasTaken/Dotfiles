@@ -86,10 +86,18 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 
 for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  if lsp == 'ltex' then
+    require('lspconfig')[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "tex", "bib", "plaintex" },  -- no markdown
+    }
+  else
+    require('lspconfig')[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 
 
@@ -185,19 +193,4 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end,
 })
-
-
--- disable ltex on markdown files.
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        local clients = vim.lsp.get_active_clients()
-        for _, client in ipairs(clients) do
-            if client.name == "ltex" then
-                vim.lsp.stop_client(client.id)
-            end
-        end
-    end,
-})
-
 
