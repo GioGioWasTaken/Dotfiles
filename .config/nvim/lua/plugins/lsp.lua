@@ -73,7 +73,7 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls','bashls','jdtls','lua_ls','ltex', 'texlab'}
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'ts_ls', 'gopls','bashls','jdtls','lua_ls','ltex', 'texlab'}
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -82,14 +82,21 @@ require('mason-lspconfig').setup {
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
+capabilities = require('blink.cmp').get_lsp_capabilities()
 
 for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  if lsp == 'ltex' then
+    require('lspconfig')[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "tex", "bib", "plaintex" },  -- no markdown
+    }
+  else
+    require('lspconfig')[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 
 
@@ -130,51 +137,51 @@ require('lspconfig').lua_ls.setup {
 
 
 -- nvim-cmp setup
-local cmp = require 'cmp'
-local luasnip = require 'luasnip'
-
-cmp.setup {
-  view = {
-  	entries = "native"
-  },
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = "neorg" },
-  },
-}
+-- local cmp = require 'cmp'
+-- local luasnip = require 'luasnip'
+--
+-- cmp.setup {
+--   view = {
+--   	entries = "native"
+--   },
+--   snippet = {
+--     expand = function(args)
+--       luasnip.lsp_expand(args.body)
+--     end,
+--   },
+--   mapping = cmp.mapping.preset.insert {
+--     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+--     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+--     ['<C-Space>'] = cmp.mapping.complete(),
+--     ['<CR>'] = cmp.mapping.confirm {
+--       behavior = cmp.ConfirmBehavior.Replace,
+--       select = true,
+--     },
+--     ['<Tab>'] = cmp.mapping(function(fallback)
+--       if cmp.visible() then
+--         cmp.select_next_item()
+--       elseif luasnip.expand_or_jumpable() then
+--         luasnip.expand_or_jump()
+--       else
+--         fallback()
+--       end
+--     end, { 'i', 's' }),
+--     ['<S-Tab>'] = cmp.mapping(function(fallback)
+--       if cmp.visible() then
+--         cmp.select_prev_item()
+--       elseif luasnip.jumpable(-1) then
+--         luasnip.jump(-1)
+--       else
+--         fallback()
+--       end
+--     end, { 'i', 's' }),
+--   },
+--   sources = {
+--     { name = 'nvim_lsp' },
+--     { name = 'luasnip' },
+--     { name = "neorg" },
+--   },
+-- }
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'sh',
@@ -185,19 +192,4 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end,
 })
-
-
--- disable ltex on markdown files.
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        local clients = vim.lsp.get_active_clients()
-        for _, client in ipairs(clients) do
-            if client.name == "ltex" then
-                vim.lsp.stop_client(client.id)
-            end
-        end
-    end,
-})
-
 

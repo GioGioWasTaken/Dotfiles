@@ -20,6 +20,12 @@ vim.api.nvim_set_keymap('o', 'L', '$', { noremap = true, silent = true })
 
 -- Other keymaps
 
+
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
+
+
+
 -- Visual mode modifications
 vim.api.nvim_set_keymap('n','vv',"V", {noremap=true,silent=true})
 vim.api.nvim_set_keymap('n','V',"v$", {noremap=true,silent=true})
@@ -174,7 +180,6 @@ vim.api.nvim_set_keymap("n", "<C-,>", ":vertical resize -10<CR>", {noremap=true}
 vim.api.nvim_set_keymap("n", "<C-.>", ":vertical resize +10<CR>", {noremap=true})
 -- Quicker close split
 vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
-
 
 
 vim.api.nvim_set_keymap('i', 'df', '<Right>', { noremap = true, silent = true })
