@@ -413,8 +413,6 @@ require('lazy').setup({
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- see the "default configuration" section below for full documentation on how to define
-    -- your own keymap.
-    keymap = { preset = 'default' },
 
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -444,6 +442,10 @@ require('lazy').setup({
     ['<A-7>'] = { function(cmp) cmp.accept({ index = 7 }) end },
     ['<A-8>'] = { function(cmp) cmp.accept({ index = 8 }) end },
     ['<A-9>'] = { function(cmp) cmp.accept({ index = 9 }) end },
+    ['<CR>'] = { 'accept','fallback'},
+    ['<A-k>'] = { 'select_prev', 'fallback'},
+    ['<A-j>'] = { 'select_next', 'fallback'},
+    ['<C-d>'] = { 'show', 'show_documentation', 'hide_documentation' }
   },
   completion = {
     menu = {
