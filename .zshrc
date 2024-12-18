@@ -143,7 +143,7 @@ alias cl='printf "\033[H\033[2J"'
 alias gog='google'
 alias rop='ROPgadget --binary'
 alias venv='source ~/.venvs/bin/activate'
-alias cm='chezmoi'
+alias cl_swap='rm ~/.local/state/nvim/swap/*'
 
 
 # ENV variable
