@@ -1,21 +1,30 @@
-#  ╔═╗╔═╗╦ ╦╦═╗╔═╗  ╔═╗╔═╗╔╗╔╔═╗╦╔═╗	- z0mbi3
-#  ╔═╝╚═╗╠═╣╠╦╝║    ║  ║ ║║║║╠╣ ║║ ╦	- https://github.com/gh0stzk/dotfiles
-#  ╚═╝╚═╝╩ ╩╩╚═╚═╝  ╚═╝╚═╝╝╚╝╚  ╩╚═╝	- My zsh conf
+# Path Oh My Zsh installation.
 
-#  ┬  ┬┌─┐┬─┐┌─┐
-#  └┐┌┘├─┤├┬┘└─┐
-#   └┘ ┴ ┴┴└─└─┘
+## EXPORTS
+export ZSH="$HOME/.oh-my-zsh"
 export VISUAL="${EDITOR}"
+export GAMES='/home/Ningen/.steam/steam/steamapps/common'
 export EDITOR='nvim'
 export TERM='alacritty'
 export TERMINAL='alacritty'
-export BROWSER='librewolf'
+export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export DOTFILES="$HOME/Desktop/Dotfiles"
+export SCRIPTS="$DOTFILES/bspwm/Desktops/bspwm/scripts"
+export BSPWM_DESKTOP="$DOTFILES/bspwm/Desktops/"
+export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/Ningen/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
+
+
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
-#  ┬  ┌─┐┌─┐┌┬┐  ┌─┐┌┐┌┌─┐┬┌┐┌┌─┐ │  │ │├─┤ ││  ├┤ ││││ ┬││││├┤ ┴─┘└─┘┴ ┴─┴┘  └─┘┘└┘└─┘┴┘└┘└─┘
+
+
+export PATH=$PATH:"/home/Ningen/.local/share/gem/ruby/3.3.0/bin"
+
+
+
 autoload -Uz compinit
 
 for dump in ~/.config/zsh/zcompdump(N.mh+24); do
@@ -37,9 +46,22 @@ zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d
 zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
 zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 
+
+
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="robbyrussell"
+
+
+
 #  ┬ ┬┌─┐┬┌┬┐┬┌┐┌┌─┐  ┌┬┐┌─┐┌┬┐┌─┐
 #  │││├─┤│ │ │││││ ┬   │││ │ │ └─┐
 #  └┴┘┴ ┴┴ ┴ ┴┘└┘└─┘  ─┴┘└─┘ ┴ └─┘
+# dots while completion is loading
 expand-or-complete-with-dots() {
   echo -n "\e[31m…\e[0m"
   zle expand-or-complete
@@ -48,12 +70,15 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
+
+
 #  ┬ ┬┬┌─┐┌┬┐┌─┐┬─┐┬ ┬
 #  ├─┤│└─┐ │ │ │├┬┘└┬┘
 #  ┴ ┴┴└─┘ ┴ └─┘┴└─ ┴ 
 HISTFILE=~/.config/zsh/zhistory
 HISTSIZE=5000
 SAVEHIST=5000
+
 
 #  ┌─┐┌─┐┬ ┬  ┌─┐┌─┐┌─┐┬    ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 #  ┌─┘└─┐├─┤  │  │ ││ ││    │ │├─┘ │ ││ ││││└─┐
@@ -67,46 +92,24 @@ setopt HIST_IGNORE_DUPS	   # Do not write events to history that are duplicates 
 setopt HIST_FIND_NO_DUPS   # When searching history don't display results already cycled through twice
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 
-#  ┌┬┐┬ ┬┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┌┬┐
-#   │ ├─┤├┤   ├─┘├┬┘│ ││││├─┘ │ 
-#   ┴ ┴ ┴└─┘  ┴  ┴└─└─┘┴ ┴┴   ┴
-function dir_icon {
-  if [[ "$PWD" == "$HOME" ]]; then
-    echo "%B%F{cyan}%f%b"
-  else
-    echo "%B%F{cyan}%f%b"
-  fi
-}
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  history-substring-search
+  fzf-tab
+  you-should-use
+  vi-mode
+  auto-notify
+  web-search
+)
 
-PS1='%B%F{blue}%f%b  %B%F{magenta}%n%f%b $(dir_icon)  %B%F{red}%~%f%b${vcs_info_msg_0_} %(?.%B%F{green}.%F{red})%f%b '
-
-#  ┌─┐┬  ┬ ┬┌─┐┬┌┐┌┌─┐
-#  ├─┘│  │ ││ ┬││││└─┐
-#  ┴  ┴─┘└─┘└─┘┴┘└┘└─┘
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-#  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬  ┌─┐  ┌┬┐┬┌┬┐┬  ┌─┐
-#  │  ├─┤├─┤││││ ┬├┤    │ ├┤ ├┬┘│││││││├─┤│  └─┐   │ │ │ │  ├┤ 
-#  └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘└─┘   ┴ ┴ ┴ ┴─┘└─┘
-function xterm_title_precmd () {
-	print -Pn -- '\e]2;%n@%m %~\a'
-	[[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
-}
-
-function xterm_title_preexec () {
-	print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
-	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
-}
-
-if [[ "$TERM" == (kitty*|alacritty*|termite*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
-	add-zsh-hook -Uz precmd xterm_title_precmd
-	add-zsh-hook -Uz preexec xterm_title_preexec
-fi
+source $ZSH/oh-my-zsh.sh
 
 #  ┌─┐┬  ┬┌─┐┌─┐
 #  ├─┤│  │├─┤└─┐
@@ -114,46 +117,37 @@ fi
 alias mirrors="sudo reflector --verbose --latest 5 --country 'United States' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
 
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias mantenimiento="yay -Sc && sudo pacman -Scc"
-alias purga="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
-alias update="paru -Syu --nocombinedupgrade"
+
+alias mantenimiento="yay -Sc && sudo pacman -Scc" # no idea what this does
+
 alias vim="nvim"
-alias vm-on="sudo systemctl start libvirtd.service"
-alias vm-off="sudo systemctl stop libvirtd.service"
 
 alias ongaku="ncmpcpp"
 
 alias ls='lsd -a --group-directories-first'
 alias ll='lsd -la --group-directories-first'
 
-# PERSONAL CHANGES AND SETTINGS -- ADDED AFTER INITIAL RICE
-
-# ENV variable
-export PROGRAMMING_DIR=~/Desktop/Programming/Linux-Machine # machine specific.
-# this is machine specific unfortunately, so we will have 2.
-# export PROGRAMMING_DIR=~/Desktop/Programming/
-
-# Below is the definition for the ep (enter Programming) command. This command uses the ENV variable defined above in order to make CD'ing into my programming directory more comfortable.
-
-
-
-
-# Personal aliases
-
 # get rid of AT&T syntax for the far superior intel syntax.
 alias objdump='objdump -M intel'
 
+# awesome alias
 man2() {
   curl cheat.sh/"$1"
 }
 alias ytfzf='ytfzf -t'
 alias ytmusic='ytfzf -t -m -s'
+alias godot='cd ~/Desktop/Dotfiles'
+alias tmux='tmux -u'
+alias discord='discord --no-sandbox'
+alias cl='printf "\033[H\033[2J"'
+alias gog='google'
+alias rop='ROPgadget --binary'
+alias venv='source ~/.venvs/bin/activate'
+alias cm='chezmoi'
 
 
 # ENV variable
-# export PROGRAMMING_DIR=~/Desktop/Programming/Linux-Machine # machine specific.
-# this is machine specific unfortunately, so we will have 2.
-export PROGRAMMING_DIR=~/Desktop/Programming/
+export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
 
 # Below is the definition for the ep (enter Programming) command. This command uses the ENV variable defined above in order to make CD'ing into my programming directory more comfortable.
 
@@ -181,11 +175,44 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
-bindkey -s ^a "nvims\n"
+bindkey -s ^a "^Utmux attach\n"
 
+
+
+
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# CD into chosen directory
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+
+# VIMMMMMMM
+bindkey -v
+bindkey 'qq' vi-cmd-mode
+bindkey -M vicmd 'L' end-of-line
+bindkey -M vicmd 'H' beginning-of-line
+
+# Add text object extension -- eg ci" da(:
+# WHOEVER MADE THIS MAY ASK FOR MY HAND IN MARRIAGE
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+    for c in {a,i}{\',\",\`}; do
+        bindkey -M $m $c select-quoted
+    done
+done
+
+
+
+bindkey -s ^G "glow $PROGRAMMING_DIR/Brain\n"
 
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
 #  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
-# $HOME/.local/bin/colorscript -r
+
+eval "$(starship init zsh)"
+
 python ~/.config/bspwm/scripts/Quotes/quotes.py
