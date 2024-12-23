@@ -5,7 +5,7 @@ local stretch = true
 local font_family = ({
 	-- "{{font.family}}",          -- [1]
 	-- "BlexMono Nerd Font",       -- [2]
-	"Iosevka Nerd Font Mono",   -- [3]
+	-- "Iosevka Nerd Font Mono",   -- eliminate unable to load font message.[3]
 	"JetBrainsMono Nerd Font",  -- [4]
 	"FiraCode Nerd Font",       -- [5]
 	"ComicCodeLigatures",       -- [6]

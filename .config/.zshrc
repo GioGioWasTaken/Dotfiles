@@ -120,7 +120,9 @@ alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias mantenimiento="yay -Sc && sudo pacman -Scc" # no idea what this does
 
+
 alias vim="nvim"
+alias e="nvim" # I should move on to one letter. e for edit.
 
 alias ongaku="ncmpcpp"
 

@@ -114,4 +114,4 @@ ulauncher&
 
 
 # compfy
-compfy --config ~/.config/compfy/compfy.conf &
+# compfy --config ~/.config/compfy/compfy.conf &
