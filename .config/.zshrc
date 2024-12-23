@@ -196,6 +196,9 @@ bindkey -v
 bindkey 'qq' vi-cmd-mode
 bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'H' beginning-of-line
+bindkey '^V' yank
+
+
 
 # Add text object extension -- eg ci" da(:
 # WHOEVER MADE THIS MAY ASK FOR MY HAND IN MARRIAGE
