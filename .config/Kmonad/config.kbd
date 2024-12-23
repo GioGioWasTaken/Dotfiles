@@ -1,0 +1,40 @@
+(defcfg
+  ;; Input and output devices
+  input  (device-file "/dev/input/by-id/usb-Your-Keyboard-Event-Kbd") ;; this is an example
+  output (uinput-sink "kmonad-output")
+
+  ;; Optional settings
+  fallthrough true
+  allow-cmd false
+)
+
+(defalias
+  vim   (layer-toggle vim)
+)
+
+(defsrc
+  esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12
+  `    1    2    3    4    5    6    7    8    9    0    -    =
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  l-sh z    x    c    v    b    n    m    ,    .    /    r-sh
+  l-ctl l-alt spc l-alt r-alt r-ctl
+)
+
+(deflayer base
+  esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12
+  `    1    2    3    4    5    6    7    8    9    0    -    =
+  tab  @vim w e r t y u i o p [ ]
+  home a    s    d    f    g    h    j    k    l    ;    '    \
+  l-sh z    x    c    v    (tap-hold 200 b bfn) n m , . / r-sh
+  l-ctl l-alt spc l-alt r-alt r-ctl
+)
+
+(deflayer vim
+  esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12
+  `    1    2    3    4    5    6    7    8    9    0    -    =
+  tab  q    w    e    r    t    crtl-c    u    i    o    crtl-v    [    ]
+  caps a    s    d    f    g    left    down    up    right    ;    '    \
+  l-sh z    x    c    v    b    n    m    ,    .    /    r-sh
+  l-ctl l-alt spc l-alt r-alt r-ctl
+)
