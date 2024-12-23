@@ -5,6 +5,12 @@ harpoon:setup({})
 vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end)
 vim.keymap.set("n", "R", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
+-- Pick items with keyboard shortcuts
+
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end) -- High
+vim.keymap.set("n", "<C-m>", function() harpoon:list():select(2) end) -- Middle
+vim.keymap.set("n", "<C-l>", function() harpoon:list():select(3) end) -- Low
+
 -- basic telescope configuration
 local conf = require("telescope.config").values
 local function toggle_telescope(harpoon_files)

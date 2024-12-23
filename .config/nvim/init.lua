@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = { "exploit.py", "solution.py" },
-  command = "0r ~/.config/nvim/templates/exploit_template.py",
+  command = "0r ~/.config/nvim/templates/exploit.py",
 })
 
 
