@@ -88,5 +88,25 @@
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1731420164.9708235
+    },
+    "9b0f539e-43cc-4794-8133-97f54243d6d4": {
+        "id": "9b0f539e-43cc-4794-8133-97f54243d6d4",
+        "name": "nyaa | torrent",
+        "keyword": "nyaa",
+        "cmd": "https://nyaa.si/?f=0&c=3_3&q=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1735126030.1191325
+    },
+    "8ccfec71-0a8d-42d0-a770-ee3aabd72fff": {
+        "id": "8ccfec71-0a8d-42d0-a770-ee3aabd72fff",
+        "name": "medium",
+        "keyword": "medium",
+        "cmd": "https://freedium.cfd/%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1735126081.649132
     }
 }
