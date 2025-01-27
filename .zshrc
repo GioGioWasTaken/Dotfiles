@@ -120,7 +120,9 @@ alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias mantenimiento="yay -Sc && sudo pacman -Scc" # no idea what this does
 
+
 alias vim="nvim"
+alias e="nvim" # I should move on to one letter. e for edit.
 
 alias ongaku="ncmpcpp"
 
@@ -129,6 +131,8 @@ alias ll='lsd -la --group-directories-first'
 
 # get rid of AT&T syntax for the far superior intel syntax.
 alias objdump='objdump -M intel'
+
+alias lobster='lobster --rofi -i'
 
 # awesome alias
 man2() {
@@ -143,7 +147,7 @@ alias cl='printf "\033[H\033[2J"'
 alias gog='google'
 alias rop='ROPgadget --binary'
 alias venv='source ~/.venvs/bin/activate'
-alias cl_swap='rm ~/.local/state/nvim/swap/*'
+alias cm='chezmoi'
 
 
 # ENV variable
@@ -194,6 +198,9 @@ bindkey -v
 bindkey 'qq' vi-cmd-mode
 bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'H' beginning-of-line
+bindkey '^V' yank
+
+
 
 # Add text object extension -- eg ci" da(:
 # WHOEVER MADE THIS MAY ASK FOR MY HAND IN MARRIAGE
