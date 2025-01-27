@@ -1,0 +1,17 @@
+lobster_editor=nvim
+player=mpv 
+download_dir="$PWD"
+provider="VidCloud"
+history=0
+subs_language="english"
+histfile="$HOME/.local/share/lobster/lobster_history.txt"
+use_external_menu=1
+image_preview=1
+image_config_path=~/.config/rofi_lobster/styles/launcher.rasi
+debug=0
+quiet_output=1
+preview_window_size=50%
+ueberzug_x=$(($(tput cols) - 70))
+ueberzug_y=$(($(tput lines) / 10))
+ueberzug_max_width=100
+ueberzug_max_height=100

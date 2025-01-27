@@ -1,0 +1,27 @@
+configuration {
+	font: "{{font.family}} {{rofi_font_size}}";
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "";
+  display-run: "";
+  display-window: "﩯 ";
+  display-combi: "  ";
+	kb-remove-char-back: "BackSpace";
+	kb-remove-to-eol: "Control+Shift+e";
+	kb-accept-entry: "Return";
+	kb-mode-next: "Control+Tab,Control+l";
+	kb-mode-previous: "Control+Shift+Tab,Control+h";
+	kb-mode-complete: "Control+p";
+  kb-row-up: "Up,Control+k";
+  kb-row-down: "Down,Control+j";
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+  run,drun {
+    fallback-icon:    "~/dotfiles/pictures/fallback-icon.png";
+    matching:         "fuzzy";
+  }
+}
+
+@theme "~/.config/rofi/styles/main.rasi"

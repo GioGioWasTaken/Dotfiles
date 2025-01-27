@@ -1,0 +1,89 @@
+* {
+    background-color:               transparent;
+    text-color:                     #ffffff;
+    primary:                        #be95ff;
+    pink:                           #ff7eb6;
+    cyan:                           #82cfff;
+    fullscreen:                     true;
+}
+
+mainbox {
+    children:                       [inputbar-box, listview];
+}
+
+listview {
+    spacing:                        20px;
+    dynamic:                        true;
+    columns:                        5;
+    lines:                          2;
+}
+
+inputbar-box {
+    children:                       [dummy, inputbar, dummy];
+    orientation:                    horizontal;
+    expand:                         true;
+}
+
+inputbar {
+    margin:                         10%;
+    background-color:               transparent;
+    text-color:                     @text-color;
+    expand:                         true;
+    children:                       [ entry-wrapper ];
+}
+
+entry {
+    text-color:                     @text-color;
+    vertical-align:                 0.5;
+    blink:                          true;
+}
+
+button {
+    str:                            "";
+    expand:                         false;
+    text-color:                     @text-color;
+    vertical-align:                 0.5;
+    horizontal-align:               0.5;
+}
+
+
+entry-wrapper {
+    orientation:                    horizontal;
+    spacing:                        24px;
+    vertical-align:                 0.5;
+    children:                       [ button, entry ];
+}
+
+
+element {
+    children:                       [element-box];
+    orientation:                    vertical;
+    border:                         0px 4px solid 0px 4px;
+    border-color:                   transparent;
+    border-radius:                  20;
+}
+
+element selected {
+    border-color:                   @primary;
+}
+
+element-box {
+    children:                       [element-icon, element-text];
+    orientation:                    vertical;
+    background-color:               transparent;
+}
+
+element-icon {
+    padding:                        2%;
+    size:                           40%;
+}
+
+element-text {
+    padding:                        2%;
+    horizontal-align:               0.5;
+    highlight:                      @pink;
+}
+
+element-text selected {
+    text-color:                     @primary;
+}
