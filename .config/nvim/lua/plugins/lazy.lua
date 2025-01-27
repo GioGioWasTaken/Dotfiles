@@ -713,5 +713,13 @@ require('lazy').setup({
     })
   end,
 },
+{
+"sphamba/smear-cursor.nvim",
+  opts = {},
+},
+
 
 })
+
+
+
