@@ -1,0 +1,48 @@
+@import "../colors.rasi"
+
+* {
+    background-color:   transparent;
+    text-color:         @text;
+    border-radius:      10px;
+}
+
+window {
+    location:           center;
+    fullscreen:         false;
+    width:              50%;
+}
+
+mainbox {
+    background-color:   @base00;
+}
+
+inputbar {
+    padding:           5%;
+    text-color:        @text;
+    background-image:  url("~/dotfiles/pictures/wallpapers/wallpaper.jpg", width);
+    children:          [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    expand:             false;
+    str:                "";
+    margin:             1em 1em;
+    padding:            0.75em 1.25em;
+}
+
+entry {
+    enabled:            true;
+    margin:             1em 1em;
+    padding:            0.75em 1.25em;
+    border-radius:      20px;
+    background-color:   @base00;
+    text-color:         @text;
+}
+
+listview {
+    fixed-height:       false;
+}
+
+textbox {
+    padding:            1%;
+}

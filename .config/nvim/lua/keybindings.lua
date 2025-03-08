@@ -145,6 +145,9 @@ vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", {noremap=false})
 vim.api.nvim_set_keymap("n", "TT", ":TransparentToggle<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "ss", ":noh<CR>", {noremap=true})
 
+-- quick one command change to normal mode: 
+vim.api.nvim_set_keymap("i", "jk", "<C-o>", {noremap=true})
+
 
 
 -- stop highlighting of words (for example by / or ?)

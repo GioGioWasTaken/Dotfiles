@@ -34,7 +34,8 @@
 
 (defalias
   yank   #(C-c)
-  paste   #(C-v)
+  paste   #(C-V)
+  delete #(C-bspc)
   nextword #(C-right)
   formerword #(C-left)
 )
