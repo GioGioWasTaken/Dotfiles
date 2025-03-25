@@ -14,6 +14,9 @@ export SCRIPTS="$DOTFILES/bspwm/Desktops/bspwm/scripts"
 export BSPWM_DESKTOP="$DOTFILES/bspwm/Desktops/"
 export XDG_DATA_DIRS="/usr/share:/home/Ningen/.local/share/:/var/lib/flatpak/exports/share:/home/Ningen/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
+# android dev.
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
 
 
 if [ -d "$HOME/.local/bin" ] ;
