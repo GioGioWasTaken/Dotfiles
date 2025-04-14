@@ -37,6 +37,12 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 })
 
 
+vim.api.nvim_create_autocmd("BufNewFile", {
+  pattern = { "_index.md"},
+  command = "0r ~/.config/nvim/templates/_index.md",
+})
+
+
 -- Automatically clean up auxiliary files when saving a .tex file
 vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = "*.tex",
