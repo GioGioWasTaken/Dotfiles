@@ -68,6 +68,13 @@ simply add it through fcitx5 config tool. Make sure your language switch keys ar
 ## Yomichan
 -  grab dicts from the dotfiles and add them through your browser
 
+## Python packages
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+Use `uv` to manage python packages globally when they aren't available via `AUR` under `python-packagename`(or even when they are available.)
+
 ## Fonts
 
 ## Gaming
