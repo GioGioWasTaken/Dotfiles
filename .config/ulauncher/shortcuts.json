@@ -108,5 +108,15 @@
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1735126081.649132
+    },
+    "6b747da5-6429-49ab-a47e-7ed77842af90": {
+        "id": "6b747da5-6429-49ab-a47e-7ed77842af90",
+        "name": "letterboxd",
+        "keyword": "lboxd",
+        "cmd": "https://letterboxd.com/search/%s",
+        "icon": "~/Downloads/images.png",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1741421817.772904
     }
 }

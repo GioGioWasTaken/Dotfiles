@@ -1,0 +1,10 @@
+{
+    "preferences": {
+        "default_range": "1-20"
+    },
+    "triggers": {
+        "kw": {
+            "keyword": "r"
+        }
+    }
+}

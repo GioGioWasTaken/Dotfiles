@@ -1,0 +1,24 @@
+{
+    "preferences": {
+        "language": "en-US",
+        "show_en": "0",
+        "res_limit": "10"
+    },
+    "triggers": {
+        "kw": {
+            "keyword": "j"
+        },
+        "word_kw": {
+            "keyword": "jw"
+        },
+        "kanji_kw": {
+            "keyword": "jk"
+        },
+        "sentence_kw": {
+            "keyword": "js"
+        },
+        "name_kw": {
+            "keyword": "jn"
+        }
+    }
+}
