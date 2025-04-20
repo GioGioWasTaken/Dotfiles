@@ -10,7 +10,7 @@ export TERMINAL='alacritty'
 export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export DOTFILES="$HOME/Desktop/Dotfiles"
-export SCRIPTS="$DOTFILES/bspwm/Desktops/bspwm/scripts"
+export SCRIPTS="$HOME/.config/bspwm/scripts"
 export BSPWM_DESKTOP="$DOTFILES/bspwm/Desktops/"
 export XDG_DATA_DIRS="/usr/share:/home/Ningen/.local/share/:/var/lib/flatpak/exports/share:/home/Ningen/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 

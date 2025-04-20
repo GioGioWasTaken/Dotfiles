@@ -25,6 +25,7 @@ super + alt + Return
 # Dictionary
 super + d
   sh $SCRIPTS/Dictionary.sh
+
 # Awesome OCR
 super + o
   sh $SCRIPTS/OCR.sh
@@ -61,8 +62,11 @@ super + shift + p
 super + equal
 	rofi -modi calc -show calc -calc-command 'echo "{result}" | xclip -sel c'
 
+super + minus
+	python $SCRIPTS/hex_calc.py
+
 super + period
-    rofi -modi "emoji:/usr/bin/rofimoji" -show emoji -display-emoji "󰞅" 
+	python $SCRIPTS/hex_calc.py
 
 # Apps (browser, editor, filemanager)
 shift + alt + {b,o,n}
