@@ -5,13 +5,16 @@ export ZSH="$HOME/.oh-my-zsh"
 export VISUAL="${EDITOR}"
 export GAMES='/home/Ningen/.steam/steam/steamapps/common'
 export EDITOR='nvim'
-export TERM='alacritty'
-export TERMINAL='alacritty'
+export TERM='wezterm'
+export TERMINAL='wezterm'
 export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export DOTFILES="$HOME/Desktop/Dotfiles"
 export SCRIPTS="$HOME/.config/bspwm/scripts"
 export BSPWM_DESKTOP="$DOTFILES/bspwm/Desktops/"
+
+export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/Ningen/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
+export LANG=en_US.UTF-8
 export XDG_DATA_DIRS="/usr/share:/home/Ningen/.local/share/:/var/lib/flatpak/exports/share:/home/Ningen/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
 # android dev.
