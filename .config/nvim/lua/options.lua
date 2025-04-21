@@ -43,3 +43,5 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.o.splitright = true
 vim.o.splitbelow = true
+
+

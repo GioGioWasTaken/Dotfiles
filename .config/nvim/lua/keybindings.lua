@@ -31,7 +31,9 @@ vim.api.nvim_set_keymap('n','vv',"V", {noremap=true,silent=true})
 vim.api.nvim_set_keymap('n','V',"v$", {noremap=true,silent=true})
 
 
-vim.api.nvim_set_keymap('n', 'gf', [[:silent! execute 'grep -r --include="*.*" "^" ./' .. vim.fn.getreg('0') .. ' | grep -v ":$"' | execute 'edit' vim.fn.fnamemodify(vim.fn.split(vim.fn.get(grep(vim.fn.escape(vim.fn.getreg('0'), " ")), 0, '')[1], ":")[1], ':p')<CR>]], { noremap = true, silent = true })
+-- rebranded as visit file command, seeing as obsidian.nvim provides gf(go file) natively.
+-- BUG: to be fixed 
+-- vim.api.nvim_set_keymap('n', 'vf', [[:silent! execute 'grep -r --include="*.*" "^" ./' .. vim.fn.getreg('0') .. ' | grep -v ":$"' | execute 'edit' vim.fn.fnamemodify(vim.fn.split(vim.fn.get(grep(vim.fn.escape(vim.fn.getreg('0'), " ")), 0, '')[1], ":")[1], ':p')<CR>]], { noremap = true, silent = true })
 
 -- Use qq as a way to go to normal mode from all modes.
 vim.api.nvim_set_keymap("i", "qq", "<Esc>", {noremap=false})

@@ -2,22 +2,22 @@ require('plugins.lazy')
 require('plugins.misc')
 require('options')
 require('keybindings')
-
 require('plugins.lualine')
 require('misc')
--- require('plugins.dap')
--- require('plugins.gitsigns')
 require('plugins.tele')
 require('plugins.treesitter')
 require('plugins.lsp')
 require('plugins.trouble')
--- require('plugins.obsidian')
 require('plugins.zenmode')
--- require('plugins.neogit')
-require('plugins.codesnap')
 require('plugins.harpoon')
 require('plugins.oil')
 require('plugins.vimtex')
+require('plugins.obsidian')
+require("plugins.surround")
+
+
+
+--require('plugins.codesnap')
 -- vim: ts=8 sts=2 sw=2 et
 
 vim.api.nvim_create_autocmd("BufNewFile", {
