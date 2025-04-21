@@ -14,13 +14,13 @@ offset = 10x92
 indicate_hidden = yes
 shrink = yes
 
-transparency = 8
+transparency = 9
 separator_height = 2
 padding = 8
 horizontal_padding = 11
 frame_width = 6
-frame_color = "#070219"
-separator_color = "#fb007a"
+frame_color = "#1D1F28"
+separator_color = "#8897F4"
 
 font = JetBrainsMono NF Medium 9
 
@@ -54,6 +54,7 @@ mouse_right_click = close_all
 
 [urgency_low]
 timeout = 3
+<<<<<<< HEAD
 background = "#070219"
 foreground = "#27fbfe"
 
@@ -66,3 +67,16 @@ foreground = "#27fbfe"
 timeout = 0
 background = "#070219"
 foreground = "#27fbfe"
+=======
+background = "#1D1F28"
+foreground = "#FDFDFD"
+
+[urgency_normal]
+timeout = 6
+background = "#1D1F28"
+foreground = "#FDFDFD"
+
+[urgency_critical]
+timeout = 0
+background = "#1D1F28"
+foreground = "#FDFDFD"

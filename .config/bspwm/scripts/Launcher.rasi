@@ -70,7 +70,11 @@ inputbar {
     spacing:                     10px;
     padding:                     50px 100px;
     background-color:            transparent;
+<<<<<<< HEAD
     background-image:            url("~/.config/bspwm/assets/ja-rofi.webp", width);
+=======
+    background-image:            url("~/.config/bspwm/assets/pa-rofi.webp", width);
+>>>>>>> refs/remotes/origin/main
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];

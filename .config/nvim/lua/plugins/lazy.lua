@@ -24,15 +24,15 @@ require('lazy').setup({
     "mistricky/codesnap.nvim", 
     build = "make",
   },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
-      "nvim-telescope/telescope.nvim", -- optional
-    },
-    config = true
-  },
+  -- {
+  --   "NeogitOrg/neogit",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",         -- required
+  --     "sindrets/diffview.nvim",        -- optional - Diff integration
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --   },
+  --   config = true
+  -- },
   -- {
   --   'Exafunction/codeium.vim',
   --   config = function ()
@@ -83,19 +83,19 @@ require('lazy').setup({
     end,
   },
   -- Database
-  'kristijanhusak/vim-dadbod-ui',
-  'kristijanhusak/vim-dadbod-completion',
-  {
-    "tpope/vim-dadbod",
-    opt = true,
-    requires = {
-      "kristijanhusak/vim-dadbod-ui",
-      "kristijanhusak/vim-dadbod-completion",
-    },
-    config = function()
-      require("config.dadbod").setup()
-    end,
-  },
+  -- 'kristijanhusak/vim-dadbod-ui',
+  -- 'kristijanhusak/vim-dadbod-completion',
+  -- {
+  --   "tpope/vim-dadbod",
+  --   opt = true,
+  --   requires = {
+  --     "kristijanhusak/vim-dadbod-ui",
+  --     "kristijanhusak/vim-dadbod-completion",
+  --   },
+  --   config = function()
+  --     require("config.dadbod").setup()
+  --   end,
+  -- },
 
   'ThePrimeagen/git-worktree.nvim',
 
@@ -104,131 +104,12 @@ require('lazy').setup({
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        surrounds = {
-          -- Markdown instant link from clipboard
-          ["l"] = {
-            add = function()
-              local clipboard = vim.fn.getreg("+"):gsub("^[%s\n]*(.-)[%s\n]*$", "%1")
-              if clipboard:find("\n") then
-                vim.notify("URL must not contain newline characters", vim.log.levels.WARN)
-              else
-                return {
-                  { "[" },
-                  { "](" .. clipboard .. ")" },
-                }
-              end
-            end,
-            find = "%b[]%b()",
-            delete = "^(%[)().-(%]%b())()$",
-            change = {
-              target = "^()()%b[]%((.-)()%)$",
-              replacement = function()
-                local clipboard = vim.fn.getreg("+"):gsub("^[%s\n]*(.-)[%s\n]*$", "%1")
-                if clipboard:find("\n") then
-                  vim.notify("URL must not contain newline characters", vim.log.levels.WARN)
-                else
-                  return {
-                    { "" },
-                    { clipboard },
-                  }
-                end
-              end,
-            },
-          },
-
-          -- Surround with markdown code block, triple backticks.
-          -- <https://github.com/kylechui/nvim-surround/issues/88>
-          ["~"] = {
-            add = function()
-              local config = require("nvim-surround.config")
-              local result = config.get_input("Markdown code block language: ")
-              return {
-                { "```" .. result, '' },
-                { "", "```" },
-              }
-            end,
-          },
-
-          ["k"] = {
-            add = function()
-              local config = require("nvim-surround.config")
-              return {
-                { "[[" },
-                { "]]" },
-              }
-            end,
-          },
-
-          ["c"] = {
-            add = function()
-              local cmd = require("nvim-surround.config").get_input "Command: "
-              return { { "\\" .. cmd .. "{" }, { "}" } }
-            end,
-          },
-          ["e"] = {
-            add = function()
-              local env = require("nvim-surround.config").get_input "Environment: "
-              return { { "\\begin{" .. env .. "}" }, { "\\end{" .. env .. "}" } }
-            end,
-          },
-          -- Custom surround based on language, assigned to "p"
-          ["P"] = {
-            add = function()
-              local config = require("nvim-surround.config")
-              local lang = config.get_input("Language: ")
-              if lang:lower() == "java" then
-                return {
-                  { 'System.out.println('},
-                  { ');' },
-                }
-              elseif lang:lower() == "c" then
-                return {
-                  { 'printf("%s",' },
-                  { ');' },
-                }
-              elseif lang == "py" then
-                return {
-                  { 'print(' },
-                  { ')' },
-                }
-
-              elseif lang == "rust" then
-                return {
-                  { 'println!("{},' },
-                  { ');' },
-                }
-
-              elseif lang == "c#" then
-                return {
-                  { 'Console.WriteLine(' },
-                  { ');' },
-                }
-
-              elseif lang == "cpp" then
-                return {
-                  { 'std::cout <<' },
-                  { '<< std::endl;' },
-                }
-
-              else
-                return {
-                  { ''},
-                  { '' },
-                }
-              end
-            end,
-          },
-        },
-      } 
-    end
   },
   'xiyaowong/nvim-transparent',
   { 
     'numToStr/FTerm.nvim',
     config = function()
-      local map = vim.api.nvim_set_keymap
+      local map= vim.api.nvim_set_keymap('n', '<A-o>', 'FTermOpen', { noremap = true, silent = true })
       local opts = { noremap = true, silent = true }
       require 'FTerm'.setup({
         blend = 5,
@@ -427,6 +308,7 @@ require('lazy').setup({
     -- default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
+      default = { "obsidian", "obsidian_new", "obsidian_tags", "lsp", "path", "snippets", "buffer", "markdown" },
       completion = {
         enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
       },
@@ -513,9 +395,9 @@ require('lazy').setup({
     }
   },
 
-  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
-  'theHamsta/nvim-dap-virtual-text',
-  'leoluz/nvim-dap-go',
+  -- { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+  -- 'theHamsta/nvim-dap-virtual-text',
+  -- 'leoluz/nvim-dap-go',
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -717,7 +599,6 @@ require('lazy').setup({
 "sphamba/smear-cursor.nvim",
   opts = {},
 },
-
 
 })
 
