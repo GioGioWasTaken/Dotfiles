@@ -104,6 +104,7 @@ vim.api.nvim_set_keymap('v', '9d', '9j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '9f', '9k', { noremap = true, silent = true })
 
 
+vim.keymap.set("n", "<leader>p", "o<Esc>p")
 
       -- Thanks ThePrimeAgen!!
 
