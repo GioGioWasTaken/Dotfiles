@@ -83,7 +83,7 @@
         "id": "17c6e126-1963-4e02-b12b-1fdb58455d20",
         "name": "Direct Link opener",
         "keyword": "dl",
-        "cmd": "      %s",
+        "cmd": "%s/",
         "icon": null,
         "is_default_search": false,
         "run_without_argument": false,
@@ -94,7 +94,7 @@
         "name": "nyaa | torrent",
         "keyword": "nyaa",
         "cmd": "https://nyaa.si/?f=0&c=3_3&q=%s",
-        "icon": null,
+        "icon": "~/.config/ulauncher/Media/nyaa.png",
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1735126030.1191325
@@ -104,7 +104,7 @@
         "name": "medium",
         "keyword": "medium",
         "cmd": "https://freedium.cfd/%s",
-        "icon": null,
+        "icon": "~/.config/ulauncher/Media/Medium.jpg",
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1735126081.649132
@@ -114,9 +114,29 @@
         "name": "letterboxd",
         "keyword": "lboxd",
         "cmd": "https://letterboxd.com/search/%s",
-        "icon": "~/Downloads/images.png",
+        "icon": "~/.config/ulauncher/Media/letterboxd.png",
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1741421817.772904
+    },
+    "4f09b640-cdcb-4e92-87d2-5fd6494af23f": {
+        "id": "4f09b640-cdcb-4e92-87d2-5fd6494af23f",
+        "name": "ChatGPT",
+        "keyword": "cg",
+        "cmd": "https://chatgpt.com/?q=%s",
+        "icon": "~/.config/ulauncher/Media/ChatGPT.jpg",
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1745835923.1980004
+    },
+    "c8b65626-d13a-4b36-acc6-2489909e943e": {
+        "id": "c8b65626-d13a-4b36-acc6-2489909e943e",
+        "name": "invidious",
+        "keyword": "yte",
+        "cmd": "https://yewtu.be/search?q=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1747423243.5306776
     }
 }
