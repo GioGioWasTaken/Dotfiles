@@ -2,7 +2,7 @@ local surround = require("nvim-surround")
 
 surround.setup({
     surrounds = {
-        ["l"] = {
+        ["l"] = { -- export URL from clipboard.
             add = function()
                 local clipboard = vim.fn.getreg("+"):gsub("^[%s\n]*(.-)[%s\n]*$", "%1")
                 if clipboard:find("\n") then
@@ -31,7 +31,7 @@ surround.setup({
                 end,
             },
         },
-        ["~"] = {
+        ["~"] = { -- code blocks in markdown.
             add = function()
                 local result = require("nvim-surround.config").get_input("Markdown code block language: ")
                 return {
@@ -40,7 +40,7 @@ surround.setup({
                 }
             end,
         },
-        ["k"] = {
+        ["k"] = { -- make a file link. Markdown style.
             add = function()
                 return {
                     { "[[" },
@@ -48,19 +48,19 @@ surround.setup({
                 }
             end,
         },
-        ["c"] = {
+        ["c"] = { -- Latex command. e.g.: \center{test}
             add = function()
                 local cmd = require("nvim-surround.config").get_input("Command: ")
                 return { { "\\" .. cmd .. "{" }, { "}" } }
             end,
         },
-        ["e"] = {
+        ["e"] = { -- another latex one.
             add = function()
                 local env = require("nvim-surround.config").get_input("Environment: ")
                 return { { "\\begin{" .. env .. "}" }, { "\\end{" .. env .. "}" } }
             end,
         },
-        ["P"] = {
+        ["P"] = { -- make a statement a print statement.
             add = function()
                 local lang = require("nvim-surround.config").get_input("Language: ")
                 lang = lang:lower()

@@ -19,15 +19,18 @@ export XDG_DATA_DIRS="/usr/share:/home/Ningen/.local/share/:/var/lib/flatpak/exp
 
 # android dev.
 export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
 
+
+# ADD to path: 
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:"/home/Ningen/.local/share/gem/ruby/3.3.0/bin"
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
 
-export PATH=$PATH:"/home/Ningen/.local/share/gem/ruby/3.3.0/bin"
 
 
 
