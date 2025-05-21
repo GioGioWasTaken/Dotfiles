@@ -100,6 +100,7 @@ xsetroot -cursor_name left_ptr
 
 bspc rule -a firefox desktop=^3
 bspc rule -a discord desktop=^1
+bspc rule -a vesktop desktop=^1
 bspc rule -a Krita desktop=^4
 bspc rule -a obsidian desktop=^4
 

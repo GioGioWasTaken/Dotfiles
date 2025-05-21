@@ -26,7 +26,7 @@ font = JetBrainsMono NF Medium 9
 
 line_height = 0
 markup = full
-format = "<span size='x-large' font_desc='Cantarell 9' weight='bold' foreground='#27fbfe'>%s</span>\n%b"
+format = "<span size='x-large' font_desc='Cantarell 9' weight='bold' foreground='#79E6F3'>%s</span>\n%b"
 alignment = center
 
 idle_threshold = 120
@@ -54,20 +54,6 @@ mouse_right_click = close_all
 
 [urgency_low]
 timeout = 3
-<<<<<<< HEAD
-background = "#070219"
-foreground = "#27fbfe"
-
-[urgency_normal]
-timeout = 6
-background = "#070219"
-foreground = "#27fbfe"
-
-[urgency_critical]
-timeout = 0
-background = "#070219"
-foreground = "#27fbfe"
-=======
 background = "#1D1F28"
 foreground = "#FDFDFD"
 

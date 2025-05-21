@@ -87,7 +87,7 @@ shift + alt + {r,v,k}
 super + q
 	$SCRIPTS/KeybindingsHelp
 #Nordvpn
-super +z
+super + z
 	sh $SCRIPTS/nordvpn.sh
 
 # Theme Selector
@@ -167,7 +167,8 @@ super + {_,shift + }w
 	
 # Reload Keybindings
 super + Escape
-	pkill -USR1 -x sxhkd; dunstify -u low -i ~/.config/bspwm/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'
+	pkill -x sxhkd; dunstify -u low -i ~/.config/bspwm/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'; sxhkd -c $HOME/.config/bspwm/sxhkdrc
+	# SIGUSR1 should send a restart signal to sxhkd, but it doesn't work for me, so i am resorting to pkill and restart instead.
 
 #####
 
@@ -251,12 +252,5 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 
-# fcitx5 input methods switch
-super + j
-	fcitx5-remote -s "mozc"
-
-super + n
-	fcitx5-remote -s "keyboard-us"
-
-super + h
-	fcitx5-remote -s "hebrew"
+super + i
+	exec $HOME/.vim-anywhere/bin/run
