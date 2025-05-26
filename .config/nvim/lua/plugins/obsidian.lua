@@ -17,4 +17,12 @@ require("obsidian").setup({
     local path = spec.dir / title
     return path:with_suffix(".md")
   end,
+
+
+  ---@param url string
+  follow_url_func = function(url)
+    -- Open the URL in the default web browser.
+    -- vim.fn.jobstart({"xdg-open", url})  -- linux
+    vim.ui.open(url) -- need Neovim 0.10.0+
+  end
 })
