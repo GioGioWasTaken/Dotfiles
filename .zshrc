@@ -197,11 +197,13 @@ bindkey -s ^a "^Utmux attach\n"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+
 # CD into chosen directory
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
 
+  bindkey '^P' fzf-cd-widget
 # VIMMMMMMM
 bindkey -v
 bindkey 'qq' vi-cmd-mode
