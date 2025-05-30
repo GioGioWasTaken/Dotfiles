@@ -64,7 +64,7 @@ vim.api.nvim_set_keymap('n', '))', 'ysiw)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', "]]", "ysiw]", { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', "''", "ysiw'", { noremap = false, silent = true })
 
-vim.api.nvim_set_keymap("n", "<leader>zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
 
 
 -- Experiment. Might be the smartest remap ever?
@@ -129,6 +129,16 @@ vim.keymap.set("v","D","\"_d")
 -- this same behaviour for P already exists in NeoVim.
 -- Just paste with P in visual mode to not replace the unnamed register (see :help v_P). 
 
+vim.keymap.set("n", "<leader>z", "<cmd>silent !tmux neww " .. os.getenv("DOTFILES") .. "/tmux/tmux-sessionizer<CR>", { desc = "Tmux Sessionizer" })
+
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+
+-- ThePrimeAgen END
+
+
+
 
 -- twilight
 vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", {noremap=false})
@@ -142,7 +152,7 @@ vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", {noremap=false})
 
 -- files
 vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", {noremap=false})
-vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", {noremap=false})
+-- vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", {noremap=false})
 
 
 vim.api.nvim_set_keymap("n", "TT", ":TransparentToggle<CR>", {noremap=true})
