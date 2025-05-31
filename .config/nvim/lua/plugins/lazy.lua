@@ -499,20 +499,50 @@ require('lazy').setup({
   lazy = false,
   ---@type snacks.Config
   opts = {
+    styles = {
+      notification = {
+        wo = { wrap = true } -- Wrap notifications
+    },
+    snacks_image = {
+      relative = "editor",
+      col = -1,
+    },
+    },
     bigfile = { enabled = true },
     dashboard = { enabled = false },
     notifier = {
       enabled = true,
       timeout = 3000,
     },
-    quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
-    styles = {
-      notification = {
-        wo = { wrap = true } -- Wrap notifications
-      }
-    }
+    image = {
+        -- BUG: image renders correctly sometimes, and sometimes doesn't for unclear reason.
+            enabled = true,
+            wo = {
+              winhighlight = "FloatBorder:WhichKeyBorder",
+            },
+            doc = {
+            -- render the image inline in the buffer
+            -- if your env doesn't support unicode placeholders, this will be disabled
+            -- takes precedence over `opts.float` on supported terminals
+            inline = false,
+            -- only_render_image_at_cursor = vim.g.neovim_mode == "skitty" and false or true,
+            -- render the image in a floating window
+            -- only used if `opts.inline` is disabled
+            float = true,
+            -- Sets the size of the image
+            -- max_width = 60,
+            max_width = vim.g.neovim_mode == "skitty" and 20 or 50,
+            max_height = vim.g.neovim_mode == "skitty" and 10 or 20,
+            -- max_height = 30,
+            -- Apparently, all the images that you preview in neovim are converted
+            -- to .png and they're cached, original image remains the same, but
+            -- the preview you see is a png converted version of that image
+            --
+            -- Where are the cached images stored?
+            -- This path is found in the docs
+            -- :lua print(vim.fn.stdpath("cache") .. "/snacks/image")
+            },
+          },
   },
   keys = {
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
@@ -576,10 +606,10 @@ require('lazy').setup({
     })
   end,
 },
-{
-"sphamba/smear-cursor.nvim",
-  opts = {},
-},
+-- {
+-- "sphamba/smear-cursor.nvim",
+--   opts = {},
+-- },
 
 })
 
