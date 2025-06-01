@@ -24,12 +24,17 @@ vim.api.nvim_set_keymap('o', 'L', '$', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 
+-- Attempt to include both V and vv in this? weird.
+vim.api.nvim_set_keymap('x', '>', '>gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<', '<gv', { noremap = true, silent = true })
 
 
 -- Visual mode modifications
 vim.api.nvim_set_keymap('n','vv',"V", {noremap=true,silent=true})
 vim.api.nvim_set_keymap('n','V',"v$", {noremap=true,silent=true})
 
+-- Enumerate automatically selected lines under cursor
+vim.api.nvim_set_keymap('v', '<leader>e', [[:s/^/\=line('.') - line("'<") + 1 . '. '/<CR>]], { noremap = true, silent = true })
 
 -- rebranded as visit file command, seeing as obsidian.nvim provides gf(go file) natively.
 -- BUG: to be fixed 
