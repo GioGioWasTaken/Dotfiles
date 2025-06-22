@@ -1,5 +1,6 @@
 # style name or JSON path (default "auto")
 style: "auto"
+# style: "$HOME/.config/glow/catpucchin_glow.json"
 # mouse support (TUI-mode only)
 mouse: false
 # use pager to display markdown
