@@ -43,7 +43,7 @@
 
 (deflayer vim
   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    end    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   _    _    @nextword    esc    _    _    @yank    pgup    _    _    @paste    _    _    _     _    _    _     _    _    _    _
   _    _    _    pgdn    _    _    left    down    up    right    _    _    _                          _    _    _
   _    _    _    _    _    @formerword    _    _    _    _    _    _                    _          _    _    _    _
