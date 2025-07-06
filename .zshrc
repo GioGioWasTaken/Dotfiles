@@ -143,6 +143,8 @@ alias objdump='objdump -M intel'
 
 alias lobster='lobster --rofi -i'
 
+alias discord='discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
+
 # awesome alias
 man2() {
   curl cheat.sh/"$1"
