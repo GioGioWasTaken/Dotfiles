@@ -138,5 +138,25 @@
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1747423243.5306776
+    },
+    "1b0e4d0f-7d6b-475f-8a84-141de9dd5172": {
+        "id": "1b0e4d0f-7d6b-475f-8a84-141de9dd5172",
+        "name": "anime",
+        "keyword": "anime",
+        "cmd": "https://hianime.to/search?keyword=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1751875267.3026662
+    },
+    "ad6db8fb-70b7-45c8-95da-ee28fb7f10f7": {
+        "id": "ad6db8fb-70b7-45c8-95da-ee28fb7f10f7",
+        "name": "Internet Archive",
+        "keyword": "acc",
+        "cmd": "https://web.archive.org/web/20250000000000*/%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1751981253.2581713
     }
 }
