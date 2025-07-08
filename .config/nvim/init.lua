@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = { "ret2libc.py"},
-  command = "0r ~/.config/nvim/templates/ret2libc.py.py",
+  command = "0r ~/.config/nvim/templates/ret2libc.py",
 })
 
 vim.api.nvim_create_autocmd("BufNewFile", {
