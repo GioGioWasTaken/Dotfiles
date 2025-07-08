@@ -30,6 +30,10 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   command = "0r ~/.config/nvim/templates/exploit.py",
 })
 
+vim.api.nvim_create_autocmd("BufNewFile", {
+  pattern = { "ret2libc.py", "solution.py" },
+  command = "0r ~/.config/nvim/templates/exploit.py",
+})
 
 vim.api.nvim_create_autocmd("BufNewFile", {
   pattern = { "exploit.md", "solution.md" },
