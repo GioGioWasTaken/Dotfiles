@@ -1,0 +1,154 @@
+#!/bin/sh
+
+# sort bookmarks
+SORT=false
+# set prefered launcher
+PREFERED_LAUNCHER="rofi"
+# set path where urls will be stored
+URL_FILE_PATH=~/.config/bmks
+# name of file urls will be stored in
+URL_FILE_NAME=urls
+# number of lines shown in the dmenu
+MENU_LINE_DISPLAY=8
+# hidden prefix, links that i dont visit so often
+HIDDEN_PREFIX=*
+# snippets prefix, what's after the separator
+SNIPPETS_PREFIX=@
+
+show_usage() {
+    printf "bmks: unix bookmark management that sucks less
+
+Usage: bmks [options...]
+bmks help
+	show this help message
+bmks ls
+	show all bookmarks
+bmks hidden
+	show hidden bookmarks, links that you don't visit so often
+	prefixed with ${HIDDEN_PREFIX} by default.
+	example: ${HIDDEN_PREFIX}google = google.com
+	run with HIDDEN=1 enviroment variable
+bmks dmenu
+	manual switch for displaying bookmarks in dmenu
+bmks bemenu
+	manual switch for displaying bookmarks in bemenu
+bmks clip
+	copies the choosen url to the clipboard and paste it
+	if a text area is available.
+	run with SNIPPETS=1 enviroment variable if you want
+	to copy snippets (snippets as in your email address and etc...)
+	to your clipboard.
+
+To add bookmarks open ${URL_FILE_PATH}/${URL_FILE_NAME} in a text
+editor and add your bookmark in the format: title = URL
+(for example google = https://google.com)
+
+the separator could be anything, like (=, -, _, =>, etc...)
+as long as it's in this format: <title> <separator> <url>
+
+Lines that begins with # character are interpreted as comments.
+Lines that begins with ${HIDDEN_PREFIX} character are interpreted as hidden urls.
+Lines that begins with ${SNIPPETS_PREFIX} character are snippets you can copy to clipboard.
+
+Configuration is done by directly editing the script. dmenu is the
+only supported launcher (add your favourite launcher if you want).
+it will allow you to choose a bookmark and open it in your default
+browser.
+
+If you would prefer to have your bookmarks stored in alternate
+location there are also variables that can be changed for that. The
+default is ${URL_FILE_PATH}/${URL_FILE_NAME}\n"
+}
+
+bmks_custom() {
+    bmks_check || exit 1
+    grep -vE "#|^$" $URL_FILE_PATH/$URL_FILE_NAME \
+	| ([ $SORT = true ] && sort -u || uniq) \
+	| grep -E '^\'$1'' \
+	| sed 's/^\'$1'//g'
+}
+
+bmks_ls() {
+    bmks_check || exit 1
+    grep -vE '#|^$|^'${SNIPPETS_PREFIX}'|^\'${HIDDEN_PREFIX}'' \
+	 $URL_FILE_PATH/$URL_FILE_NAME | ([ $SORT = true ] && sort -u || uniq)
+}
+
+bmks_display() {
+    bmks_check || exit 1
+    case $PREFERED_LAUNCHER in
+	dmenu)
+	    if [ $HIDDEN ]
+	     then
+		 bmks_custom "$HIDDEN_PREFIX"
+	     else
+		 bmks_ls
+	    fi | dmenu -l ${MENU_LINE_DISPLAY} \
+		| awk '{print $(NF)}' \
+		| xargs -I '{}' $BROWSER {} ;;
+	bemenu)
+	    if [ $HIDDEN ]
+	     then
+		 bmks_custom "$HIDDEN_PREFIX"
+	     else
+		 bmks_ls
+	    fi | bemenu -l ${MENU_LINE_DISPLAY} \
+		| awk '{print $(NF)}' \
+		| xargs -I '{}' $BROWSER {} ;;
+	rofi)
+	    if [ $HIDDEN ]
+	     then
+		 bmks_custom "$HIDDEN_PREFIX"
+	     else
+		 bmks_ls
+	    fi | rofi -dmenu -lines ${MENU_LINE_DISPLAY} \
+		| awk '{print $(NF)}' \
+		| xargs -I '{}' $BROWSER {} ;;
+    esac
+}
+
+bmks_clip() {
+    case $PREFERED_LAUNCHER in
+	dmenu)
+	    if [ $SNIPPETS ]
+	    then
+		bmks_custom "$SNIPPETS_PREFIX"
+	    else
+		bmks_ls
+	    fi | dmenu -l ${MENU_LINE_DISPLAY} \
+		| awk '{print $(NF)}' \
+		| xclip -sel clip ;;
+	bemenu)
+	    if [ $SNIPPETS ]
+	    then
+		bmks_custom "$SNIPPETS_PREFIX"
+	    else
+		bmks_ls
+	    fi | bemenu -l ${MENU_LINE_DISPLAY} \
+		| awk '{print $(NF)}' \
+		| wl-copy
+    esac
+}
+
+bmks_check() {
+    [ ! -s $URL_FILE_PATH/$URL_FILE_NAME ] && (
+	printf "%s\n\n" "Error: No bookmarks found to display. Try adding some!" >&2
+	show_usage
+    ) && return 1
+
+    return 0
+}
+
+[ ! -d $URL_FILE_PATH ] && mkdir $URL_FILE_PATH
+[ ! -f $URL_FILE_PATH/$URL_FILE_NAME ] && touch $URL_FILE_PATH/$URL_FILE_NAME
+
+case "$1" in
+    "help") show_usage ;;
+    "ls") bmks_ls ;;
+    "dmenu") PREFERED_LAUNCHER=$1; bmks_display ;;
+    "bemenu") PREFERED_LAUNCHER=$1; bmks_display ;;
+    "clip") bmks_clip ;;
+    # Filter for links that i dont visit often
+    "hidden") bmks_custom "$HIDDEN_PREFIX" ;;
+    *) bmks_display;;
+esac
