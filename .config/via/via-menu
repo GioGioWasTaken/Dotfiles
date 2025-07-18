@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rofi -dmenu -show-icons -p "via" -i -lines 5

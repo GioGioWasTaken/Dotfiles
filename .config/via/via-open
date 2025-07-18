@@ -1,0 +1,69 @@
+#!/bin/bash
+
+exec &> /dev/null
+
+# account for different $TERMINAL behaviour for running programs in a terminal context
+case "$TERMINAL" in
+    wezterm)
+        TERMINAL_FINAL="wezterm start --cwd ."
+        ;;
+    alacritty)
+        TERMINAL_FINAL="alacritty -e"
+        ;;
+    *)
+        TERMINAL_FINAL="$TERMINAL"
+        ;;
+esac
+
+while read -r arg; do
+	# first try matching by filename or pathname
+	case "${arg,,}" in
+		w\ *)
+			target=$(echo "$arg" | cut -d ' ' -f 3-)
+			wmctrl -a "$target"
+			;;
+		http*)
+			$BROWSER "$arg" &
+			;;
+		[^/]*) # doesn't start with '/'
+			# sh -c "$arg"
+			query=$(printf '%s' "$arg" | sed 's/ /+/g')
+			$BROWSER "https://www.google.com/search?q=$query" &
+			;;
+		*.txt)
+			$EDITOR "$arg" &
+			;;
+		*.pdf | *.epub)
+			zathura "$arg" &
+			;;
+		*.mp3)
+			$TERMINAL_FINAL mpg123 -opulse "$arg" &
+			;;
+		*.od[tsp]|*.doc|*.docx|*.ppt|*.pptx|*.xls|*.xlsx)
+			libreoffice "$arg" &
+			;;
+		*)
+		# then try matching by mimetype
+		mimetype=$(file -Lb --mime-type "$arg")
+			case "$mimetype" in
+				text/html)
+					$BROWSER "$arg" &
+					;;
+				text/* | inode/x-empty | message/rfc822)
+					$TERMINAL_FINAL $EDITOR "$arg" &
+					;;
+				inode/directory)
+					cd "$arg"
+					$TERMINAL_FINAL &
+					cd -
+					;;
+				image/*)
+					feh "$arg" &
+					;;
+				*)
+					exit 1
+					;;
+			esac
+			;;
+	esac
+done
