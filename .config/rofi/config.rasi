@@ -8,7 +8,6 @@
 configuration {
   kb-row-select: "Tab";
   kb-element-next: "";
-  matching: "fuzzy";
 }
 
 // define colors etc.
