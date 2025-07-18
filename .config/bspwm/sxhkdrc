@@ -1,6 +1,4 @@
-#  ███████╗██╗  ██╗██╗  ██╗██╗  ██╗██████╗ ██████╗  ██████╗
-#  ██╔════╝╚██╗██╔╝██║  ██║██║ ██╔╝██╔══██╗██╔══██╗██╔════╝
-#  ███████╗ ╚███╔╝ ███████║█████╔╝ ██║  ██║██████╔╝██║     
+#  ██████╗ ╚███╔╝ ███████║█████╔╝ ██║  ██║██████╔╝██║     
 #  ╚════██║ ██╔██╗ ██╔══██║██╔═██╗ ██║  ██║██╔══██╗██║     
 #  ███████║██╔╝ ██╗██║  ██║██║  ██╗██████╔╝██║  ██║╚██████╗
 #  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝
@@ -14,17 +12,21 @@
 super + Return
 	wezterm
 
+# Get anywhere, in a few clicks.
+ctrl + space
+	via
+
+# Application menu
+alt + space
+ 	rofi -show drun -show-icons
+
+super + space
+	sh $HOME/.config/bmks/bmks
+
 # Open floating Terminal
 super + alt + Return
 	OpenApps --floating
 
-# Application menu
-# super + r
-# 	rofi -show drun
-
-# Dictionary
-super + d
-  sh $SCRIPTS/Dictionary.sh
 
 # Awesome OCR
 super + o
@@ -42,10 +44,6 @@ super + {_,shift + }c
 {super + p, XF86AudioPlay}
 	playerctl play-pause
 
-#### Alt+Tab ####
-alt + Tab
-	~/.local/bin/win.sh
-
 #### Clipboard ####
 super + v
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -show-emoji "󰅎"
@@ -58,14 +56,10 @@ super + shift + v
 super + shift + p
 	xcolor -P 100 -s
 
-
 super + equal
 	rofi -modi calc -show calc -calc-command 'echo "{result}" | xclip -sel c'
 
 super + minus
-	python $SCRIPTS/hex_calc.py
-
-super + period
 	python $SCRIPTS/hex_calc.py
 
 # Apps (browser, editor, filemanager)
@@ -89,10 +83,6 @@ super + q
 #Nordvpn
 super + z
 	sh $SCRIPTS/nordvpn.sh
-
-# Theme Selector
-alt + @space
-	RiceSelector
 
 # jgmenu
 ~button3
@@ -250,7 +240,6 @@ super + e
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
-
 
 super + i
 	exec $HOME/.vim-anywhere/bin/run

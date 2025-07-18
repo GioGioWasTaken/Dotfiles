@@ -99,15 +99,17 @@ xsetroot -cursor_name left_ptr
 
 # Gio's own autostart!!
 
-
-
 # compfy
 compfy --config ~/.config/compfy/compfy.conf &
 
-
 fcitx5&
+
+# Start via and referesh the file system cache on startup
+via -r
 
 bspc rule -a firefox desktop=^3
 bspc rule -a Krita desktop=^4
-bspc rule -a discord desktop=^1
+bspc rule -a discord desktop=^4
 bspc rule -a obsidian desktop=^4
+
+

@@ -92,15 +92,17 @@ pidof -q eww || { eww -c "$HOME"/.config/bspwm/eww daemon & }
 pidof -q greenclip || { greenclip daemon & }
 
 # Launch polkit
+# In short: ensures the GUI authentication dialog appears when needed.
 pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & }
 
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
 
+bspc rule -a ida64 desktop=^1
 bspc rule -a firefox desktop=^3
-bspc rule -a discord desktop=^1
-bspc rule -a vesktop desktop=^1
+bspc rule -a discord desktop=^4
+bspc rule -a vesktop desktop=^4
 bspc rule -a Krita desktop=^4
 bspc rule -a obsidian desktop=^4
 
