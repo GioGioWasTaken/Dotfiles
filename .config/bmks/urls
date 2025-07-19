@@ -1,5 +1,7 @@
+>>  This is a comment
+
 Chess = https://www.chess.com/home
-gmail = https://mail.google.com/mail/u/0/#inbox
+gmail = https://mail.google.com/mail/u/0/
 Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more = https://www.amazon.com/
 GT = https://translate.google.com/?hl=EN&sl=iw&tl=en&op=translate
 School torture facility = https://web.mashov.info/students/#!/dashboard
@@ -73,9 +75,9 @@ practical-tutorials/project-based-learning: Curated list of project-based tutori
 Beej C programming = https://beej.us/guide/bgc/pdf/bgc_usl_c_1.pdf
 neovim LSP server list = https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 regex101: build, test, and debug regex = https://regex101.com/
-Vimium C support · Issue #2 · catppuccin/vimium = https://github.com/catppuccin/vimium/issues/2
+Vimium C support · Issue  catppuccin/vimium = https://github.com/catppuccin/vimium/issues/2
 git corruption stack overflow = https://stackoverflow.com/questions/11706215/how-can-i-fix-the-git-error-object-file-is-empty
-tldr pages = https://tldr.sh/
+tldr pages = https://tldr.sh/urls
 cdecl: C gibberish ↔ English = https://cdecl.org/
 Linux-Insides = https://0xax.gitbooks.io/linux-insides/content/
 Kernel Exploitation = https://github.com/xairy/linux-kernel-exploitation?tab=readme-ov-file#practice
@@ -87,7 +89,7 @@ Kana Pro: Learn hiragana & katakana fast and easy = https://kana.pro/
 Example Search - Kanshudo = https://www.kanshudo.com/searcht
 The Ultra Handy Japanese Verb Conjugator = http://www.japaneseverbconjugator.com/
 ‪イヤール‬‏ – Google Drive = https://drive.google.com/drive/folders/16ZjAP-_UNa2Vc-vwH_9r2bM1yOdNZpzl
-#kanji - Jisho.org = https://jisho.org/search/%23kanji
+Jisho.org = https://jisho.org/search/%23kanji
 List of Japanese verbs - all levels = http://www.japaneseverbconjugator.com/JVerbList.asp
 Kanji Level Check | MLC Japanese Language School in Tokyo = https://www.mlcjapanese.co.jp/level_check_kanji.html
 Kanji Vocabulary = https://docs.google.com/spreadsheets/d/1J0yUTuJj4cJ1R9zPM3HJf_n4bNqNf4l_A00JuWe6kxA/edit#gid=113503794
@@ -242,7 +244,7 @@ Awesome Wallpapers - wallhaven.cc = https://wallhaven.cc/
 Beautiful Free Images & Pictures | Unsplash = https://unsplash.com/
 Jellyfin = http://localhost:8096/web/#/home.html
 ישעיהו ליבוביץ - Yeshayahu Lelbowitz = http://www.leibowitz.co.il/
-writeup (not local) tags- > fuck, lost, toddler = https://research.checkpoint.com/wp-content/uploads/2020/03/pwnable_writeup.pdf
+writeup (not local) tags-  fuck, lost, toddler = https://research.checkpoint.com/wp-content/uploads/2020/03/pwnable_writeup.pdf
 GioGioWasTaken/Linux-Machine: My programming directory on my linux virtual machines. = https://github.com/GioGioWasTaken/Linux-Machine
 Jimaku = https://jimaku.cc/
 GioGioWasTaken/Documents = https://github.com/GioGioWasTaken/Documents
@@ -332,3 +334,5 @@ File Format Docs = https://docs.fileformat.com/
 Oryx: The ZSA Keyboard Configurator = https://configure.zsa.io/
 pwnable.kr/play.php = https://pwnable.kr/play.php
 giogiowastakendotfiles=https://github.com/GioGioWasTaken/Dotfiles
+iOS RE Reference //cyber// = https://github.com/LaurieWired/iOS_Reverse_Engineering/wiki/iOS-RE-Reference
+

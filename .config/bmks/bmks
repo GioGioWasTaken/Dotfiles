@@ -70,7 +70,7 @@ bmks_custom() {
 
 bmks_ls() {
     bmks_check || exit 1
-    grep -vE '#|^$|^'${SNIPPETS_PREFIX}'|^\'${HIDDEN_PREFIX}'' \
+    grep -vE '>>|^$|^'${SNIPPETS_PREFIX}'|^\'${HIDDEN_PREFIX}'' \
 	 $URL_FILE_PATH/$URL_FILE_NAME | ([ $SORT = true ] && sort -u || uniq)
 }
 
