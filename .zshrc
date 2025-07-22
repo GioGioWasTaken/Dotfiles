@@ -22,9 +22,14 @@ export ANDROID_HOME=$HOME/Android/Sdk
 
 
 # ADD to path: 
+# This is intentionally seperated so the PATH changes are incremental.
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:"/home/Ningen/.local/share/gem/ruby/3.3.0/bin"
+export PATH=$PATH:"$HOME/go/bin"
+
+
+
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
