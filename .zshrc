@@ -151,7 +151,6 @@ man2() {
 }
 alias ytfzf='ytfzf -t'
 alias ytmusic='ytfzf -t -m -s'
-alias godot='cd ~/Desktop/Dotfiles'
 alias tmux='tmux -u'
 alias discord='discord --no-sandbox'
 alias cl='printf "\033[H\033[2J"'
