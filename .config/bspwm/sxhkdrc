@@ -14,7 +14,7 @@ super + Return
 
 # Get anywhere, in a few clicks.
 ctrl + space
-	via
+	sh $HOME/.config/via/via
 
 # Application menu
 alt + space
