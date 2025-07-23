@@ -20,15 +20,15 @@ ctrl + space
 alt + space
  	rofi -show drun -show-icons
 
+# Bookmarks menu
 super + space
 	sh $HOME/.config/bmks/bmks
 
-# Open floating Terminal
-super + alt + Return
-	OpenApps --floating
+# Recent browser history menu
+super + h
+	firefox $(python $SCRIPTS/firefox-recent.py | rofi --show -dmenu)
 
-
-# Awesome OCR
+# OCR
 super + o
   sh $SCRIPTS/OCR.sh
 
@@ -62,16 +62,6 @@ super + equal
 super + minus
 	python $SCRIPTS/hex_calc.py
 
-# Apps (browser, editor, filemanager)
-shift + alt + {b,o,n}
-	OpenApps {--browser,--obsidian,--filemanager}
-	# modified "editor" to be obsidian.
-
-# Terminal apps (ranger, nvim, ncmpcpp)
-shift + alt + {r,v,k}
-	OpenApps {--ranger,--nvim,--music}
-
-
 
 
 #|||----- System Keybindings -----|||#
@@ -88,33 +78,32 @@ super + z
 ~button3
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu --csv-file=~/.config/bspwm/scripts/menu.txt --config-file=~/.config/bspwm/jgmenurc
 
-# Scratchpad
-super + alt + o
+# upper terminal
+super + u
 	tdrop -a -w 70% -h 35% -y 0 -x 15%  --class scratch alacritty --class=scratch
 
 # Power off, Reboot, Log out, Lockscreen, kill an app
 ctrl + super + alt + {p,r,q,l,k}
 	{systemctl poweroff, systemctl reboot,bspc quit,physlock -d,xkill}
 
-# Hide/Show Bar (Polybar and/or eww)
-super + {h,u}
-	HideBar {-h,-u}
-
-
 # focus or send to the given desktop
 super +{_,shift + }{1-9,0}
 	bspc {desktop -f, node -d} '^{1-9,10}'
 
-super + m
-	lobster
+# Lobster is currently broken
+# super + m
+# 	lobster
 
 # Change transparency on focused window
 ctrl + alt + {plus,minus,t}
 	picom-trans {-c -o +3,-c -o -1,-c -d}
 
-# Random wallpaper
+# wallpaper selector
 super + alt + w
-	WallSelect
+	$SCRIPTS/WallSelect
+
+
+#|||----- Screenshots -----|||#
 
 # Screenshot Now
 Print
@@ -132,7 +121,8 @@ alt + Print
 shift + Print
 	ScreenShoTer --active
 
-# Manage brightness
+
+# Manage brightness -- Don't have keys for that on my desktop.
 XF86MonBrightness{Up,Down}
     sh Brightness {up,down}
 
@@ -141,9 +131,8 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 	Volume{ --inc, --dec, --toggle}
 
 # Music Control
-XF86Audio{Next,Prev,Play,Stop}
-	MediaControl {--next,--previous,--toggle,--stop}
-
+XF86Audio{Next,Prev}
+	playerctl {next,previous}
 
 #|||----- Bspwm hotkeys -----|||#
 
@@ -177,17 +166,10 @@ ctrl + alt + h
 
 #####
 
-# rotate desktop
-#
-#	bspc node @/ --rotate {90,-90}
 
 # Circulate the leaves of the tree
 super + c
 	bspc node @/ --circulate {backward,forward}
-
-# Change focus of the Node or Swap Nodes
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
 
 # Switch workspace
 super + ctrl + {Left,Right}
@@ -201,45 +183,42 @@ super + {grave,Tab}
 super + ctrl + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 	
-# Send focused Node to workspace directionally
-super + ctrl + shift + {Left,Right}
-	bspc node -d {prev,next} '--follow'
-
-#####
-
-# preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
-
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#####
-	
-# expand a window
-super + alt + {Left,Down,Up,Right}
-	bspc node -z {left -10 0,bottom 0 10,top 0 -10,right 10 0}
-
-# contract a window
-super + alt + shift + {Left,Down,Up,Right}
-	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
-
-# move a floating window
-alt + shift {Left,Down,Up,Right}
-	bspc node -v {-10 0,0 10,0 -10,10 0}
-
-#### Thunar ####
-super + e
-		thunar &
-
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
+# Send focused Node to workspace directionally
+# Doesn't work
+# super + shift + {h,l}
+# 	bspc node -d {prev,next} --follow
+
+
+
+#|||----- floating -----|||#
+# expand a window
+super + alt + {h,j,k,l}
+	bspc node -z {left -40 0,bottom 0 40,top 0 -40,right 40 0}
+
+# contract a window
+super + alt + shift + {h,j,k,l}
+	mspc node -z {right -40 0,top 0 40,bottom 0 -40,left 40 0}
+
+# move a floating window
+alt + shift {h,j,k,l}
+	bspc node -v {-40 0,0 40,0 -40,40 0}
+
+#|||----- Auto start-----|||#
+
+#### Thunar ####
+super + e
+		thunar &
 super + i
 	exec $HOME/.vim-anywhere/bin/run
+
+# Apps (browser, editor)
+shift + alt + {b,o}
+	OpenApps {--browser,--obsidian}
+
+# Terminal apps (ranger, nvim, ncmpcpp)
+shift + alt + {r,v,m}
+	OpenApps {--ranger,--nvim,--music}

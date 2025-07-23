@@ -2,9 +2,9 @@
 
 # Set default commit message if none provided
 COMMIT_MESSAGE=${COMMIT_MESSAGE:-"Automatic commit, used auto save shortcut provided by bash script. 
-This is an obsidian notes utillity, as I use git as my backup solution between machines."}
+This is just a utillity script, since I use git as my backup solution."}
 
-cd $PROGRAMMING_DIR/Brain/ || { echo "Directory not found"; exit 1; }
+cd $PROGRAMMING_DIR /Brain/ || { notify-send "Brain directory not found! Exiting."; exit 1; }
 
 # Check for changes
 if ! git diff-index --quiet HEAD --; then
@@ -16,11 +16,11 @@ if ! git diff-index --quiet HEAD --; then
 
     # Push the changes to the remote repository
     if git push origin master; then
-        echo "Changes pushed successfully"
+        notify-send "Changes pushed successfully"
     else
-        echo "Failed to push changes"
+        notify-send "Failed to push changes"
         exit 1
     fi
 else
-    echo "No changes to commit"
+    notify-send "No changes to commit"
 fi

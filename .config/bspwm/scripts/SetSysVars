@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Set system variables for use in Polybar
+
 SFILE="$HOME/.config/bspwm/scripts/.sys"
 
 function get_values() {
