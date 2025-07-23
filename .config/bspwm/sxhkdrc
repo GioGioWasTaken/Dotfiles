@@ -26,7 +26,7 @@ super + space
 
 # Recent browser history menu
 super + h
-	firefox $(python $SCRIPTS/firefox-recent.py | rofi --show -dmenu)
+	$BROWSER $(python $SCRIPTS/firefox-recent.py | rofi --show -dmenu)
 
 # OCR
 super + o
@@ -61,7 +61,6 @@ super + equal
 
 super + minus
 	python $SCRIPTS/hex_calc.py
-
 
 
 #|||----- System Keybindings -----|||#
