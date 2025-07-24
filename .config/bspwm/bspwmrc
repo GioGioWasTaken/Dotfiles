@@ -111,7 +111,7 @@ bspc rule -a obsidian desktop=^4
 
 fcitx5&
 
-ulauncher&
+via -r&
 
 
 # compfy
