@@ -28,6 +28,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:"/home/Ningen/.local/share/gem/ruby/3.3.0/bin"
 export PATH=$PATH:"$HOME/go/bin"
 
+# Add all my scripts to PATH so sxhkdrc finds them without explicitly specifying the abs path, Does not include subdirs of $SCRIPTS
+
+export PATH=$PATH:"$SCRIPTS"
 
 
 
@@ -163,7 +166,6 @@ alias gog='google'
 alias rop='ROPgadget --binary'
 alias venv='source ~/.venvs/bin/activate'
 alias dircpy='pwd | xclip -selection clipboard'
-
 
 # ENV variable
 export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
