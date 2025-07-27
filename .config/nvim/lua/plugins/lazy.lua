@@ -155,7 +155,7 @@ require('lazy').setup({
 
 	{
 		'saghen/blink.cmp',
-		lazy = true, 
+		lazy = false,  -- handled inside blink. lazy loading actually slows up startup time.
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			'rafamadriz/friendly-snippets',
