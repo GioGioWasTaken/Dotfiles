@@ -193,8 +193,6 @@ vim.api.nvim_set_keymap('n', '<Space>cd', ':cd %:p:h<CR>:pwd<CR>', { noremap = t
 -- Noice
 vim.api.nvim_set_keymap("n", "<C-y>", ":Noice dismiss<CR>", {noremap=true})
 
--- vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>", {silent = true, noremap = true}) -- idk what this does
-
 -- splits
 
 vim.api.nvim_set_keymap("n", "<C-,>", ":vertical resize -10<CR>", {noremap=true})
@@ -205,6 +203,7 @@ vim.keymap.set("n", "<leader>qq", ":q<CR>", {silent = true, noremap = true})
 
 vim.api.nvim_set_keymap('i', 'df', '<Right>', { noremap = true, silent = true })
 
+-- AUTOCOMMANDS
 
 -- this should disable auto comment on newline when on a comment line
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -216,6 +215,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
     command = "setlocal formatoptions-=cro"
 })
+
+
 
 
 
@@ -233,7 +234,6 @@ map("n", "dd", function()
 end, { expr = true, silent = true })
 
 
--- amazing remap:
 -- Open todo list
 map("n", "<Leader>t", function()
     vim.cmd.edit("~/Desktop/Linux-Machine/todo.md")
