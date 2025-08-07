@@ -1,10 +1,19 @@
 # Zombie Rice part
+
+(deprecated. will make my own install script.)
+
 Run this: 
-`curl -L https://is.gd/gh0stzk_dotfiles -o $HOME/RiceInstaller`
-`chmod u+x RiceInstaller`
-`./RiceInstaller`
+
+```bash
+curl -L https://is.gd/gh0stzk_dotfiles
+-o $HOME/RiceInstaller
+chmod u+x RiceInstaller
+./RiceInstaller
+
+```
 
 # My dotfiles
+
 clone this repo
 copy files as needed
 
@@ -16,7 +25,41 @@ yay -S lobster miru-bin ytfzf anki kcc nordvpn-bin steam ulauncher
 
 steam(https://archlinux.org/packages/multilib/x86_64/steam/)
 
+# Nvidia :
 
+On computers with a hybrid setup, 
+
+```bash
+/etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf:
+
+Section "OutputClass"
+    Identifier "intel"
+    MatchDriver "i915"
+    Driver "modesetting"
+EndSection
+
+Section "OutputClass"
+    Identifier "nvidia"
+    MatchDriver "nvidia-drm"
+    Driver "nvidia"
+    Option "AllowEmptyInitialConfiguration"
+    Option "PrimaryGPU" "yes"
+    ModulePath "/usr/lib/nvidia/xorg"
+    ModulePath "/usr/lib/xorg/modules"
+EndSection
+
+```
+and also :
+
+```bash
+~/.xinitrc:
+
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+```
+
+
+read more [here](https://wiki.archlinux.org/title/NVIDIA_Optimus#Use_NVIDIA_graphics_only)
 
 # Language Keyboards
 copying the fcitx5 config should do this automatically. But:
