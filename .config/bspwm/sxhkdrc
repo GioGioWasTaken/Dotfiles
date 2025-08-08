@@ -3,7 +3,7 @@
 
 # Open Terminal (alacritty)
 super + Return
-	wezterm
+	alacritty
 
 # Get anywhere, in a few clicks.
 ctrl + space
@@ -20,6 +20,10 @@ super + space
 # Recent browser history menu
 super + h
 	selection=$(python $SCRIPTS/firefox-recent.py | rofi -dmenu); [ -n "$selection" ] && $BROWSER "$selection"
+
+# Wallpaper choose
+super + g
+	 wezterm -e $SCRIPTS/Wallpaper_select
 
 # OCR
 super + o
