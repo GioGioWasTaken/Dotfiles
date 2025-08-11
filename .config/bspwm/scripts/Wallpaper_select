@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale $(find ~/Pictures/Wallpapers -type f | fzf --preview='chafa -s 40 {}')
+feh --bg-scale $(find ~/Pictures/Wallpapers -type f | fzf --preview='chafa -s 66 {}')

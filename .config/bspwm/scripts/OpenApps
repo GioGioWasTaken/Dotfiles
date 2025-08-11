@@ -12,17 +12,8 @@
 WIDGET_DIR="$HOME/.config/bspwm/eww"
 
 case "$1" in
-    --menu)
-        rofi -show drun -theme "$HOME"/.config/bspwm/scripts/Launcher.rasi
-        ;;
     --rice)
         RiceSelector
-        ;;
-    --terminal)
-        $TERMINAL
-        ;;
-    --floating)
-        $TERMINAL --class FloaTerm,FloaTerm -o window.dimensions.lines=22 window.dimensions.columns=90
         ;;
     --update)
         $TERMINAL --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=22 window.dimensions.columns=90 -e Updates --update-system
@@ -31,13 +22,16 @@ case "$1" in
         $TERMINAL --hold --class Updating,Updating -o window.dimensions.lines=22 window.dimensions.columns=47 -e Updates --print-updates
         ;;
     --ranger)
-        $TERMINAL --class FloaTerm,FloaTerm -o window.dimensions.lines=14 window.dimensions.columns=90 -e ranger
+	if [ "$TERMINAL" = "alacritty" ]; then
+		$TERMINAL --class FloaTerm,FloaTerm -o window.dimensions.lines=14 window.dimensions.columns=90 -e ranger
+	else
+
+	$TERMINAL -e ranger
+
+	fi
         ;;
     --nvim)
-        (cd ~/Desktop/Programming; $TERMINAL -e nvim)
-        ;;
-    --music)
-        $TERMINAL --class FloaTerm,FloaTerm -o window.dimensions.lines=18 window.dimensions.columns=67 -e ncmpcpp
+        (cd ~/Desktop/Linux-Machine/; $TERMINAL -e nvim)
         ;;
     --fetch)
         $TERMINAL --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=26 window.dimensions.columns=40 -e ~/.local/bin/sysfetch
@@ -47,7 +41,7 @@ case "$1" in
         thunar
         ;;
     --browser)
-        librewolf
+	$BROWSER
         ;;
     --obsidian)
         obsidian

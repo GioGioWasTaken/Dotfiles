@@ -215,6 +215,6 @@ super + i
 shift + alt + {b,o}
 	OpenApps {--browser,--obsidian}
 
-# Terminal apps (ranger, nvim, ncmpcpp)
-shift + alt + {r,v,m}
-	OpenApps {--ranger,--nvim,--music}
+# Terminal apps ranger
+shift + alt + r
+	OpenApps {--ranger}
