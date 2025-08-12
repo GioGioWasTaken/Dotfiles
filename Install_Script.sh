@@ -6,8 +6,11 @@
 
 # It will NOT backup the dotfiles saved on that system. DO NOT RUN UNLESS YOU ARE ME, OR KNOW WHAT YOU ARE DOING
 
+# If you have any directory in $HOME/GioDotfiles it will be nuked once you run the script.
 
 # Much credit goes to gh0stzk, whom I used for a reference in this.
+
+# Get this file off of curl or something
 
 
 ERROR_LOG="$HOME/RiceErrors.log"
@@ -110,6 +113,7 @@ clone_dotfiles() {
 
 	if git clone $repo_url $repo_dir >> $ERROR_LOG 2>&1; then
 		printf "Sucessfully cloned dotfiles\n"
+		dotfiles_dir="$repo_dir/dotfiles"
 	else 
 		log_error "Failed to clone dotfiles from github url: $repo_url\nCheck $ERROR_LOG."
 	fi
@@ -117,26 +121,24 @@ clone_dotfiles() {
 }
 
 copy_dotfiles() {
-	repo_dir="$HOME/GioDotfiles"
 	clear
 	printf "Copying dotfiles to correct directories...\n"
 
-	if [ ! -d "$repo_dir"]; then 
+	if [ ! -d "$dotfiles_dir"]; then 
 		printf "GioDotfiles doesn't exist. Exiting with error code 1.\n"
 		exit 1
 	fi
 
-	config_dir="${repo_dir}/.config"
+	config_dir="${dotfiles_dir}/.config"
 	cd "$config_dir"
 	config_list=$("ls" | tr "\n" " ")
-
 
 	printf "Copying ~/.config dotfiles\n"
 	for config in $config_list; do
 		printf "Copying %s to ~/.config...\n" $config 
 		cp -r $config "$HOME/.config"
 	done
-	cd "$repo_dir"
+	cd "$dotfiles_dir"
 
 	printf "Copying non ~/.config essentials (like .xinitrc)\n"
 	cp ".xinitrc" ".gdbinit" ".zshrc" "README.md" ".Xmodmap" $HOME

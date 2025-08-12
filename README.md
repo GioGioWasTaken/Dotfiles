@@ -1,25 +1,17 @@
 # Zombie Rice part
 
-(deprecated. will make my own install script.)
 
 Run this: 
 
 ```bash
-curl -L https://is.gd/gh0stzk_dotfiles
--o $HOME/RiceInstaller
-chmod u+x RiceInstaller
-./RiceInstaller
 
+cd
+curl -fsSl https://raw.githubusercontent.com/GioGioWasTaken/Dotfiles/main/Install_Script.sh >Install_Script.sh
+chmod u+x Install_Script.sh
+./Install_Script.sh
 ```
 
-# My dotfiles
-
-clone this repo
-copy files as needed
-
 # Packages to download
-
-sudo pacman -S python-six python-cffi python-wheel zip unzip go cargo xcolor gzip unrar noto-fonts-cjk man-db man-pages nvidia-utils nvidia xf86-video-intel xev xorg-xev xorg-xmodmap xorg-xkbcomp discord gdb pipewire-pulse alsa-utils obsidian thunar ripgrep flameshot tesseract tesseract-data-eng glow cups
 
 yay -S lobster miru-bin ytfzf anki kcc nordvpn-bin steam ulauncher
 
