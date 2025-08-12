@@ -54,7 +54,7 @@ install_dependencies() {
     # List of dependencies
     # It has some packages which are essentials in my opinion, despite not being required for the build 
     # Again if you aren't me and using this, why? get a better rice mine sucks.
-    dependencies="gcc alacritty alsa-utils base-devel bat brightnessctl bspwm cargo clipcat cups discord dunst eza feh firefox flameshot fzf gdb geany git glow go gvfs-mtp gzip imagemagick jgmenu jq kitty libwebp lxsession-gtk3 maim man-db man-pages mpc mpd mpv ncmpcpp neovim noto-fonts-cjk npm nvidia nvidia-utils obsidian pacman-contrib pamixer papirus-icon-theme picom pipewire-pulse playerctl polybar python-cffi python-gobject python-six python-wheel redshift ripgrep rofi rustup sxhkd tesseract tesseract-data-eng thunar tmux ttf-inconsolata ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd tumbler unrar unzip webp-pixbuf-loader wezterm xclip xcolor xdg-user-dirs xdo xdotool xev xf86-video-intel xorg-xdpyinfo xorg-xev xorg-xkbcomp xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xsetroot xorg-xwininfo xsettingsd yazi zip zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting ranger kmonad zathura zathura-pdf-mupdf fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-m17n fcitx5-mozc fcitx5-qt lsd rofi-calc"
+    dependencies="gcc alacritty alsa-utils base-devel bat brightnessctl bspwm cargo clipcat cups discord dunst eza feh firefox flameshot fzf gdb geany git glow go gvfs-mtp gzip imagemagick jgmenu jq kitty libwebp lxsession-gtk3 maim man-db man-pages mpc mpd mpv ncmpcpp neovim noto-fonts-cjk npm nvidia nvidia-utils obsidian pacman-contrib pamixer papirus-icon-theme picom pipewire-pulse playerctl polybar python-cffi python-gobject python-six python-wheel redshift ripgrep rofi rustup sxhkd tesseract tesseract-data-eng thunar tmux ttf-inconsolata ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd tumbler unrar unzip webp-pixbuf-loader wezterm xclip xcolor xdg-user-dirs xdo xdotool xev xf86-video-intel xorg-xdpyinfo xorg-xev xorg-xkbcomp xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xsetroot xorg-xwininfo xorg-server xsettingsd yazi zip zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting ranger kmonad zathura zathura-pdf-mupdf fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-m17n fcitx5-mozc fcitx5-qt lsd rofi-calc"
 
     printf "Checking for dependencies...\n"
 	missing_pkgs=""
@@ -168,14 +168,40 @@ change_default_shell(){
 	sleep 3
 }
 
+
 misc(){
-    systemctl --user daemon-reload
+	# setting permissions
+	chmod u+x "$HOME/.zshrc"
+	chmod u+x "$HOME/.xinitrc"
+	bspwm_dir="$HOME/.config/bspwm/"
+	chmod u+x "$bspwm_dir/sxhdrc"
+	chmod u+x "$bspwm_dir/bspwmrc"
+	chmod u+x "$bspwm_dir/dunstrc"
 
-    systemctl --user enable reminders.timer
+	# Give current user permission to run all scripts: 
+	scripts_dir="$bspwm_dir/scripts"
 
-    systemctl --user start reminders.timer
+	# Give execute permission only to script files (sh, py)
+	find "$scripts_dir" -type f \( -iname "*.sh" -o -iname "*.py" \) -exec chmod u+x {} +
 
+	# To also ensure all directories are accessible:
+	find "$scripts_dir" -type d -exec chmod u+rX {} +
+
+	# Setting up my reminders on the new install
+	reminders_dir="$HOME/.config/bspwm/scripts/Reminders/"
+	systemd_user_dir="$HOME/.config/systemd/user/"
+	mkdir -p "$systemd_user_dir"
+
+	cd "$reminders_dir"
+	cp reminders.service "$systemd_user_dir"
+	cp reminders.timer "$systemd_user_dir"
+	chmod +x reminders.sh
+
+	systemctl --user daemon-reload
+	systemctl --user enable reminders.timer
+	systemctl --user start reminders.timer
 }
+
 
 
 # MAIN RUN : 
