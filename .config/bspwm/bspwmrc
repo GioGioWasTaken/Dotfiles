@@ -70,7 +70,7 @@ for process in "${processes[@]}"; do
 done
 
 # Load bspwm conf, colors, dunst, bars and/or eww widgets
-. "${rice_dir}"/Theme.sh
+. $XDG_CONFIG_HOME/bspwm/Bar/Theme.sh
 
 
 # Reload sxhkd daemon
@@ -118,4 +118,4 @@ via -r&
 
 
 # compfy
-# compfy --config ~/.config/compfy/compfy.conf &
+compfy --config ~/.config/compfy/compfy.conf &
