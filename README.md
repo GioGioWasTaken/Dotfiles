@@ -1,5 +1,6 @@
-# Zombie Rice part
+# My Install script (most probably has bugs.)
 
+Hey internet stranger, do not use this script. It's shit. I recommend you copy whatever you want. The script is just for me.
 
 Run this: 
 
