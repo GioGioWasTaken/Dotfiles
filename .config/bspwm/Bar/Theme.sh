@@ -108,16 +108,18 @@ set_eww_colors() {
 EOF
 }
 
+
+POLYBAR="$XDG_CONFIG_HOME/bspwm/Bar"
 # Launch the bar
 launch_bars() {
 
     for mon in $(polybar --list-monitors | cut -d":" -f1); do
-        (MONITOR=$mon polybar -q pam1 -c "${rice_dir}"/config.ini)&
-        (MONITOR=$mon polybar -q pam2 -c "${rice_dir}"/config.ini)&
-        (MONITOR=$mon polybar -q pam3 -c "${rice_dir}"/config.ini)&
-        (MONITOR=$mon polybar -q pam4 -c "${rice_dir}"/config.ini)&
-        (MONITOR=$mon polybar -q pam5 -c "${rice_dir}"/config.ini)&
-        (MONITOR=$mon polybar -q pam6 -c "${rice_dir}"/config.ini)&
+        (MONITOR=$mon polybar -q pam1 -c "$POLYBAR"/config.ini)&
+        (MONITOR=$mon polybar -q pam2 -c "$POLYBAR"/config.ini)&
+        (MONITOR=$mon polybar -q pam3 -c "$POLYBAR"/config.ini)&
+        (MONITOR=$mon polybar -q pam4 -c "$POLYBAR"/config.ini)&
+        (MONITOR=$mon polybar -q pam5 -c "$POLYBAR"/config.ini)&
+        (MONITOR=$mon polybar -q pam6 -c "$POLYBAR"/config.ini)&
     done
 
 }
