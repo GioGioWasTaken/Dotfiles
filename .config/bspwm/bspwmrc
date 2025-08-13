@@ -6,15 +6,9 @@
 #  ██╔══██╗╚════██║██╔═══╝ ██║███╗██║██║╚██╔╝██║██╔══██╗██║
 #  ██████╔╝███████║██║     ╚███╔███╔╝██║ ╚═╝ ██║██║  ██║╚██████╗
 #  ╚═════╝ ╚══════╝╚═╝      ╚══╝╚══╝ ╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-#	- z0mbi3
-#	- https://github.com/gh0stzk/dotfiles
-#	- z0mbi3.zk@protonmail.com
 #
 
-read -r RICETHEME < "$HOME"/.config/bspwm/.rice
-export RICETHEME
 PATH="$HOME/.config/bspwm/src:$PATH"
-rice_dir="$HOME/.config/bspwm/rices/$RICETHEME"
 export XDG_CURRENT_DESKTOP='bspwm'
 
 ## Fix java applications
@@ -70,8 +64,12 @@ for process in "${processes[@]}"; do
 done
 
 # Load bspwm conf, colors, dunst, bars and/or eww widgets
+#TODO: Choose different bar based on if we are on laptop or not
 . $XDG_CONFIG_HOME/bspwm/Bar/Theme.sh
 
+
+# Make sure sxhkd and other programs are run with correct env vars
+source ~/.zshrc
 
 # Reload sxhkd daemon
 sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
@@ -81,7 +79,7 @@ sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 dunst -config "$HOME"/.config/bspwm/dunstrc &
 
 # Set random wallpaper for actual rice
-feh -z --no-fehbg --bg-fill "${rice_dir}"/walls
+feh --no-fehbg --bg-fill "$(find "$XDG_CONFIG_HOME/bspwm/Wallpapers/" -type f | shuf -n1)"
 
 # Launch eww daemon
 pidof -q eww || { eww -c "$HOME"/.config/bspwm/eww daemon & }
