@@ -1,8 +1,0 @@
-[Unit]
-Description= Execute reminder program every minute
-
-[Service]
-ExecStart=/home/Ningen/Desktop/Dotfiles/bspwm/Desktops/bspwm/scripts/Reminders/reminders.sh
-
-[Install]
-WantedBy=multi-user.target
