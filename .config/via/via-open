@@ -8,7 +8,7 @@ case "$TERMINAL" in
         TERMINAL_FINAL="wezterm start --cwd ."
         ;;
     alacritty)
-        TERMINAL_FINAL="alacritty -e"
+        TERMINAL_FINAL="alacritty --working-directory=."
         ;;
     *)
         TERMINAL_FINAL="$TERMINAL"
