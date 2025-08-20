@@ -36,6 +36,9 @@ while read -r arg; do
 		*.pdf | *.epub)
 			zathura "$arg" &
 			;;
+		*.cbz)
+			okular "$arg" &
+			;;
 		*.mp3)
 			$TERMINAL_FINAL mpg123 -opulse "$arg" &
 			;;
