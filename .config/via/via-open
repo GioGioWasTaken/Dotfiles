@@ -53,7 +53,17 @@ while read -r arg; do
 					$BROWSER "$arg" &
 					;;
 				text/* | inode/x-empty | message/rfc822)
-					$TERMINAL_FINAL $EDITOR "$arg" &
+					case "$TERMINAL" in
+						alacritty)
+							alacritty -e "$EDITOR" "$arg" &
+							;;
+						wezterm)
+							wezterm start -- "$EDITOR" "$arg" &
+							;;
+						*)
+							$TERMINAL -e "$EDITOR" "$arg" &
+							;;
+					esac
 					;;
 				inode/directory)
 					cd "$arg"

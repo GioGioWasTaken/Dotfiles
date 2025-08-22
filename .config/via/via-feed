@@ -5,8 +5,8 @@ cache="$HOME/.cache/via"
 if [[ "$1" == "-r" ]] || [[ ! -e "$cache" ]]; then
 	cat "$HOME/.config/via/shortcuts" > "$cache"
 	cat "$HOME/.config/via/websites" >> "$cache"
-	find "$HOME" -mindepth 1 \( -name ".*" -o -path "$HOME/AFLplusplus" \) -prune -o -print | sort >> "$cache"
-	find /mnt/HDD/Immersion/ -maxdepth 1
+	find "$HOME" -mindepth 1 \( -name ".*" -o -path "$HOME/AFLplusplus"  \) -prune -o -print | sort >> "$cache"
+	find /mnt/HDD/Immersion/ -maxdepth 1 >> "$cache"
 fi
 
 wmctrl -xl | sed "s/^[^.]*\.//;s/ \+\S\+ \+/ /;s/^/w /;s/ \+/ /g"
