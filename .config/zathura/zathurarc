@@ -3,9 +3,11 @@ set selection-notification	"true"
 set selection-clipboard		"clipboard"
 set guioptions			"sv"
 set scroll-page-aware		"true"
-set statusbar-home-tilde	"true"
 set recolor			"false"
 set adjust-open			"width"
+
+set statusbar-page-percent true  
+
 
 # Open document in fit-width mode by default
 set adjust-open "best-fit"
@@ -23,7 +25,7 @@ set scroll-step 100
 
 #zoom settings
 set zoom-min 10
-set guioptions ""
+# set guioptions ""
 
 
 
