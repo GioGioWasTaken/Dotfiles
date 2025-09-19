@@ -181,7 +181,27 @@ require('lazy').setup({
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "snippets", "lsp", "path", "buffer" },
+				providers = {
+					snippets = {
+						min_keyword_length = 2,
+						score_offset = 4,
+					},
+					lsp = {
+						min_keyword_length = 3,
+						score_offset = 3,
+					},
+					path = {
+						min_keyword_length = 3,
+						score_offset = 2,
+					},
+					buffer = {
+						min_keyword_length = 5,
+						score_offset = 1,
+					},
+				},
+
+
 			},
 			keymap = {
 				preset = 'default',
