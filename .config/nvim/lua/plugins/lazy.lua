@@ -155,7 +155,7 @@ require('lazy').setup({
 
 	{
 		'saghen/blink.cmp',
-		lazy = false,  -- handled inside blink. lazy loading actually slows up startup time.
+		lazy = false, -- handled inside blink. lazy loading actually slows up startup time.
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			'rafamadriz/friendly-snippets',
@@ -516,7 +516,14 @@ require('lazy').setup({
 			hidden_buffer_types = { 'terminal' },
 		},
 	},
-
+	{
+		'stevearc/conform.nvim',
+		opts = {
+			formatters_by_ft = {
+				python = { "black" },
+			},
+		},
+	},
 
 }, {
 	defaults = {
