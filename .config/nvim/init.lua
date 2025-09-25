@@ -15,5 +15,4 @@ require('plugins.oil')
 require('plugins.noice')
 require('plugins.vimtex')
 require('plugins.obsidian')
-require("plugins.surround")
-
+require('plugins.surround')

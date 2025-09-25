@@ -155,7 +155,7 @@ require('lazy').setup({
 
 	{
 		'saghen/blink.cmp',
-		lazy = false,  -- handled inside blink. lazy loading actually slows up startup time.
+		lazy = false,  -- handled inside blinirek. lazy loading actually slows up startup time.
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			'rafamadriz/friendly-snippets',
@@ -166,6 +166,11 @@ require('lazy').setup({
 					region_check_events = "InsertEnter",
 					delete_check_events = "TextChanged,InsertLeave",
 				},
+				config = function(_,opts)
+					local ls = require("luasnip")
+					ls.setup(opts)
+					require("plugins.snippets")
+				end,
 			},
 		},
 
@@ -180,8 +185,9 @@ require('lazy').setup({
 
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
+			-- snippets = { preset = 'luasnip' },
 			sources = {
-				default = { "snippets", "lsp", "path", "buffer" },
+				default = {"lsp", "path", "buffer", "snippets"},
 				providers = {
 					snippets = {
 						min_keyword_length = 2,
@@ -200,8 +206,6 @@ require('lazy').setup({
 						score_offset = 1,
 					},
 				},
-
-
 			},
 			keymap = {
 				preset = 'default',
