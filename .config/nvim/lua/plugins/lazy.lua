@@ -159,19 +159,14 @@ require('lazy').setup({
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			'rafamadriz/friendly-snippets',
-			{
-				'L3MON4D3/LuaSnip',
-				opts = {
-					history = true,
-					region_check_events = "InsertEnter",
-					delete_check_events = "TextChanged,InsertLeave",
-				},
-				config = function(_,opts)
-					local ls = require("luasnip")
-					ls.setup(opts)
-					require("plugins.snippets")
-				end,
-			},
+			-- {
+			-- 	'L3MON4D3/LuaSnip',
+			-- 	opts = {
+			-- 		history = true,
+			-- 		region_check_events = "InsertEnter",
+			-- 		delete_check_events = "TextChanged,InsertLeave",
+			-- 	},
+			-- },
 		},
 
 		version = 'v1.*',
@@ -185,11 +180,20 @@ require('lazy').setup({
 
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
+
+			--BUG: When I enable my luasnippets via this option, it overrides all over snippets.
 			-- snippets = { preset = 'luasnip' },
 			sources = {
 				default = {"lsp", "path", "buffer", "snippets"},
 				providers = {
 					snippets = {
+						name = "snippets",
+						opts = {
+							friendly_snippets = true,
+							search_paths = { vim.fn.stdpath('config') .. '/snippets' }, 
+						},
+						module = "blink.cmp.sources.snippets",
+
 						min_keyword_length = 2,
 						score_offset = 4,
 					},
@@ -231,7 +235,7 @@ require('lazy').setup({
 							item_idx = {
 								text = function(ctx) return tostring(ctx.idx) end,
 								highlight =
-								'BlinkCmpItemIdx' -- optional, only if you want to change its color
+									'BlinkCmpItemIdx' -- optional, only if you want to change its color
 							}
 						}
 					}
@@ -523,8 +527,8 @@ require('lazy').setup({
 
 
 }, {
-	defaults = {
-		lazy = true,
-		event = "BufRead",
-	},
-})
+		defaults = {
+			lazy = true,
+			event = "BufRead",
+		},
+	})
