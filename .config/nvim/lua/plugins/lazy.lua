@@ -155,18 +155,18 @@ require('lazy').setup({
 
 	{
 		'saghen/blink.cmp',
-		lazy = false, -- handled inside blink. lazy loading actually slows up startup time.
+		lazy = false,  -- handled inside blinirek. lazy loading actually slows up startup time.
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			'rafamadriz/friendly-snippets',
-			{
-				'L3MON4D3/LuaSnip',
-				opts = {
-					history = true,
-					region_check_events = "InsertEnter",
-					delete_check_events = "TextChanged,InsertLeave",
-				},
-			},
+			-- {
+			-- 	'L3MON4D3/LuaSnip',
+			-- 	opts = {
+			-- 		history = true,
+			-- 		region_check_events = "InsertEnter",
+			-- 		delete_check_events = "TextChanged,InsertLeave",
+			-- 	},
+			-- },
 		},
 
 		version = 'v1.*',
@@ -180,10 +180,20 @@ require('lazy').setup({
 
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
+
+			--BUG: When I enable my luasnippets via this option, it overrides all over snippets.
+			-- snippets = { preset = 'luasnip' },
 			sources = {
-				default = { "snippets", "lsp", "path", "buffer" },
+				default = {"lsp", "path", "buffer", "snippets"},
 				providers = {
 					snippets = {
+						name = "snippets",
+						opts = {
+							friendly_snippets = true,
+							search_paths = { vim.fn.stdpath('config') .. '/snippets' }, 
+						},
+						module = "blink.cmp.sources.snippets",
+
 						min_keyword_length = 2,
 						score_offset = 4,
 					},
@@ -200,8 +210,6 @@ require('lazy').setup({
 						score_offset = 1,
 					},
 				},
-
-
 			},
 			keymap = {
 				preset = 'default',
@@ -227,7 +235,7 @@ require('lazy').setup({
 							item_idx = {
 								text = function(ctx) return tostring(ctx.idx) end,
 								highlight =
-								'BlinkCmpItemIdx' -- optional, only if you want to change its color
+									'BlinkCmpItemIdx' -- optional, only if you want to change its color
 							}
 						}
 					}
@@ -516,18 +524,11 @@ require('lazy').setup({
 			hidden_buffer_types = { 'terminal' },
 		},
 	},
-	{
-		'stevearc/conform.nvim',
-		opts = {
-			formatters_by_ft = {
-				python = { "black" },
-			},
-		},
-	},
+
 
 }, {
-	defaults = {
-		lazy = true,
-		event = "BufRead",
-	},
-})
+		defaults = {
+			lazy = true,
+			event = "BufRead",
+		},
+	})

@@ -1,6 +1,7 @@
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
+
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -131,12 +132,12 @@ require('lspconfig').lua_ls.setup {
 
 -- Format on save (both lsp and conform.nvim)
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function()
-		require("conform").format({ async = true, lsp_fallback = true })
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		require("conform").format({ async = true, lsp_fallback = true })
+-- 	end,
+-- })
 
 
 
