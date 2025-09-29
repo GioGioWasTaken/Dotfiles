@@ -11,7 +11,7 @@ ctrl + space
 
 # Application menu
 alt + space
- 	rofi -show drun -show-icons
+ 	rofi  -show drun -show-icons
 
 # Bookmarks menu
 super + space
@@ -69,6 +69,11 @@ super + q
 #Nordvpn
 super + z
 	sh $SCRIPTS/nordvpn.sh
+
+#quadratic calc
+super + x
+	$SCRIPTS/solve_quadratic.sh
+
 
 # jgmenu
 ~button3

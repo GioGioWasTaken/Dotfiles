@@ -1,4 +1,4 @@
-#!/bin/bash
+#!bin/bash
 
 python parse_firefox_bookmarks.py >urls
 
