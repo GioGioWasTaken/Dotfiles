@@ -6,3 +6,4 @@ export XMODIFIERS=@im=fcitx
 export XDG_CONFIG_HOME="$HOME/.config"
 export DISPLAY=${DISPLAY:-:0}
 exec bspwm 
+
