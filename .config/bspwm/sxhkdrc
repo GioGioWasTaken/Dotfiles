@@ -63,7 +63,6 @@ super + minus
 #|||----- System Keybindings -----|||#
 
 # Show keybindings help
-
 super + q
 	$SCRIPTS/KeybindingsHelp
 #Nordvpn
@@ -73,6 +72,18 @@ super + z
 #quadratic calc
 super + x
 	$SCRIPTS/solve_quadratic.sh
+
+# Switch languages instantly
+
+# Choose english
+super + n
+	fcitx5-remote -s keyboard-us
+# Choose Japanese
+super + j
+	dunstify "title" $(fcitx5-remote -a)
+# Choose Hebrew
+super + y
+	 fcitx5-remote -s keyboard-il
 
 
 # jgmenu
@@ -213,6 +224,8 @@ alt + shift {h,j,k,l}
 #### Thunar ####
 super + e
 		thunar &
+
+# Vim everywhere run
 super + i
 	exec $HOME/.vim-anywhere/bin/run
 

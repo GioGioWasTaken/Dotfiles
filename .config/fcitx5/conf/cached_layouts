@@ -914,22 +914,22 @@ Language=
 Label=brl
 
 [keyboard-brai-left_hand]
-Description="Keyboard - Braille - Braille (left-handed)"
+Description="Keyboard - Braille - Braille (one-handed, left)"
 Language=
 Label="brai (left_hand)"
 
 [keyboard-brai-left_hand_invert]
-Description="Keyboard - Braille - Braille (left-handed inverted thumb)"
+Description="Keyboard - Braille - Braille (one-handed, left, inverted thumb)"
 Language=
 Label="brai (left_hand_invert)"
 
 [keyboard-brai-right_hand]
-Description="Keyboard - Braille - Braille (right-handed)"
+Description="Keyboard - Braille - Braille (one-handed, right)"
 Language=
 Label="brai (right_hand)"
 
 [keyboard-brai-right_hand_invert]
-Description="Keyboard - Braille - Braille (right-handed inverted thumb)"
+Description="Keyboard - Braille - Braille (one-handed, right, inverted thumb)"
 Language=
 Label="brai (right_hand_invert)"
 
@@ -957,6 +957,11 @@ Label="se (us_dvorak)"
 Description="Keyboard - Swedish - Swedish (Svdvorak)"
 Language=sv
 Label="se (svdvorak)"
+
+[keyboard-se-colemak]
+Description="Keyboard - Swedish - Swedish (Colemak)"
+Language=sv
+Label="se (colemak)"
 
 [keyboard-se-mac]
 Description="Keyboard - Swedish - Swedish (Macintosh)"
@@ -2079,12 +2084,12 @@ Language=en
 Label="us (dvorak-alt-intl)"
 
 [keyboard-us-dvorak-l]
-Description="Keyboard - English (US) - English (Dvorak, left-handed)"
+Description="Keyboard - English (US) - English (Dvorak, one-handed, left)"
 Language=en
 Label="us (dvorak-l)"
 
 [keyboard-us-dvorak-r]
-Description="Keyboard - English (US) - English (Dvorak, right-handed)"
+Description="Keyboard - English (US) - English (Dvorak, one-handed, right)"
 Language=en
 Label="us (dvorak-r)"
 
@@ -3143,6 +3148,11 @@ Description="Keyboard - German - German (Neo, QWERTY)"
 Language=de
 Label="de (neo_qwerty)"
 
+[keyboard-de-noted]
+Description="Keyboard - German - German (Noted)"
+Language=de
+Label="de (noted)"
+
 [keyboard-de-ru-recom]
 Description="Keyboard - German - Russian (Germany, recommended)"
 Language=ru
@@ -3667,11 +3677,6 @@ Label=ja
 Description="Keyboard - Japanese - Japanese (Kana)"
 Language=ja
 Label="jp (kana)"
-
-[keyboard-jp-kana86]
-Description="Keyboard - Japanese - Japanese (Kana 86)"
-Language=ja
-Label="jp (kana86)"
 
 [keyboard-jp-OADG109A]
 Description="Keyboard - Japanese - Japanese (OADG 109A)"

@@ -68,12 +68,19 @@ done
 . $XDG_CONFIG_HOME/bspwm/Bar/Theme.sh
 
 
-# Make sure sxhkd and other programs are run with correct env vars
+# Make sure other programs are run with correct env vars
+# NOTE: THIS might not affect some programs? sxhkd might be ignoring this, and might require manual exports done here.
 source ~/.zshrc
 
-# Reload sxhkd daemon
-sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 
+# Exports for sxhkd?
+export DISPLAY=$DISPLAY
+export XMODIFIERS=$XMODIFIERS
+export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS
+
+# Reload sxhkd daemon
+
+sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 
 # Launch dunst notification daemon
 dunst -config "$HOME"/.config/bspwm/dunstrc &
@@ -111,9 +118,7 @@ bspc rule -a obsidian desktop=^4
 
 
 fcitx5&
-
 via -r&
-
 
 # compfy
 #compfy --config ~/.config/compfy/compfy.conf &
