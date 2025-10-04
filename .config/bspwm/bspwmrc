@@ -80,6 +80,8 @@ export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS
 
 # Reload sxhkd daemon
 
+env > /tmp/bspwm_env.log
+
 sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 
 # Launch dunst notification daemon

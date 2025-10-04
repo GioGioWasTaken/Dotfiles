@@ -80,7 +80,7 @@ super + n
 	fcitx5-remote -s keyboard-us
 # Choose Japanese
 super + j
-	dunstify "title" $(fcitx5-remote -a)
+	fcitx5-remote -s mozc
 # Choose Hebrew
 super + y
 	 fcitx5-remote -s keyboard-il
