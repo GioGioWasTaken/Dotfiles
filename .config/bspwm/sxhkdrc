@@ -23,8 +23,7 @@ super + h
 
 # Wallpaper choose
 super + g
-	 wezterm -e $SCRIPTS/Wallpaper_select
-
+	 wezterm -e $SCRIPTS/WallSelect
 # OCR
 super + o
   sh $SCRIPTS/OCR.sh
@@ -109,11 +108,6 @@ super +{_,shift + }{1-9,0}
 # Change transparency on focused window
 ctrl + alt + {plus,minus,t}
 	picom-trans {-c -o +3,-c -o -1,-c -d}
-
-# wallpaper selector
-super + alt + w
-	$SCRIPTS/WallSelect
-
 
 #|||----- Screenshots -----|||#
 

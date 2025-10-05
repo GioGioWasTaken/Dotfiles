@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --bg-scale $(find $XDG_CONFIG_HOME/bspwm/Wallpapers/ -type f | fzf --preview='chafa -s 66 {}')
