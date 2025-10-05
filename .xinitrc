@@ -4,7 +4,8 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export XDG_CONFIG_HOME="$HOME/.config"
-
+export DISPLAY=${DISPLAY:-:0}
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 exec bspwm 
+

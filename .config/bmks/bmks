@@ -101,7 +101,7 @@ bmks_display() {
 		 bmks_custom "$HIDDEN_PREFIX"
 	     else
 		 bmks_ls
-	    fi | rofi -dmenu -lines ${MENU_LINE_DISPLAY} \
+	    fi | rofi -theme-str 'window {width: 60%; height: 60%;}listview{columns: 1;}' -dmenu -lines ${MENU_LINE_DISPLAY} \
 		| awk '{print $(NF)}' \
 		| xargs -I '{}' $BROWSER {} ;;
     esac

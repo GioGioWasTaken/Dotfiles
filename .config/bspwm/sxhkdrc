@@ -11,7 +11,7 @@ ctrl + space
 
 # Application menu
 alt + space
- 	rofi -show drun -show-icons
+ 	rofi  -show drun -show-icons
 
 # Bookmarks menu
 super + space
@@ -63,12 +63,28 @@ super + minus
 #|||----- System Keybindings -----|||#
 
 # Show keybindings help
-
 super + q
 	$SCRIPTS/KeybindingsHelp
 #Nordvpn
 super + z
 	sh $SCRIPTS/nordvpn.sh
+
+#quadratic calc
+super + x
+	$SCRIPTS/solve_quadratic.sh
+
+# Switch languages instantly
+
+# Choose english
+super + n
+	fcitx5-remote -s keyboard-us
+# Choose Japanese
+super + j
+	fcitx5-remote -s mozc
+# Choose Hebrew
+super + y
+	 fcitx5-remote -s keyboard-il
+
 
 # jgmenu
 ~button3
@@ -208,6 +224,8 @@ alt + shift {h,j,k,l}
 #### Thunar ####
 super + e
 		thunar &
+
+# Vim everywhere run
 super + i
 	exec $HOME/.vim-anywhere/bin/run
 
