@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font_size = 16
+local font_size = 20
 local stretch = true
 local font_family = ({
 	-- "{{font.family}}",          -- [1]
