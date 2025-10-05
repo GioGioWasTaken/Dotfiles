@@ -85,7 +85,9 @@ env > /tmp/bspwm_env.log
 sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 
 # Launch dunst notification daemon
-dunst -config "$HOME"/.config/bspwm/dunstrc &
+# dunst -config "$HOME"/.config/bspwm/dunstrc &
+# Temporarily not use the config. It seems to cause the notification daemon to break.
+dunst&
 
 # Set random wallpaper for actual rice
 feh --no-fehbg --bg-fill "$(find "$XDG_CONFIG_HOME/bspwm/Wallpapers/" -type f | shuf -n1)"

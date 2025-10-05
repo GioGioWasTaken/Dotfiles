@@ -85,7 +85,7 @@ super + y
 	 fcitx5-remote -s keyboard-il
 
 
-# jgmenu
+# jgmenu, the thing that pops when i right click the desktop
 ~button3
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu --csv-file=~/.config/bspwm/scripts/menu.txt --config-file=~/.config/bspwm/jgmenurc
 
@@ -152,7 +152,7 @@ super + {_,shift + }w
 	
 # Reload Keybindings
 super + Escape
-	pkill -x sxhkd; dunstify -u low -i ~/.config/bspwm/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'; sxhkd -c $HOME/.config/bspwm/sxhkdrc
+	 pkill -x sxhkd && sxhkd -c ~/.config/bspwm/sxhkdrc && dunstify -u low -i ~/.config/bspwm/assets/reload.svg 'sxhkd' 'Configuration reloaded'
 	# SIGUSR1 should send a restart signal to sxhkd, but it doesn't work for me, so i am resorting to pkill and restart instead.
 
 #####
@@ -224,9 +224,5 @@ super + i
 	exec $HOME/.vim-anywhere/bin/run
 
 # Apps (browser, editor)
-shift + alt + {b,o}
-	OpenApps {--browser,--obsidian}
-
-# Terminal apps ranger
-shift + alt + r
-	OpenApps {--ranger}
+shift + alt + {b,o,r}
+	OpenApps {--browser,--obsidian, --ranger}
