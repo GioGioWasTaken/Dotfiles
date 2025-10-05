@@ -109,6 +109,7 @@ xsetroot -cursor_name left_ptr
 bspc rule -a ida64 desktop=^1
 bspc rule -a anki desktop=^1
 bspc rule -a steam desktop=^1
+bspc rule -a zathura desktop=^1
 
 bspc rule -a firefox desktop=^3
 bspc rule -a discord desktop=^4
