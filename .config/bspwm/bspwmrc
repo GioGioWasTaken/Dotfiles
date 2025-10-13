@@ -85,7 +85,9 @@ env > /tmp/bspwm_env.log
 sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 
 # Launch dunst notification daemon
-dunst -config "$HOME"/.config/bspwm/dunstrc &
+# dunst -config "$HOME"/.config/bspwm/dunstrc &
+# Temporarily not use the config. It seems to cause the notification daemon to break.
+dunst&
 
 # Set random wallpaper for actual rice
 feh --no-fehbg --bg-fill "$(find "$XDG_CONFIG_HOME/bspwm/Wallpapers/" -type f | shuf -n1)"
@@ -107,6 +109,7 @@ xsetroot -cursor_name left_ptr
 bspc rule -a ida64 desktop=^1
 bspc rule -a anki desktop=^1
 bspc rule -a steam desktop=^1
+bspc rule -a zathura desktop=^1
 
 bspc rule -a firefox desktop=^3
 bspc rule -a discord desktop=^4
@@ -121,6 +124,4 @@ bspc rule -a obsidian desktop=^4
 
 fcitx5&
 via -r&
-
-# compfy
-#compfy --config ~/.config/compfy/compfy.conf &
+# compfy --config ~/.config/compfy/compfy.conf &
