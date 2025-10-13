@@ -1,9 +1,0 @@
-2025/05/21-16:56:36.720 11040f Reusing MANIFEST /home/Ningen/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
-2025/05/21-16:56:36.720 11040f Recovering log #28
-2025/05/21-16:56:36.721 11040f Reusing old log /home/Ningen/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000028.log 
-2025/05/21-16:56:36.837 110410 Compacting 1@0 + 1@1 files
-2025/05/21-16:56:36.880 110410 Generated table #31@0: 70608 keys, 1630228 bytes
-2025/05/21-16:56:36.880 110410 Compacted 1@0 + 1@1 files => 1630228 bytes
-2025/05/21-16:56:36.885 110410 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/05/21-16:56:36.885 110410 Delete type=2 #27
-2025/05/21-16:56:36.885 110410 Delete type=2 #29
