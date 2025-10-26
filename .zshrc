@@ -172,6 +172,8 @@ alias fetch='sysfetch'
 # ENV variable
 export PROGRAMMING_DIR=$HOME/Desktop/Linux-Machine/
 
+export BRAIN_ASSETS=$PROGRAMMING_DIR/Brain/assets/
+
 # Below is the definition for the ep (enter Programming) command. This command uses the ENV variable defined above in order to make CD'ing into my programming directory more comfortable.
 
 ep() {

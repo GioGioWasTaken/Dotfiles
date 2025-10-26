@@ -5,5 +5,7 @@ set disassembly-flavor intel
 layout asm
 set print asm-demangle on
 tui disable
-source /usr/share/peda/peda.py
+#source /usr/share/peda/peda.py
+
+source /home/Ningen/.config/GDB/pwndbg/gdbinit.py
 
