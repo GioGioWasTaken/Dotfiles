@@ -35,6 +35,7 @@ bspc config split_ratio               0.51
 bspc config single_monocle            true
 bspc config borderless_monocle        false
 bspc config gapless_monocle           false
+bspc config border_width 9
 
 bspc config focus_follows_pointer     true
 bspc config pointer_follows_focus     false
@@ -123,5 +124,6 @@ bspc rule -a obsidian desktop=^4
 
 
 fcitx5&
+sh "$SCRIPTS/node_border.sh" >/dev/null 2>&1 &
 via -r&
 # compfy --config ~/.config/compfy/compfy.conf &
