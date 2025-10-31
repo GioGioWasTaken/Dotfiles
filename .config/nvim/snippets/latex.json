@@ -1,12 +1,18 @@
 {
-  "Product inline": {
-    "prefix": "prodinline",
-    "body": "\\prod_{i=1}^{${1:n}} (${2:a_i})",
-    "description": "Inline product notation"
-  },
-  "Binomial": {
-    "prefix": "binom",
-    "body": "\\binom{${1:n}}{${2:k}}",
-    "description": "Binomial coefficient"
-  }
+	"Product inline": {
+		"prefix": "prodinline",
+		"body": "\\prod_{i=1}^{${1:n}} (${2:a_i})",
+		"description": "Inline product notation"
+	},
+	"Binomial": {
+		"prefix": "binom",
+		"body": "\\binom{${1:n}}{${2:k}}",
+		"description": "Binomial coefficient"
+	},
+
+	"N-th root": {
+		"prefix": "nroot",
+		"body": "\\sqrt[${1:n}]{${2:x}}",
+		"description": "N-th root"
+	}
 }

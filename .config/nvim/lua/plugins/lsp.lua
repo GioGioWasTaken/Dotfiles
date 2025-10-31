@@ -43,7 +43,6 @@ local on_attach = function(_, bufnr)
 	})
 
 
-
 	-- See `:help K` for why this keymap
 	nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 	-- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -67,8 +66,7 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'gopls', 'bashls', 'jdtls', 'lua_ls', 'ltex', 'texlab',
-	'marksman' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'gopls', 'bashls', 'jdtls', 'lua_ls', 'ltex', 'texlab', 'marksman', 'html' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
