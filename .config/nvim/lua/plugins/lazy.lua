@@ -262,23 +262,6 @@ require('lazy').setup({
 			'williamboman/mason-lspconfig.nvim',
 			'j-hui/fidget.nvim',
 		},
-
-		-- example using `opts` for defining servers
-		opts = {
-			servers = {
-				lua_ls = {}
-			}
-		},
-		config = function(_, opts)
-			local lspconfig = require('lspconfig')
-			for server, config in pairs(opts.servers) do
-				-- passing config.capabilities to blink.cmp merges with the capabilities in your
-				-- `opts[server].capabilities, if you've defined it
-				config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-				lspconfig[server].setup(config)
-			end
-		end
-
 	},
 
 	{ -- Highlight, edit, and navigate code
@@ -524,6 +507,13 @@ require('lazy').setup({
 			hidden_buffer_types = { 'terminal' },
 		},
 	},
+
+{
+  'stevearc/conform.nvim',
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
+},
+
 
 
 }, {
