@@ -15,12 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 -- Fixes Notify opacity issues
 vim.o.termguicolors = true
 
-require('lazy').setup({
+require("lazy").setup({
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 
-		dependencies = { "nvim-lua/plenary.nvim" }
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"mistricky/codesnap.nvim",
@@ -28,18 +28,18 @@ require('lazy').setup({
 		build = "make",
 	},
 	{
-		'mfussenegger/nvim-jdtls',
+		"mfussenegger/nvim-jdtls",
 		ft = "java",
-
-
 	},
-	'onsails/lspkind.nvim',
+	"onsails/lspkind.nvim",
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
 
-		build = function() vim.fn["mkdp#util#install"]() end,
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	},
 	"preservim/vim-pencil",
 	{
@@ -56,22 +56,21 @@ require('lazy').setup({
 			"nvim-lua/plenary.nvim",
 		},
 	},
-	'folke/zen-mode.nvim',
-	'tpope/vim-obsession',
+	"folke/zen-mode.nvim",
+	"tpope/vim-obsession",
 	{
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
 	},
 	{
-		'xiyaowong/nvim-transparent',
+		"xiyaowong/nvim-transparent",
 		lazy = false,
-
 	},
 	{
-		'rmagatti/goto-preview',
+		"rmagatti/goto-preview",
 		config = function()
-			require('goto-preview').setup {
+			require("goto-preview").setup({
 				width = 120, -- Width of the floating window
 				height = 15, -- Height of the floating window
 				border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
@@ -81,37 +80,37 @@ require('lazy').setup({
 				resizing_mappings = false, -- Binds arrow keys to resizing the floating window.
 				post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
 				references = { -- Configure the telescope UI for slowing the references cycling window.
-					telescope = require("telescope.themes").get_dropdown({ hide_preview = false })
+					telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
 				},
 				-- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
-				focus_on_open = true,            -- Focus the floating window when opening it.
-				dismiss_on_move = false,         -- Dismiss the floating window when moving the cursor.
-				force_close = true,              -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
-				bufhidden = "wipe",              -- the bufhidden option to set on the floating window. See :h bufhidden
+				focus_on_open = true, -- Focus the floating window when opening it.
+				dismiss_on_move = false, -- Dismiss the floating window when moving the cursor.
+				force_close = true, -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
+				bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
 				stack_floating_preview_windows = true, -- Whether to nest floating windows
 				preview_window_title = { enable = true, position = "left" }, -- Whether
-			}
-		end
+			})
+		end,
 	},
 
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
-			require("trouble").setup {
+			require("trouble").setup({
 				-- your configuration comes here
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
-			}
-		end
+			})
+		end,
 	},
 	{
 		"folke/todo-comments.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		lazy = false,
 		config = function()
-			require("todo-comments").setup {}
-		end
+			require("todo-comments").setup({})
+		end,
 	},
 
 	{
@@ -121,7 +120,7 @@ require('lazy').setup({
 				background_colour = "#000000",
 				enabled = false,
 			})
-		end
+		end,
 	},
 	{
 		"folke/noice.nvim",
@@ -132,11 +131,11 @@ require('lazy').setup({
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
-		}
+		},
 	},
 
-	'ray-x/go.nvim',
-	'ray-x/guihua.lua',
+	"ray-x/go.nvim",
+	"ray-x/guihua.lua",
 	{
 
 		lazy = false,
@@ -145,20 +144,20 @@ require('lazy').setup({
 		config = function()
 			vim.cmd.colorscheme("catppuccin")
 		end,
-
 	},
 	{
 		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
 	},
 
-
 	{
-		'saghen/blink.cmp',
-		lazy = false,  -- handled inside blinirek. lazy loading actually slows up startup time.
+		"saghen/blink.cmp",
+		lazy = false, -- handled inside blinirek. lazy loading actually slows up startup time.
 		-- optional: provides snippets for the snippet source
 		dependencies = {
-			'rafamadriz/friendly-snippets',
+			"rafamadriz/friendly-snippets",
 			-- {
 			-- 	'L3MON4D3/LuaSnip',
 			-- 	opts = {
@@ -169,13 +168,13 @@ require('lazy').setup({
 			-- },
 		},
 
-		version = 'v1.*',
+		version = "v1.*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
 			appearance = {
 				use_nvim_cmp_as_default = true,
-				nerd_font_variant = 'mono'
+				nerd_font_variant = "mono",
 			},
 
 			-- default list of enabled providers defined so that you can extend it
@@ -184,13 +183,13 @@ require('lazy').setup({
 			--BUG: When I enable my luasnippets via this option, it overrides all over snippets.
 			-- snippets = { preset = 'luasnip' },
 			sources = {
-				default = {"lsp", "path", "buffer", "snippets"},
+				default = { "lsp", "path", "buffer", "snippets" },
 				providers = {
 					snippets = {
 						name = "snippets",
 						opts = {
 							friendly_snippets = true,
-							search_paths = { vim.fn.stdpath('config') .. '/snippets' }, 
+							search_paths = { vim.fn.stdpath("config") .. "/snippets" },
 						},
 						module = "blink.cmp.sources.snippets",
 
@@ -212,40 +211,76 @@ require('lazy').setup({
 				},
 			},
 			keymap = {
-				preset = 'default',
-				['<A-1>'] = { function(cmp) cmp.accept({ index = 1 }) end },
-				['<A-2>'] = { function(cmp) cmp.accept({ index = 2 }) end },
-				['<A-3>'] = { function(cmp) cmp.accept({ index = 3 }) end },
-				['<A-4>'] = { function(cmp) cmp.accept({ index = 4 }) end },
-				['<A-5>'] = { function(cmp) cmp.accept({ index = 5 }) end },
-				['<A-6>'] = { function(cmp) cmp.accept({ index = 6 }) end },
-				['<A-7>'] = { function(cmp) cmp.accept({ index = 7 }) end },
-				['<A-8>'] = { function(cmp) cmp.accept({ index = 8 }) end },
-				['<A-9>'] = { function(cmp) cmp.accept({ index = 9 }) end },
-				['<CR>'] = { 'accept', 'fallback' },
-				['<A-k>'] = { 'select_prev', 'fallback' },
-				['<A-j>'] = { 'select_next', 'fallback' },
-				['<C-d>'] = { 'show', 'show_documentation', 'hide_documentation' }
+				preset = "default",
+				["<A-1>"] = {
+					function(cmp)
+						cmp.accept({ index = 1 })
+					end,
+				},
+				["<A-2>"] = {
+					function(cmp)
+						cmp.accept({ index = 2 })
+					end,
+				},
+				["<A-3>"] = {
+					function(cmp)
+						cmp.accept({ index = 3 })
+					end,
+				},
+				["<A-4>"] = {
+					function(cmp)
+						cmp.accept({ index = 4 })
+					end,
+				},
+				["<A-5>"] = {
+					function(cmp)
+						cmp.accept({ index = 5 })
+					end,
+				},
+				["<A-6>"] = {
+					function(cmp)
+						cmp.accept({ index = 6 })
+					end,
+				},
+				["<A-7>"] = {
+					function(cmp)
+						cmp.accept({ index = 7 })
+					end,
+				},
+				["<A-8>"] = {
+					function(cmp)
+						cmp.accept({ index = 8 })
+					end,
+				},
+				["<A-9>"] = {
+					function(cmp)
+						cmp.accept({ index = 9 })
+					end,
+				},
+				["<CR>"] = { "accept", "fallback" },
+				["<A-k>"] = { "select_prev", "fallback" },
+				["<A-j>"] = { "select_next", "fallback" },
+				["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
 			},
 			completion = {
 				menu = {
 					draw = {
-						columns = { { 'item_idx' }, { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
+						columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
 						components = {
 							item_idx = {
-								text = function(ctx) return tostring(ctx.idx) end,
-								highlight =
-									'BlinkCmpItemIdx' -- optional, only if you want to change its color
-							}
-						}
-					}
-				}
-			}
-
+								text = function(ctx)
+									return tostring(ctx.idx)
+								end,
+								highlight = "BlinkCmpItemIdx", -- optional, only if you want to change its color
+							},
+						},
+					},
+				},
+			},
 		},
 		-- allows extending the enabled_providers array elsewhere in your config
 		-- without having to redefine it
-		opts_extend = { "sources.default" }
+		opts_extend = { "sources.default" },
 	},
 
 	-- LSP servers and clients communicate what features they support through "capabilities".
@@ -255,86 +290,70 @@ require('lazy').setup({
 	--
 
 	{
-		'neovim/nvim-lspconfig',
+		"neovim/nvim-lspconfig",
 		dependencies = {
-			'saghen/blink.cmp',
-			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim',
-			'j-hui/fidget.nvim',
+			"saghen/blink.cmp",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"j-hui/fidget.nvim",
 		},
-
-		-- example using `opts` for defining servers
-		opts = {
-			servers = {
-				lua_ls = {}
-			}
-		},
-		config = function(_, opts)
-			local lspconfig = require('lspconfig')
-			for server, config in pairs(opts.servers) do
-				-- passing config.capabilities to blink.cmp merges with the capabilities in your
-				-- `opts[server].capabilities, if you've defined it
-				config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-				lspconfig[server].setup(config)
-			end
-		end
-
 	},
 
 	{ -- Highlight, edit, and navigate code
-		'nvim-treesitter/nvim-treesitter',
+		"nvim-treesitter/nvim-treesitter",
 		build = function()
-			pcall(require('nvim-treesitter.install').update { with_sync = true })
+			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 		dependencies = {
-			'nvim-treesitter/nvim-treesitter-textobjects',
-		}
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
 	},
 
 	-- Git related plugins
 	-- 'tpope/vim-fugitive',
 	-- 'lewis6991/gitsigns.nvim',
 
-	'nvim-lualine/lualine.nvim', -- Fancier statusline
-	'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
-	'tpope/vim-sleuth',   -- Detect tabstop and shiftwidth automatically
+	"nvim-lualine/lualine.nvim", -- Fancier statusline
+	"numToStr/Comment.nvim", -- "gc" to comment visual regions/lines
+	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	-- Fuzzy Finder (files, lsp, etc)
-	{ 'nvim-telescope/telescope.nvim',            branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
-	'nvim-telescope/telescope-symbols.nvim',
+	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+	"nvim-telescope/telescope-symbols.nvim",
 	-- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make',   cond = vim.fn.executable 'make' == 1 },
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 },
 	{
 		"folke/twilight.nvim",
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
-		}
+		},
 	},
 	{
-		'smoka7/hop.nvim',
+		"smoka7/hop.nvim",
 		version = "*",
 		opts = {
-			keys = 'etovxqpdygfblzhckisuran'
-		}
+			keys = "etovxqpdygfblzhckisuran",
+		},
 	},
 	{
-		'ThePrimeagen/vim-be-good',
-		cmd = 'VimBeGood' -- Optional: load the plugin only when you run the command.
+		"ThePrimeagen/vim-be-good",
+		cmd = "VimBeGood", -- Optional: load the plugin only when you run the command.
 	},
 
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
-		build = function() vim.fn["mkdp#util#install"]() end,
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	},
 
 	{
 		"3rd/image.nvim",
-		config = function()
-		end
+		config = function() end,
 	},
 	{
 		"HakonHarnes/img-clip.nvim",
@@ -349,11 +368,10 @@ require('lazy').setup({
 	},
 
 	{
-		'MeanderingProgrammer/render-markdown.nvim',
+		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {},
-		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 	},
-
 
 	{
 		"stevearc/oil.nvim",
@@ -361,7 +379,7 @@ require('lazy').setup({
 	},
 
 	{
-		'dkarter/bullets.vim',
+		"dkarter/bullets.vim",
 		event = "VeryLazy",
 	},
 
@@ -375,10 +393,10 @@ require('lazy').setup({
 			"TmuxNavigatePrevious",
 		},
 		keys = {
-			{ "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
-			{ "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
-			{ "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
-			{ "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
@@ -389,7 +407,7 @@ require('lazy').setup({
 		init = function()
 			-- VimTeX configuration goes here, e.g.
 			vim.g.vimtex_view_method = "zathura"
-		end
+		end,
 	},
 
 	-- {
@@ -505,30 +523,15 @@ require('lazy').setup({
 	--     })
 	--   end,
 	-- },
+
 	{
-		'mluders/comfy-line-numbers.nvim',
-		opts = {
-			labels = {
-				'1', '2', '3', '4', '5', '11', '12', '13', '14', '15',
-				'21', '22', '23', '24', '25', '31', '32', '33', '34', '35',
-				'41', '42', '43', '44', '45', '51', '52', '53', '54', '55',
-				'111', '112', '113', '114', '115', '121', '122', '123', '124', '125',
-				'131', '132', '133', '134', '135', '141', '142', '143', '144', '145',
-				'151', '152', '153', '154', '155', '211', '212', '213', '214', '215',
-				'221', '222', '223', '224', '225', '231', '232', '233', '234', '235',
-				'241', '242', '243', '244', '245', '251', '252', '253', '254', '255',
-			},
-			up_key = 'k',
-			down_key = 'j',
-			hidden_file_types = { 'undotree' },
-			hidden_buffer_types = { 'terminal' },
-		},
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
 	},
-
-
 }, {
-		defaults = {
-			lazy = true,
-			event = "BufRead",
-		},
-	})
+	defaults = {
+		lazy = true,
+		event = "BufRead",
+	},
+})
