@@ -107,13 +107,19 @@ pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-g
 xsetroot -cursor_name left_ptr
 
 
+# Main app: Reversing with IDA, reviewing with Anki, gaming with Steam, or reading with Zathura
 bspc rule -a ida64 desktop=^1
 bspc rule -a anki desktop=^1
 bspc rule -a steam desktop=^1
 bspc rule -a zathura desktop=^1
 
+## Desktop 2 is for my tmux session, but i often open terminal in other desktops so there is no rule for it.
+
 bspc rule -a firefox desktop=^3
+
+## Chat apps/side apps
 bspc rule -a discord desktop=^4
+bspc rule -a slack desktop=^4
 bspc rule -a vesktop desktop=^4
 bspc rule -a Krita desktop=^4
 bspc rule -a obsidian desktop=^4
