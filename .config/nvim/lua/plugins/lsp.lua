@@ -4,21 +4,32 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Set diagno
 
 -- This function runs when an LSP attaches to a buffer
 local on_attach = function(_, bufnr)
-	local nmap = function(keys, func, desc)
-		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
-	end
-
 	-- Navigation
-	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-	nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-	nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-	nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+	vim.keymap.set(
+		"n",
+		"gd",
+		require("telescope.builtin").lsp_definitions,
+		{ desc = "LSP: [G]oto [D]efinition", remap = true }
+	)
+	vim.keymap.set(
+		"n",
+		"gr",
+		require("telescope.builtin").lsp_references,
+		{ desc = "LSP: [G]oto [R]eferences", remap = true }
+	)
+	vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "LSP: [G]oto [I]mplementation" })
+	vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "LSP: Type [D]efinition" })
+	vim.keymap.set(
+		"n",
+		"<leader>ds",
+		require("telescope.builtin").lsp_document_symbols,
+		{ desc = "LSP: [D]ocument [S]ymbols" }
+	)
 
 	-- Actions
-	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-	nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: [R]e[n]ame" })
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: [C]ode [A]ction" })
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation" })
 end
 
 -- Setup Mason (installs LSPs, formatters, etc.)

@@ -23,11 +23,6 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
-		"mistricky/codesnap.nvim",
-
-		build = "make",
-	},
-	{
 		"mfussenegger/nvim-jdtls",
 		ft = "java",
 	},
@@ -41,11 +36,12 @@ require("lazy").setup({
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	"preservim/vim-pencil",
 	{
-		"sourcegraph/sg.nvim",
-
-		dependencies = { "nvim-lua/plenary.nvim" },
+		"preservim/vim-pencil",
+		ft = { "markdown", "text", "tex" },
+		config = function()
+			vim.cmd("Pencil")
+		end,
 	},
 	{
 		"epwalsh/obsidian.nvim",
@@ -57,7 +53,6 @@ require("lazy").setup({
 		},
 	},
 	"folke/zen-mode.nvim",
-	"tpope/vim-obsession",
 	{
 		"kylechui/nvim-surround",
 		version = "*",
@@ -324,18 +319,6 @@ require("lazy").setup({
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 },
 	{
 		"folke/twilight.nvim",
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-	},
-	{
-		"smoka7/hop.nvim",
-		version = "*",
-		opts = {
-			keys = "etovxqpdygfblzhckisuran",
-		},
 	},
 	{
 		"ThePrimeagen/vim-be-good",
@@ -352,15 +335,8 @@ require("lazy").setup({
 	},
 
 	{
-		"3rd/image.nvim",
-		config = function() end,
-	},
-	{
 		"HakonHarnes/img-clip.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- or leave it empty to use the default settings
-		},
 		keys = {
 			-- suggested keymap
 			{ "<leader><C-v>", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
