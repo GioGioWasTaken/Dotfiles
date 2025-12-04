@@ -1,10 +1,9 @@
 require("options")
-require("misc")
 require("keybindings")
+require("autocommands")
 
 require("plugins.lazy")
 require("plugins.formatter")
-require("plugins.misc")
 require("plugins.lualine")
 require("plugins.tele")
 require("plugins.treesitter")

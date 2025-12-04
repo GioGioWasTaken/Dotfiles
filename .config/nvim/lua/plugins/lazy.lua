@@ -129,7 +129,6 @@ require("lazy").setup({
 		},
 	},
 
-	"ray-x/go.nvim",
 	"ray-x/guihua.lua",
 	{
 
@@ -153,14 +152,6 @@ require("lazy").setup({
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			-- {
-			-- 	'L3MON4D3/LuaSnip',
-			-- 	opts = {
-			-- 		history = true,
-			-- 		region_check_events = "InsertEnter",
-			-- 		delete_check_events = "TextChanged,InsertLeave",
-			-- 	},
-			-- },
 		},
 
 		version = "v1.*",
@@ -309,7 +300,7 @@ require("lazy").setup({
 	-- 'lewis6991/gitsigns.nvim',
 
 	"nvim-lualine/lualine.nvim", -- Fancier statusline
-	"numToStr/Comment.nvim", -- "gc" to comment visual regions/lines
+	{ "numToStr/Comment.nvim", opts = {} }, -- "gc" to comment visual regions/lines
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	-- Fuzzy Finder (files, lsp, etc)
