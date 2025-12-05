@@ -131,5 +131,11 @@ bspc rule -a steam desktop=^5
 
 fcitx5 &
 sh "$SCRIPTS/node_border.sh" >/dev/null 2>&1 &
+
+if [ -d "$HOME/IDENTIFIER/THIS/IS/MOM" ]; then
+	kmonad $HOME/.config/Kmonad/mom_config.kbd
+else
+	kmonad $HOME/.config/Kmonad/dad_config.kbd
+fi
+
 via -r &
-# compfy --config ~/.config/compfy/compfy.conf &
