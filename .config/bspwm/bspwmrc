@@ -20,8 +20,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Default 1 monitor with 6 workspaces
 for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
-    bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6'
-    #bspc monitor "$monitor" -d '' '' '' '' '' ''
+	bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6'
+	#bspc monitor "$monitor" -d '' '' '' '' '' ''
 done
 
 ## For two or three monitors configuration see https://github.com/gh0stzk/dotfiles/wiki/Two-or-more-monitors-setup
@@ -30,20 +30,20 @@ done
 #  ╠╩╗╚═╗╠═╝║║║║║║  ║  ║ ║║║║╠╣ ║║ ╦
 #  ╚═╝╚═╝╩  ╚╩╝╩ ╩  ╚═╝╚═╝╝╚╝╚  ╩╚═╝
 
-bspc config window_gap                6
-bspc config split_ratio               0.51
-bspc config single_monocle            true
-bspc config borderless_monocle        false
-bspc config gapless_monocle           false
+bspc config window_gap 6
+bspc config split_ratio 0.51
+bspc config single_monocle true
+bspc config borderless_monocle false
+bspc config gapless_monocle false
 bspc config border_width 9
 
-bspc config focus_follows_pointer     true
-bspc config pointer_follows_focus     false
-bspc config pointer_motion_interval   5
-bspc config pointer_modifier          mod4
-bspc config pointer_action1           move
-bspc config pointer_action2           resize_side
-bspc config pointer_action3           resize_corner
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus false
+bspc config pointer_motion_interval 5
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
 
 #bspc wm --adopt-orphans
 bspc rule -a scratch sticky=on state=floating focus=on
@@ -59,20 +59,19 @@ bspc rule -a scratch sticky=on state=floating focus=on
 processes=("sxhkd" "polybar" "dunst" "eww.*bar")
 
 for process in "${processes[@]}"; do
-    if pgrep -f "$process"; then
-        pkill -f "$process" > /dev/null; sleep 0.25
-    fi
+	if pgrep -f "$process"; then
+		pkill -f "$process" >/dev/null
+		sleep 0.25
+	fi
 done
 
 # Load bspwm conf, colors, dunst, bars and/or eww widgets
 #TODO: Choose different bar based on if we are on laptop or not
 . $XDG_CONFIG_HOME/bspwm/Bar/Theme.sh
 
-
 # Make sure other programs are run with correct env vars
 # NOTE: THIS might not affect some programs? sxhkd might be ignoring this, and might require manual exports done here.
 source ~/.zshrc
-
 
 # Exports for sxhkd?
 export DISPLAY=$DISPLAY
@@ -81,14 +80,14 @@ export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS
 
 # Reload sxhkd daemon
 
-env > /tmp/bspwm_env.log
+env >/tmp/bspwm_env.log
 
 sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
 
 # Launch dunst notification daemon
 # dunst -config "$HOME"/.config/bspwm/dunstrc &
 # Temporarily not use the config. It seems to cause the notification daemon to break.
-dunst&
+dunst &
 
 # Set random wallpaper for actual rice
 feh --no-fehbg --bg-fill "$(find "$XDG_CONFIG_HOME/bspwm/Wallpapers/" -type f | shuf -n1)"
@@ -106,30 +105,37 @@ pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-g
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
-
-# Main app: Reversing with IDA, reviewing with Anki, gaming with Steam, or reading with Zathura
+# Main task
 bspc rule -a ida64 desktop=^1
 bspc rule -a anki desktop=^1
-bspc rule -a steam desktop=^1
-bspc rule -a zathura desktop=^1
+bspc rule -a org.pwmt.zathura desktop=^1
+bspc rule -a obsidian desktop=^1
 
-## Desktop 2 is for my tmux session, but i often open terminal in other desktops so there is no rule for it.
+# Desktop 2 is for my terminal/tmux/nvim main instance
 
+# Browser
 bspc rule -a firefox desktop=^3
 
-## Chat apps/side apps
+# Messaging apps
 bspc rule -a discord desktop=^4
-bspc rule -a slack desktop=^4
 bspc rule -a vesktop desktop=^4
-bspc rule -a Krita desktop=^4
-bspc rule -a obsidian desktop=^4
+bspc rule -a slack desktop=^4
 
+# Whenever I use krita i'm focusing on solving a problem, which means the chat apps are closed anyways.
+bspc rule -a krita desktop=^4
 
+# Side tasks / helpers
+bspc rule -a steam desktop=^5
 
 # Gio's own autostart!!
 
-
-fcitx5&
+fcitx5 &
 sh "$SCRIPTS/node_border.sh" >/dev/null 2>&1 &
-via -r&
-# compfy --config ~/.config/compfy/compfy.conf &
+
+if [ -d "$HOME/IDENTIFIER/THIS/IS/MOM" ]; then
+	kmonad $HOME/.config/Kmonad/mom_config.kbd
+else
+	kmonad $HOME/.config/Kmonad/dad_config.kbd
+fi
+
+via -r &
