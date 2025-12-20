@@ -127,6 +127,7 @@ bspc rule -a krita desktop=^4
 
 # Side tasks / helpers
 bspc rule -a steam desktop=^5
+bspc rule -a qbittorrent desktop=^5
 
 # Gio's own autostart!!
 
