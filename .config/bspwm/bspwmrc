@@ -112,6 +112,7 @@ bspc rule -a org.pwmt.zathura desktop=^1
 bspc rule -a obsidian desktop=^1
 
 # Desktop 2 is for my terminal/tmux/nvim main instance
+bspc rule -a alacritty desktop=^2
 
 # Browser
 bspc rule -a firefox desktop=^3
@@ -132,10 +133,10 @@ bspc rule -a steam desktop=^5
 fcitx5 &
 sh "$SCRIPTS/node_border.sh" >/dev/null 2>&1 &
 
+via -r &
+
 if [ -d "$HOME/IDENTIFIER/THIS/IS/MOM" ]; then
 	kmonad $HOME/.config/Kmonad/mom_config.kbd
 else
 	kmonad $HOME/.config/Kmonad/dad_config.kbd
 fi
-
-via -r &
