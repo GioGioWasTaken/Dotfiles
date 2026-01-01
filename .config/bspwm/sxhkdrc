@@ -13,8 +13,13 @@ ctrl + space
 alt + space
  	rofi  -show drun -show-icons
 
-# Bookmarks menu
+
+# Application menu
 super + space
+ 	rofi  -show drun -show-icons
+
+# Bookmarks menu
+super + b
 	sh $HOME/.config/bmks/bmks
 
 # Recent browser history menu

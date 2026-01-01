@@ -131,6 +131,8 @@ bspc rule -a qbittorrent desktop=^5
 
 # Gio's own autostart!!
 
+# This service will allow me to use file menus in apps like discord
+/usr/lib/xdg-desktop-portal-gtk &
 fcitx5 &
 sh "$SCRIPTS/node_border.sh" >/dev/null 2>&1 &
 
