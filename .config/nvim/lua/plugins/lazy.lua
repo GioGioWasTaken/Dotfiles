@@ -78,10 +78,10 @@ require("lazy").setup({
 					telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
 				},
 				-- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
-				focus_on_open = true, -- Focus the floating window when opening it.
-				dismiss_on_move = false, -- Dismiss the floating window when moving the cursor.
-				force_close = true, -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
-				bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
+				focus_on_open = true,            -- Focus the floating window when opening it.
+				dismiss_on_move = false,         -- Dismiss the floating window when moving the cursor.
+				force_close = true,              -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
+				bufhidden = "wipe",              -- the bufhidden option to set on the floating window. See :h bufhidden
 				stack_floating_preview_windows = true, -- Whether to nest floating windows
 				preview_window_title = { enable = true, position = "left" }, -- Whether
 			})
@@ -299,9 +299,9 @@ require("lazy").setup({
 	-- 'tpope/vim-fugitive',
 	-- 'lewis6991/gitsigns.nvim',
 
-	"nvim-lualine/lualine.nvim", -- Fancier statusline
-	{ "numToStr/Comment.nvim", opts = {} }, -- "gc" to comment visual regions/lines
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	"nvim-lualine/lualine.nvim",     -- Fancier statusline
+	{ "numToStr/Comment.nvim",         opts = {} }, -- "gc" to comment visual regions/lines
+	"tpope/vim-sleuth",              -- Detect tabstop and shiftwidth automatically
 
 	-- Fuzzy Finder (files, lsp, etc)
 	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -360,10 +360,10 @@ require("lazy").setup({
 			"TmuxNavigatePrevious",
 		},
 		keys = {
-			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
@@ -498,7 +498,7 @@ require("lazy").setup({
 	},
 }, {
 	defaults = {
-		lazy = true,
+		lazy = false,
 		event = "BufRead",
 	},
 })
