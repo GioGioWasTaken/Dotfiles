@@ -228,6 +228,10 @@ super + e
 super + i
 	exec $HOME/.vim-anywhere/bin/run
 
+super + m
+	Volume --toggle
+
+
 # Apps (browser, editor)
 shift + alt + {b,o,r}
 	OpenApps {--browser,--obsidian, --ranger}
