@@ -228,6 +228,10 @@ super + e
 super + i
 	exec $HOME/.vim-anywhere/bin/run
 
+
+super + d
+	sh $SCRIPTS/define
+
 # Apps (browser, editor)
 shift + alt + {b,o,r}
 	OpenApps {--browser,--obsidian, --ranger}
