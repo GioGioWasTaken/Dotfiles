@@ -30,7 +30,7 @@ if [[ "$lang" = "English" ]]; then
 	printf '' | xclip -i -selection primary # Explicitly clear primary, this is so it doesn't keep showing the same definition of the word
 
 else
-	firefox "https://kotobank.jp/search?q=$word&t=ja"
+	firefox "moz-extension://8e5a32da-2c7e-4ec1-a899-1a52686ecf96/search.html?query=$word"
 	printf '' | xclip -i -selection primary # Explicitly clear primary, this is so it doesn't keep showing the same definition of the word
 fi
 
