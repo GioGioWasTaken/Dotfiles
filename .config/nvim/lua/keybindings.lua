@@ -185,6 +185,10 @@ vim.keymap.set("n", "<leader>qq", ":q<CR>", { silent = true, noremap = true })
 
 vim.api.nvim_set_keymap("i", "df", "<Right>", { noremap = true, silent = true })
 
+vim.api.nvim_create_user_command("GetFilename", function()
+	vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, {})
+
 -- AUTOCOMMANDS
 
 -- this should disable auto comment on newline when on a comment line
