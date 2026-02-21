@@ -37,9 +37,3 @@ vim.api.nvim_create_autocmd("bufnewfile", {
 	pattern = { "dockerfile" },
 	command = "0r ~/.config/nvim/templates/dockerfile",
 })
-
--- automatically clean up auxiliary files when saving a .tex file
-vim.api.nvim_create_autocmd("bufwritepost", {
-	pattern = "*.tex",
-	command = "vimtexclean",
-})
