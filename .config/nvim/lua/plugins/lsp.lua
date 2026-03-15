@@ -67,7 +67,9 @@ local servers = {
 		filetypes = { "tex", "bib", "plaintex" }, -- Exclude markdown
 	},
 	texlab = {},
-	marksman = {},
+	marksman = {
+
+	},
 	html = {},
 
 	ts_ls = {},

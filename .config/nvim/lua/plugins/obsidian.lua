@@ -8,8 +8,8 @@ require("obsidian").setup({
 
 
 
--- Optional, customize how note file names are generated given the ID, target directory, and title.
-  ---@param spec { id: string, dir: obsidian.Path, title: string|? }
+  -- Optional, customize how note file names are generated given the ID, target directory, and title.
+  --- @param spec { id: string, dir: obsidian.Path, title: string|? }
   ---@return string|obsidian.Path The full path to the new note.
   note_path_func = function(spec)
     -- This is equivalent to the default behavior.

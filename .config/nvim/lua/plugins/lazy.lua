@@ -299,9 +299,9 @@ require("lazy").setup({
 	-- 'tpope/vim-fugitive',
 	-- 'lewis6991/gitsigns.nvim',
 
-	"nvim-lualine/lualine.nvim",     -- Fancier statusline
+	"nvim-lualine/lualine.nvim",             -- Fancier statusline
 	{ "numToStr/Comment.nvim",         opts = {} }, -- "gc" to comment visual regions/lines
-	"tpope/vim-sleuth",              -- Detect tabstop and shiftwidth automatically
+	"tpope/vim-sleuth",                      -- Detect tabstop and shiftwidth automatically
 
 	-- Fuzzy Finder (files, lsp, etc)
 	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
