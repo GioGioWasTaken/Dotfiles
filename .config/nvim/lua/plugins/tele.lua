@@ -1,59 +1,87 @@
-require("telescope").load_extension("harpoon")
+return {
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        cond = function()
+          return vim.fn.executable("make") == 1
+        end,
+      },
+      "ThePrimeagen/harpoon",
+    },
 
-require("telescope").setup({
-	defaults = {
-		layout_strategy = "horizontal",
-		layout_config = {
-			preview_width = 0.65,
-			horizontal = {
-				size = {
-					width = "95%",
-					height = "95%",
-				},
-			},
-		},
-		pickers = {
-			find_files = {
-				theme = "dropdown",
-			},
-		},
-		mappings = {
-			i = {
-				["<C-u>"] = false,
-				["<C-d>"] = false,
-				["<C-j>"] = require("telescope.actions").move_selection_next,
-				["<C-k>"] = require("telescope.actions").move_selection_previous,
-				["qq"] = require("telescope.actions").close,
-			},
-		},
-	},
-})
+    config = function()
+      local telescope = require("telescope")
+      local actions = require("telescope.actions")
 
--- Enable telescope fzf native, if installed
-pcall(require("telescope").load_extension, "fzf")
+      telescope.setup({
+        defaults = {
+          layout_strategy = "horizontal",
+          layout_config = {
+            horizontal = {
+            preview_width = 0.65,
+              size = {
+                width = "95%",
+                height = "95%",
+              },
+            },
+          },
+          mappings = {
+            i = {
+              ["<C-u>"] = false,
+              ["<C-d>"] = false,
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-k>"] = actions.move_selection_previous,
+              ["qq"] = actions.close,
+            },
+          },
+        },
+        pickers = {
+          find_files = {
+            theme = "dropdown",
+          },
+        },
+      })
 
--- best remap ever. "Where did my files go?"
-vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
-vim.keymap.set("n", "<leader>/", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = true,
-	}))
-end, { desc = "[/] Fuzzily search in current buffer]" })
+      pcall(telescope.load_extension, "fzf")
+      pcall(telescope.load_extension, "harpoon")
+    end,
 
-vim.keymap.set("n", "<C-f>", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
-vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
-vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
-vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>sb", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
-vim.keymap.set("n", "<leader>sm", ":Telescope harpoon marks<CR>", { desc = "Harpoon [M]arks" })
-vim.keymap.set("n", "<Leader>sn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", silent) -- Search notifications
+    keys = {
+      { "<leader>?", function() require("telescope.builtin").oldfiles() end, desc = "Find recent files" },
 
-vim.api.nvim_set_keymap("n", "st", ":TodoTelescope<CR>", { noremap = true })
-vim.api.nvim_set_keymap(
-	"n",
-	"<Leader><tab>",
-	"<Cmd>lua require('telescope.builtin').commands()<CR>",
-	{ noremap = false }
-)
+      {
+        "<leader>/",
+        function()
+          require("telescope.builtin").current_buffer_fuzzy_find(
+            require("telescope.themes").get_dropdown({
+              winblend = 10,
+              previewer = true,
+            })
+          )
+        end,
+        desc = "Fuzzily search in current buffer",
+      },
+
+      { "<C-f>", function() require("telescope.builtin").find_files() end, desc = "Find files" },
+      { "<leader>sw", function() require("telescope.builtin").grep_string() end, desc = "Search word" },
+      { "<leader>sg", function() require("telescope.builtin").live_grep() end, desc = "Live grep" },
+      { "<leader>sd", function() require("telescope.builtin").diagnostics() end, desc = "Diagnostics" },
+      { "<leader>sb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
+
+      { "<leader>sm", ":Telescope harpoon marks<CR>", desc = "Harpoon marks" },
+      { "<leader>sn", function() require("telescope").extensions.notify.notify() end, desc = "Notifications" },
+
+      { "st", ":TodoTelescope<CR>", desc = "Todo Telescope" },
+      {
+        "<leader><tab>",
+        function() require("telescope.builtin").commands() end,
+        desc = "Commands",
+      },
+    },
+  },
+}

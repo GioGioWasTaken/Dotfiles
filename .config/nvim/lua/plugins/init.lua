@@ -1,25 +1,7 @@
--- Install lazylua
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-
--- Fixes Notify opacity issues
-vim.o.termguicolors = true
-
-require("lazy").setup({
+return {
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
-
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
@@ -91,31 +73,19 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
-		config = function()
-			require("trouble").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
 	},
 	{
 		"folke/todo-comments.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		lazy = false,
-		config = function()
-			require("todo-comments").setup({})
-		end,
 	},
 
 	{
 		"rcarriga/nvim-notify",
-		config = function()
-			require("notify").setup({
-				background_colour = "#000000",
-				enabled = false,
-			})
-		end,
+		opts = {
+			background_colour = "#000000",
+			enabled = false,
+		}
 	},
 	{
 		"folke/noice.nvim",
@@ -141,9 +111,6 @@ require("lazy").setup({
 	},
 	{
 		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
 	},
 
 	{
@@ -153,10 +120,7 @@ require("lazy").setup({
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
-
 		version = "v1.*",
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
 		opts = {
 			appearance = {
 				use_nvim_cmp_as_default = true,
@@ -295,22 +259,12 @@ require("lazy").setup({
 		},
 	},
 
-	-- Git related plugins
-	-- 'tpope/vim-fugitive',
-	-- 'lewis6991/gitsigns.nvim',
 
 	"nvim-lualine/lualine.nvim",             -- Fancier statusline
-	{ "numToStr/Comment.nvim",         opts = {} }, -- "gc" to comment visual regions/lines
+	"numToStr/Comment.nvim", -- "gc" to comment visual regions/lines
 	"tpope/vim-sleuth",                      -- Detect tabstop and shiftwidth automatically
-
-	-- Fuzzy Finder (files, lsp, etc)
-	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
 	"nvim-telescope/telescope-symbols.nvim",
-	-- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 },
-	{
-		"folke/twilight.nvim",
-	},
+	"folke/twilight.nvim",
 	{
 		"ThePrimeagen/vim-be-good",
 		cmd = "VimBeGood", -- Optional: load the plugin only when you run the command.
@@ -371,10 +325,6 @@ require("lazy").setup({
 		"lervag/vimtex",
 		lazy = false, -- we don't want to lazy load VimTeX
 		-- tag = "v2.15", -- uncomment to pin to a specific release
-		init = function()
-			-- VimTeX configuration goes here, e.g.
-			vim.g.vimtex_view_method = "zathura"
-		end,
 	},
 
 	-- {
@@ -496,9 +446,4 @@ require("lazy").setup({
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 	},
-}, {
-	defaults = {
-		lazy = false,
-		event = "BufRead",
-	},
-})
+}
