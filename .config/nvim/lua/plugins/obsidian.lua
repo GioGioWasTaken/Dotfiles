@@ -16,6 +16,7 @@ return {
         },
       },
 
+
       note_path_func = function(spec)
         -- Default-like behavior
         local title = spec.title or spec.id

@@ -28,7 +28,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.o.completeopt = "menuone,noselect"
 
 -- Concealer for Neorg
-vim.o.conceallevel = 2
+vim.opt.conceallevel = 1
 
 -- Set <space> as the leader key
 --  NOTE: Must be included before plugins are required (otherwise wrong leader will be used)
