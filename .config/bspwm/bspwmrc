@@ -128,6 +128,10 @@ bspc rule -a krita desktop=^4
 bspc rule -a steam desktop=^5
 bspc rule -a qbittorrent desktop=^5
 
+# Steam games
+bspc rule -a steam_app_\* state=floating
+bspc rule -a steam_app_\* desktop=^1
+
 # Gio's own autostart!!
 
 # This service will allow me to use file menus in apps like discord

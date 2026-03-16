@@ -23,7 +23,7 @@ super + b
 	sh $HOME/.config/bmks/bmks
 
 # Recent browser history menu
-super + h
+super + p
 	selection=$(python $SCRIPTS/firefox-recent.py | rofi -dmenu); [ -n "$selection" ] && $BROWSER "$selection"
 
 # Wallpaper choose
@@ -36,6 +36,10 @@ super + o
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
+
+# cycle focus with alt + vim keys
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
