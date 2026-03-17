@@ -11,6 +11,7 @@ return {
 		"mfussenegger/nvim-jdtls",
 		ft = "java",
 	},
+	{ "L3MON4D3/LuaSnip" },
 	"onsails/lspkind.nvim",
 	{
 		"iamcco/markdown-preview.nvim",

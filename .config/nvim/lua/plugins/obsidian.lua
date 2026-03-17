@@ -25,8 +25,10 @@ return {
       end,
 
       follow_url_func = function(url)
-        vim.ui.open(url) -- Neovim 0.10+
+        vim.ui.open(url)                 -- Neovim 0.10+
       end,
+      preferred_link_style = "markdown", -- we can make obsidian create links relative from my_brain(the obsidian directory) using the Obsidianlink command, which will then open a fuzzy finder menu. This is not much better the marksman suggestions which come through blink.cmp
+
     },
   },
 }
