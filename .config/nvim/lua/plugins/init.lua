@@ -5,6 +5,9 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
+		"iurimateus/luasnip-latex-snippets.nvim",
+	},
+	{
 		"mfussenegger/nvim-jdtls",
 		ft = "java",
 	},
@@ -20,7 +23,7 @@ return {
 	},
 	{
 		"preservim/vim-pencil",
-		ft = { "markdown", "text", "tex" },
+		ft = { "markdown", "text" },
 		config = function()
 			vim.cmd("Pencil")
 		end,
@@ -111,6 +114,7 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
+		opts = {},
 	},
 
 	{
@@ -220,4 +224,5 @@ return {
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 	},
+
 }
