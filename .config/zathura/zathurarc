@@ -31,3 +31,8 @@ set zoom-min 10
 
 map <Ctrl>r toggle-recolor
 include catppuccin-mocha
+
+
+# VIMLIKE
+
+set incremental-search "true"
