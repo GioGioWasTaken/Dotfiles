@@ -1,17 +1,15 @@
-local ls = require("luasnip")
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
-
--- LaTeX snippets
-ls.add_snippets("tex", {
-  s("prodinline", {
-    t("\\prod_{i=1}^{"),
-    i(1, "n"),
-    t("} ("),
-    i(2, "a_i"),
-    t(")")
-  }),
-
-  -- add more snippets here
-})
+return {
+  "L3MON4D3/LuaSnip",
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+    "iurimateus/luasnip-latex-snippets.nvim",
+    "lervag/vimtex",
+  },
+  config = function()
+    require("luasnip").config.setup({
+      enable_autosnippets = true,
+    })
+    require("snippets.friendly")
+    require("snippets.latex")
+  end,
+}

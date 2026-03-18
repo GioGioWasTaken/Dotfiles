@@ -31,9 +31,9 @@ if [[ "$lang" = "English" ]]; then
 
 else
 	if [-d $HOME/IDENTIFIER/THIS/IS/MOM/]; then
-		firefox "moz-extension://8e5a32da-2c7e-4ec1-a899-1a52686ecf96/search.html?query=$word"
-	else
 		firefox "moz-extension://e687bdd9-e8cd-402d-9465-2f787c0e7492/search.html?query=$word"
+	else
+		firefox "moz-extension://8e5a32da-2c7e-4ec1-a899-1a52686ecf96/search.html?query=$word"
 	fi
 
 	printf '' | xclip -i -selection primary # Explicitly clear primary, this is so it doesn't keep showing the same definition of the word

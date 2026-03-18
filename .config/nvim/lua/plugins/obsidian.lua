@@ -1,28 +1,34 @@
-require("obsidian").setup({
-  workspaces = {
-    {
-      name = "Notes",
-      path = "$PROGRAMMING_DIR/Brain/",
+return {
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    ft = "markdown",
+
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+
+    opts = {
+      workspaces = {
+        {
+          name = "Notes",
+          path = "$PROGRAMMING_DIR/Brain/",
+        },
+      },
+
+
+      note_path_func = function(spec)
+        -- Default-like behavior
+        local title = spec.title or spec.id
+        local path = spec.dir / title
+        return path:with_suffix(".md")
+      end,
+
+      follow_url_func = function(url)
+        vim.ui.open(url)                 -- Neovim 0.10+
+      end,
+      preferred_link_style = "markdown", -- we can make obsidian create links relative from my_brain(the obsidian directory) using the Obsidianlink command, which will then open a fuzzy finder menu. This is not much better the marksman suggestions which come through blink.cmp
+
     },
   },
-
-
-
--- Optional, customize how note file names are generated given the ID, target directory, and title.
-  ---@param spec { id: string, dir: obsidian.Path, title: string|? }
-  ---@return string|obsidian.Path The full path to the new note.
-  note_path_func = function(spec)
-    -- This is equivalent to the default behavior.
-    local title = spec.title or spec.id
-    local path = spec.dir / title
-    return path:with_suffix(".md")
-  end,
-
-
-  ---@param url string
-  follow_url_func = function(url)
-    -- Open the URL in the default web browser.
-    -- vim.fn.jobstart({"xdg-open", url})  -- linux
-    vim.ui.open(url) -- need Neovim 0.10.0+
-  end
-})
+}

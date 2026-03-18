@@ -12,6 +12,18 @@
 \newcommand{\R}{\mathbb{R}}   % Reals
 \newcommand{\C}{\mathbb{C}}   % Complex
 
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+\newcommand{\incfig}[2][1]{%
+	\def\svgwidth{#1\columnwidth}
+	\import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
 
 \begin {document}
 

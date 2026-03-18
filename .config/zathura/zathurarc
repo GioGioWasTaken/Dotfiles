@@ -29,7 +29,13 @@ set zoom-min 10
 
 
 
-map <Ctrl>r toggle-recolor
+# map <Ctrl>r toggle-recolor
+
+
+# Offset lookup of current document
+map <C-l> exec "sh -c 'notify-send \"$(/home/Ningen/python_venv/bin/python /home/Ningen/.config/bspwm/scripts/zathura_pdf_offset.py \"$FILE\")\"'"
+
+map <C-v> exec "notify-send 'hi'"
 include catppuccin-mocha
 
 

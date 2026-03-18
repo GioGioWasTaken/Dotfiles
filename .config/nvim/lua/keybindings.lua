@@ -120,12 +120,16 @@ vim.keymap.set("v", "D", '"_d')
 -- this same behaviour for P already exists in NeoVim.
 -- Just paste with P in visual mode to not replace the unnamed register (see :help v_P).
 
-vim.keymap.set(
-	"n",
-	"<leader>z",
-	"<cmd>silent !tmux neww " .. os.getenv("DOTFILES") .. "/tmux/tmux-sessionizer<CR>",
-	{ desc = "Tmux Sessionizer" }
-)
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>z",
+-- 	"<cmd>silent !tmux neww " .. os.getenv("DOTFILES") .. "/tmux/tmux-sessionizer<CR>",
+-- 	{ desc = "Tmux Sessionizer" }
+-- )
+
+-- Fix Links
+
+vim.keymap.set("n", "<leader>fl", ":w<CR>:!python $SCRIPTS/restyle_links.py<CR>", { silent = true })
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
