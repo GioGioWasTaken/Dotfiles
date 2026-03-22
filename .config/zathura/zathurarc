@@ -37,3 +37,8 @@ map <C-l> exec "sh -c 'notify-send \"$(/home/Ningen/python_venv/bin/python /home
 
 map <C-v> exec "notify-send 'hi'"
 include catppuccin-mocha
+
+
+# VIMLIKE
+
+set incremental-search "true"
