@@ -23,7 +23,7 @@ super + b
 	sh $HOME/.config/bmks/bmks
 
 # Recent browser history menu
-super + p
+super + h
 	selection=$(python $SCRIPTS/firefox-recent.py | rofi -dmenu); [ -n "$selection" ] && $BROWSER "$selection"
 
 # Wallpaper choose
@@ -237,5 +237,5 @@ super + d
 	sh $SCRIPTS/define
 
 # Apps (browser, editor)
-shift + alt + {b,o,r}
-	OpenApps {--browser,--obsidian, --ranger}
+shift + alt + {b,r}
+	OpenApps {--browser, --ranger}

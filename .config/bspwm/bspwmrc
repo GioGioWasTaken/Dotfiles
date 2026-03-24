@@ -132,6 +132,10 @@ bspc rule -a qbittorrent desktop=^5
 bspc rule -a steam_app_\* state=floating
 bspc rule -a steam_app_\* desktop=^1
 
+# Subminer- watch anime with jp subs comfortambly
+bspc rule -a "SubMiner" desktop='^1' manage=off follow=on
+bspc rule -a "mpv" desktop='^1' follow=on
+
 # Gio's own autostart!!
 
 # This service will allow me to use file menus in apps like discord
