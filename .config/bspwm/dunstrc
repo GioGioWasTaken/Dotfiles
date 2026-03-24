@@ -1,6 +1,6 @@
 #  ╔╦╗╦ ╦╔╗╔╔═╗╔╦╗  ╔═╗╔═╗╔╗╔╔═╗╦╔═╗	- Dunst config file for the rices
 #   ║║║ ║║║║╚═╗ ║   ║  ║ ║║║║╠╣ ║║ ╦	- https://github.com/gh0stzk/dotfiles
-#  ═╩╝╚═╝╝╚╝╚═╝ ╩   ╚═╝╚═╝╝╚╝╚  ╩╚═╝	- z0mbi3
+#  ═╩╝╚═╝╝╚╝╚═╝ ╩   ╚═╝╚═╝╝╚╝╚  ╩╚═╝	
 
 [global]
 title = Dunst
