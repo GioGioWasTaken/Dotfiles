@@ -30,9 +30,6 @@ while read -r arg; do
 			query=$(printf '%s' "$arg" | sed 's/ /+/g')
 			$BROWSER "https://www.google.com/search?q=$query" &
 			;;
-		*.txt)
-			$EDITOR "$arg" &
-			;;
 		*.pdf | *.epub)
 			zathura "$arg" &
 			;;
@@ -53,6 +50,7 @@ while read -r arg; do
 					$BROWSER "$arg" &
 					;;
 				text/* | inode/x-empty | message/rfc822)
+				# *.txt | *.c | *.h | *.cpp | *.hpp | *.java | *.md | *.markdown | *.tex, virtually any text file.
 					case "$TERMINAL" in
 						alacritty)
 							alacritty -e "$EDITOR" "$arg" &
