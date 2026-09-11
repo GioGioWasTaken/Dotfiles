@@ -6,7 +6,7 @@
 | `enum` | `\begin{enumerate} \item` | |
 | `item` | `\begin{itemize} \item` | |
 | `desc` | `\begin{description}` | |
-| `ali` | `\begin{align*}` | |
+| `ali` | `\begin{align*}` | For expressions spanning multiple lines|
 | `table` | Full table environment | |
 | `fig` | Full figure environment | |
 
