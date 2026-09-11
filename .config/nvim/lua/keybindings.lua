@@ -27,8 +27,9 @@ vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<", "<gv", { noremap = true, silent = true })
 
 -- Visual mode modifications
-vim.api.nvim_set_keymap("n", "vv", "V", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "V", "v$", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "vv", "V", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "V", "v$", { noremap = true, silent = true })
+-- NOTE: this is a good remap, but currently i disabled it in interest of being as close to vanilla vim as possible
 
 -- Enumerate automatically selected lines under cursor
 vim.api.nvim_set_keymap(
@@ -39,63 +40,35 @@ vim.api.nvim_set_keymap(
 )
 
 -- Use qq as a way to go to normal mode from all modes.
-vim.api.nvim_set_keymap("i", "qq", "<Esc>", { noremap = false })
-vim.api.nvim_set_keymap("v", "qq", "<Esc>", { noremap = false })
-vim.api.nvim_set_keymap("t", "qq", "<Esc>", { noremap = false })
+-- vim.api.nvim_set_keymap("i", "qq", "<Esc>", { noremap = false })
+-- vim.api.nvim_set_keymap("v", "qq", "<Esc>", { noremap = false })
+-- vim.api.nvim_set_keymap("t", "qq", "<Esc>", { noremap = false })
+--
+-- -- Disable 'q' and 'Q' keys
+-- vim.api.nvim_set_keymap("n", "q", "<NOP>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "Q", "<NOP>", { noremap = true })
+--
+-- -- Remap macro recording to 'm'
+-- vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
+-- -- replay last macro
+-- vim.api.nvim_set_keymap("n", "M", "@@", { noremap = true })
 
--- Disable 'q' and 'Q' keys
-vim.api.nvim_set_keymap("n", "q", "<NOP>", { noremap = true })
-vim.api.nvim_set_keymap("n", "Q", "<NOP>", { noremap = true })
-
--- Remap macro recording to 'm'
-vim.api.nvim_set_keymap("n", "m", "q", { noremap = true })
--- replay last macro
-vim.api.nvim_set_keymap("n", "M", "@@", { noremap = true })
+-- switch from qq to jk so that q stays idiomatic to normal vim
+vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = false })
+vim.api.nvim_set_keymap("v", "jk", "<Esc>", { noremap = false })
+vim.api.nvim_set_keymap("t", "jk", "<Esc>", { noremap = false })
 
 -- newline without entering normal mode
 vim.api.nvim_set_keymap("n", "<leader>o", "o<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>O", "O<Esc>", { noremap = true })
 
--- Void register for one characte deletions
+-- Void register for one character deletions should not affect clipboard
 vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", '""', 'ysiw"', { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "))", "ysiw)", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "]]", "ysiw]", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "''", "ysiw'", { noremap = false, silent = true })
-
--- vim.api.nvim_set_keymap("n", "<leader>zz", [[:%s/\/\/\(.*\)/\/\*\1\*\//g<CR>]], { noremap = true, silent = true })
-
--- Experiment. Might be the smartest remap ever?
--- I assume this will only get better if i get a split keyboard.
-
--- Remap 6d to 6j and 6f to 6k in normal and visual mode.
-vim.api.nvim_set_keymap("n", "6d", "6j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "6f", "6k", { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap("v", "6d", "6j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "6f", "6k", { noremap = true, silent = true })
-
--- Remap 7d to 7j and 7f to 7k
-vim.api.nvim_set_keymap("n", "7d", "7j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "7f", "7k", { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap("v", "7d", "7j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "7f", "7k", { noremap = true, silent = true })
-
--- Remap 8d to 8j and 8f to 8k
-vim.api.nvim_set_keymap("n", "8d", "8j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "8f", "8k", { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap("v", "8d", "8j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "8f", "8k", { noremap = true, silent = true })
-
--- Remap 9d to 9j and 9f to 9k
-vim.api.nvim_set_keymap("n", "9d", "9j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "9f", "9k", { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap("v", "9d", "9j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "9f", "9k", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>p", "o<Esc>p")
 
@@ -120,15 +93,7 @@ vim.keymap.set("v", "D", '"_d')
 -- this same behaviour for P already exists in NeoVim.
 -- Just paste with P in visual mode to not replace the unnamed register (see :help v_P).
 
--- vim.keymap.set(
--- 	"n",
--- 	"<leader>z",
--- 	"<cmd>silent !tmux neww " .. os.getenv("DOTFILES") .. "/tmux/tmux-sessionizer<CR>",
--- 	{ desc = "Tmux Sessionizer" }
--- )
-
--- Fix Links
-
+-- Fix markdown links easily
 vim.keymap.set("n", "<leader>fl", ":w<CR>:!python $SCRIPTS/restyle_links.py<CR>", { silent = true })
 
 vim.keymap.set("n", "n", "nzzzv")
@@ -146,19 +111,8 @@ vim.api.nvim_set_keymap("n", "th", ":bprev<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "tl", ":bnext<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", { noremap = false })
 
--- files
-vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", { noremap = false })
--- vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", {noremap=false})
-
 vim.api.nvim_set_keymap("n", "TT", ":TransparentToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "ss", ":noh<CR>", { noremap = true })
-
--- quick one command change to normal mode:
-vim.api.nvim_set_keymap("i", "jk", "<C-o>", { noremap = true })
-
--- stop highlighting of words (for example by / or ?)
-vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-c>", ":%y<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-N>", { silent = true })
 -- map this to escape and qq to escape above, for simplicity.
@@ -171,23 +125,11 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-N>", { silent = true })
 -- 	{ noremap = true, silent = true }
 -- )
 
--- hopper
-vim.api.nvim_set_keymap("n", "S", ":HopWord<CR>", { noremap = true })
-
 -- cd to current buffer
 vim.api.nvim_set_keymap("n", "<Space>cd", ":cd %:p:h<CR>:pwd<CR>", { noremap = true, silent = true })
 
 -- Noice
 vim.api.nvim_set_keymap("n", "<C-y>", ":Noice dismiss<CR>", { noremap = true })
-
--- splits
-
-vim.api.nvim_set_keymap("n", "<C-,>", ":vertical resize -10<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-.>", ":vertical resize +10<CR>", { noremap = true })
--- Quicker close split
-vim.keymap.set("n", "<leader>qq", ":q<CR>", { silent = true, noremap = true })
-
-vim.api.nvim_set_keymap("i", "df", "<Right>", { noremap = true, silent = true })
 
 vim.api.nvim_create_user_command("GetFilename", function()
 	vim.fn.setreg("+", vim.fn.expand("%:p"))
@@ -223,13 +165,3 @@ end, { expr = true, silent = true })
 map("n", "<Leader>t", function()
 	vim.cmd.edit("~/Desktop/Linux-Machine/todo.md")
 end, { silent = true })
-
--- Use alt as a modifier key for tmux pane navigation integrated with vim.
-
-vim.g.tmux_navigator_no_mappings = 1
-
-vim.api.nvim_set_keymap("n", "<M-h>", ":TmuxNavigateLeft<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-j>", ":TmuxNavigateDown<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-k>", ":TmuxNavigateUp<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-l>", ":TmuxNavigateRight<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-\\>", ":TmuxNavigatePrevious<CR>", { noremap = true, silent = true })
