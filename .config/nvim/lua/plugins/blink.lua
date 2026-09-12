@@ -29,7 +29,7 @@ return {
           },
 
           lsp = {
-            min_keyword_length = 3,
+            min_keyword_length = 1,
             score_offset = 3,
           },
 
