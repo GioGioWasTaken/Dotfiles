@@ -94,7 +94,7 @@ bindkey "^I" expand-or-complete-with-dots
 #  ┬ ┬┬┌─┐┌┬┐┌─┐┬─┐┬ ┬
 #  ├─┤│└─┐ │ │ │├┬┘└┬┘
 #  ┴ ┴┴└─┘ ┴ └─┘┴└─ ┴ 
-HISTFILE=~/.config/zsh/zhistory
+HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
 
@@ -200,7 +200,7 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
-bindkey -s ^a "^Utmux attach\n"
+# bindkey -s ^a "^Utmux attach\n"
 
 
 
@@ -215,7 +215,8 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
 
-  bindkey '^P' fzf-cd-widget
+bindkey '^T' fzf-cd-widget
+
 # VIMMMMMMM
 bindkey -v
 bindkey 'qq' vi-cmd-mode
@@ -234,6 +235,28 @@ for m in visual viopp; do
         bindkey -M $m $c select-quoted
     done
 done
+
+
+timebox() {
+    local minutes="${1:-10}"
+    local pidfile="/tmp/timebox.pid"
+
+    if [[ -f "$pidfile" ]] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+        notify-send "Timebox already running."
+        return 1
+    fi
+
+    (
+        echo "$$" > "$pidfile"
+        trap 'rm -f "$pidfile"' EXIT
+
+        notify-send "Timebox set for ${minutes} minutes."
+        sleep "$((minutes * 60))"
+
+        notify-send "ARE YOU TUNNEL VISIONING? ARE YOU SCATTERING TO RECURSIVE CALLS? WHAT DID YOU DO IN THE LAST ${minutes} MINUTES?"
+    ) &
+}
+
 
 
 
