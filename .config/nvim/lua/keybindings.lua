@@ -1,4 +1,4 @@
--- Keymaps for better default experience
+-- Keymaps for better default experiencekeybin
 -- See `:help vim.keymap.set()`
 --
 -- Remap for dealing with word wrap
@@ -55,8 +55,7 @@ vim.api.nvim_set_keymap(
 
 -- switch from qq to jk so that q stays idiomatic to normal vim
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = false })
-vim.api.nvim_set_keymap("v", "jk", "<Esc>", { noremap = false })
-vim.api.nvim_set_keymap("t", "jk", "<Esc>", { noremap = false })
+vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = false })
 
 -- newline without entering normal mode
 vim.api.nvim_set_keymap("n", "<leader>o", "o<Esc>", { noremap = true })
